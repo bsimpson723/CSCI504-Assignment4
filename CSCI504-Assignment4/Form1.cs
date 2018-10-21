@@ -71,8 +71,8 @@ namespace CSCI504_Assignment4
 
         private void ColorClick(object sender, EventArgs e)
         {
-            var textBox = (TextBox) sender;
-            pen.Color = textBox.BackColor;
+            var panel = (Panel) sender;
+            pen.Color = panel.BackColor;
         }
 
         private void WidthChange(object sender, EventArgs e)

@@ -58,16 +58,16 @@
             this.Yellow = new System.Windows.Forms.TextBox();
             this.Olive = new System.Windows.Forms.TextBox();
             this.White = new System.Windows.Forms.TextBox();
-            this.Black = new System.Windows.Forms.TextBox();
             this.Silver = new System.Windows.Forms.TextBox();
-            this.Gray = new System.Windows.Forms.TextBox();
             this.Red = new System.Windows.Forms.TextBox();
-            this.Maroon = new System.Windows.Forms.TextBox();
             this.Purple = new System.Windows.Forms.TextBox();
             this.Custom = new System.Windows.Forms.Panel();
             this.ColorGroup = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.WidthUpDown = new System.Windows.Forms.NumericUpDown();
+            this.Black = new System.Windows.Forms.Panel();
+            this.Gray = new System.Windows.Forms.Panel();
+            this.Maroon = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.ColorGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WidthUpDown)).BeginInit();
@@ -400,18 +400,6 @@
             this.White.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
             this.White.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // Black
-            // 
-            this.Black.BackColor = System.Drawing.Color.Black;
-            this.Black.Location = new System.Drawing.Point(10, 19);
-            this.Black.Name = "Black";
-            this.Black.ReadOnly = true;
-            this.Black.Size = new System.Drawing.Size(20, 20);
-            this.Black.TabIndex = 24;
-            this.Black.Click += new System.EventHandler(this.ColorClick);
-            this.Black.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Black.MouseLeave += new System.EventHandler(this.ColorMouseExit);
-            // 
             // Silver
             // 
             this.Silver.BackColor = System.Drawing.Color.Silver;
@@ -423,18 +411,6 @@
             this.Silver.Click += new System.EventHandler(this.ColorClick);
             this.Silver.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
             this.Silver.MouseLeave += new System.EventHandler(this.ColorMouseExit);
-            // 
-            // Gray
-            // 
-            this.Gray.BackColor = System.Drawing.Color.Gray;
-            this.Gray.Location = new System.Drawing.Point(36, 19);
-            this.Gray.Name = "Gray";
-            this.Gray.ReadOnly = true;
-            this.Gray.Size = new System.Drawing.Size(20, 20);
-            this.Gray.TabIndex = 26;
-            this.Gray.Click += new System.EventHandler(this.ColorClick);
-            this.Gray.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Gray.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
             // Red
             // 
@@ -448,18 +424,6 @@
             this.Red.Click += new System.EventHandler(this.ColorClick);
             this.Red.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
             this.Red.MouseLeave += new System.EventHandler(this.ColorMouseExit);
-            // 
-            // Maroon
-            // 
-            this.Maroon.BackColor = System.Drawing.Color.Maroon;
-            this.Maroon.Location = new System.Drawing.Point(62, 19);
-            this.Maroon.Name = "Maroon";
-            this.Maroon.ReadOnly = true;
-            this.Maroon.Size = new System.Drawing.Size(20, 20);
-            this.Maroon.TabIndex = 28;
-            this.Maroon.Click += new System.EventHandler(this.ColorClick);
-            this.Maroon.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Maroon.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
             // Purple
             // 
@@ -485,18 +449,18 @@
             // 
             // ColorGroup
             // 
+            this.ColorGroup.Controls.Add(this.Maroon);
+            this.ColorGroup.Controls.Add(this.Gray);
+            this.ColorGroup.Controls.Add(this.Black);
             this.ColorGroup.Controls.Add(this.Custom);
             this.ColorGroup.Controls.Add(this.Purple);
             this.ColorGroup.Controls.Add(this.Sienna);
-            this.ColorGroup.Controls.Add(this.Maroon);
             this.ColorGroup.Controls.Add(this.BlueViolet);
             this.ColorGroup.Controls.Add(this.Red);
             this.ColorGroup.Controls.Add(this.SandyBrown);
-            this.ColorGroup.Controls.Add(this.Gray);
             this.ColorGroup.Controls.Add(this.MediumSlateBlue);
             this.ColorGroup.Controls.Add(this.Silver);
             this.ColorGroup.Controls.Add(this.DeepPink);
-            this.ColorGroup.Controls.Add(this.Black);
             this.ColorGroup.Controls.Add(this.SteelBlue);
             this.ColorGroup.Controls.Add(this.White);
             this.ColorGroup.Controls.Add(this.Aqua);
@@ -555,6 +519,39 @@
             0});
             this.WidthUpDown.ValueChanged += new System.EventHandler(this.WidthChange);
             // 
+            // Black
+            // 
+            this.Black.BackColor = System.Drawing.Color.Black;
+            this.Black.Location = new System.Drawing.Point(10, 20);
+            this.Black.Name = "Black";
+            this.Black.Size = new System.Drawing.Size(20, 20);
+            this.Black.TabIndex = 0;
+            this.Black.Click += new System.EventHandler(this.ColorClick);
+            this.Black.MouseEnter += new System.EventHandler(this.CustomColorMouseEnter);
+            this.Black.MouseLeave += new System.EventHandler(this.CustomColorMouseExit);
+            // 
+            // Gray
+            // 
+            this.Gray.BackColor = System.Drawing.Color.Gray;
+            this.Gray.Location = new System.Drawing.Point(36, 20);
+            this.Gray.Name = "Gray";
+            this.Gray.Size = new System.Drawing.Size(20, 20);
+            this.Gray.TabIndex = 1;
+            this.Gray.Click += new System.EventHandler(this.ColorClick);
+            this.Gray.MouseEnter += new System.EventHandler(this.CustomColorMouseEnter);
+            this.Gray.MouseLeave += new System.EventHandler(this.CustomColorMouseExit);
+            // 
+            // Maroon
+            // 
+            this.Maroon.BackColor = System.Drawing.Color.Maroon;
+            this.Maroon.Location = new System.Drawing.Point(62, 19);
+            this.Maroon.Name = "Maroon";
+            this.Maroon.Size = new System.Drawing.Size(20, 20);
+            this.Maroon.TabIndex = 2;
+            this.Maroon.Click += new System.EventHandler(this.ColorClick);
+            this.Maroon.MouseEnter += new System.EventHandler(this.CustomColorMouseEnter);
+            this.Maroon.MouseLeave += new System.EventHandler(this.CustomColorMouseExit);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -610,16 +607,16 @@
         private System.Windows.Forms.TextBox Yellow;
         private System.Windows.Forms.TextBox Olive;
         private System.Windows.Forms.TextBox White;
-        private System.Windows.Forms.TextBox Black;
         private System.Windows.Forms.TextBox Silver;
-        private System.Windows.Forms.TextBox Gray;
         private System.Windows.Forms.TextBox Red;
-        private System.Windows.Forms.TextBox Maroon;
         private System.Windows.Forms.TextBox Purple;
         private System.Windows.Forms.Panel Custom;
         private System.Windows.Forms.GroupBox ColorGroup;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown WidthUpDown;
+        private System.Windows.Forms.Panel Black;
+        private System.Windows.Forms.Panel Gray;
+        private System.Windows.Forms.Panel Maroon;
     }
 }
 
