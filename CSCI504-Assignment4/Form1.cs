@@ -13,6 +13,10 @@ namespace CSCI504_Assignment4
     public partial class Form1 : Form
     {
         private ToolTip tt;
+        private Pen pen = new Pen(Color.Black, 1);
+        private Point start;
+        private Point finish;
+
         public Form1()
         {
             InitializeComponent();
@@ -42,9 +46,38 @@ namespace CSCI504_Assignment4
         {
             tt.Dispose();
         }
+
         private void CustomColorMouseExit(object sender, EventArgs e)
         {
             tt.Dispose();
+        }
+
+        private void MouseDown(object sender, MouseEventArgs e)
+        {
+            OnMouseDown(e);
+            if (e.Button == MouseButtons.Left)
+            {
+                start = e.Location;
+            }
+        }
+
+        private void MouseUp(object sender, MouseEventArgs e)
+        {
+            OnMouseUp(e);
+            finish = e.Location;
+
+            panel1.CreateGraphics().DrawLine(pen, start, finish);
+        }
+
+        private void ColorClick(object sender, EventArgs e)
+        {
+            var textBox = (TextBox) sender;
+            pen.Color = textBox.BackColor;
+        }
+
+        private void WidthChange(object sender, EventArgs e)
+        {
+            pen.Width = (float)WidthUpDown.Value;
         }
     }
 }
