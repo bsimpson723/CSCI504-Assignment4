@@ -36,37 +36,38 @@
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recentlyOpenedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.textBox27 = new System.Windows.Forms.TextBox();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Sienna = new System.Windows.Forms.TextBox();
+            this.BlueViolet = new System.Windows.Forms.TextBox();
+            this.SandyBrown = new System.Windows.Forms.TextBox();
+            this.MediumSlateBlue = new System.Windows.Forms.TextBox();
+            this.DeepPink = new System.Windows.Forms.TextBox();
+            this.SteelBlue = new System.Windows.Forms.TextBox();
+            this.Aqua = new System.Windows.Forms.TextBox();
+            this.Teal = new System.Windows.Forms.TextBox();
+            this.DeepSkyBlue = new System.Windows.Forms.TextBox();
+            this.Blue = new System.Windows.Forms.TextBox();
+            this.Navy = new System.Windows.Forms.TextBox();
+            this.Fuchsia = new System.Windows.Forms.TextBox();
+            this.PowderBlue = new System.Windows.Forms.TextBox();
+            this.LemonChiffon = new System.Windows.Forms.TextBox();
+            this.SpringGreen = new System.Windows.Forms.TextBox();
+            this.DarkKhaki = new System.Windows.Forms.TextBox();
+            this.Lime = new System.Windows.Forms.TextBox();
+            this.Green = new System.Windows.Forms.TextBox();
+            this.DarkSlateGray = new System.Windows.Forms.TextBox();
+            this.Yellow = new System.Windows.Forms.TextBox();
+            this.Olive = new System.Windows.Forms.TextBox();
+            this.White = new System.Windows.Forms.TextBox();
+            this.Black = new System.Windows.Forms.TextBox();
+            this.Silver = new System.Windows.Forms.TextBox();
+            this.Gray = new System.Windows.Forms.TextBox();
+            this.Red = new System.Windows.Forms.TextBox();
+            this.Maroon = new System.Windows.Forms.TextBox();
+            this.Purple = new System.Windows.Forms.TextBox();
+            this.Custom = new System.Windows.Forms.Panel();
+            this.ColorGroup = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
+            this.ColorGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -94,290 +95,377 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.saveAsToolStripMenuItem.Text = "Save as";
             // 
             // recentlyOpenedToolStripMenuItem
             // 
             this.recentlyOpenedToolStripMenuItem.Name = "recentlyOpenedToolStripMenuItem";
-            this.recentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.recentlyOpenedToolStripMenuItem.Text = "Recently opened,,,";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(12, 97);
+            this.panel1.Location = new System.Drawing.Point(12, 116);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1010, 600);
+            this.panel1.Size = new System.Drawing.Size(1010, 581);
             this.panel1.TabIndex = 1;
             // 
-            // textBox1
+            // Sienna
             // 
-            this.textBox1.Location = new System.Drawing.Point(950, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(20, 20);
-            this.textBox1.TabIndex = 2;
+            this.Sienna.BackColor = System.Drawing.Color.Sienna;
+            this.Sienna.Location = new System.Drawing.Point(345, 19);
+            this.Sienna.Name = "Sienna";
+            this.Sienna.Size = new System.Drawing.Size(20, 20);
+            this.Sienna.TabIndex = 2;
+            this.Sienna.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.Sienna.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox2
+            // BlueViolet
             // 
-            this.textBox2.Location = new System.Drawing.Point(924, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(20, 20);
-            this.textBox2.TabIndex = 3;
+            this.BlueViolet.BackColor = System.Drawing.Color.BlueViolet;
+            this.BlueViolet.Location = new System.Drawing.Point(319, 19);
+            this.BlueViolet.Name = "BlueViolet";
+            this.BlueViolet.Size = new System.Drawing.Size(20, 20);
+            this.BlueViolet.TabIndex = 3;
+            this.BlueViolet.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.BlueViolet.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox3
+            // SandyBrown
             // 
-            this.textBox3.Location = new System.Drawing.Point(950, 71);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(20, 20);
-            this.textBox3.TabIndex = 4;
+            this.SandyBrown.BackColor = System.Drawing.Color.SandyBrown;
+            this.SandyBrown.Location = new System.Drawing.Point(345, 45);
+            this.SandyBrown.Name = "SandyBrown";
+            this.SandyBrown.Size = new System.Drawing.Size(20, 20);
+            this.SandyBrown.TabIndex = 4;
+            this.SandyBrown.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.SandyBrown.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox4
+            // MediumSlateBlue
             // 
-            this.textBox4.Location = new System.Drawing.Point(898, 71);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(20, 20);
-            this.textBox4.TabIndex = 5;
+            this.MediumSlateBlue.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.MediumSlateBlue.Location = new System.Drawing.Point(293, 45);
+            this.MediumSlateBlue.Name = "MediumSlateBlue";
+            this.MediumSlateBlue.Size = new System.Drawing.Size(20, 20);
+            this.MediumSlateBlue.TabIndex = 5;
+            this.MediumSlateBlue.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.MediumSlateBlue.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox5
+            // DeepPink
             // 
-            this.textBox5.Location = new System.Drawing.Point(924, 71);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(20, 20);
-            this.textBox5.TabIndex = 6;
+            this.DeepPink.BackColor = System.Drawing.Color.DeepPink;
+            this.DeepPink.Location = new System.Drawing.Point(319, 45);
+            this.DeepPink.Name = "DeepPink";
+            this.DeepPink.Size = new System.Drawing.Size(20, 20);
+            this.DeepPink.TabIndex = 6;
+            this.DeepPink.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.DeepPink.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox6
+            // SteelBlue
             // 
-            this.textBox6.Location = new System.Drawing.Point(898, 45);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(20, 20);
-            this.textBox6.TabIndex = 7;
+            this.SteelBlue.BackColor = System.Drawing.Color.SteelBlue;
+            this.SteelBlue.Location = new System.Drawing.Point(293, 19);
+            this.SteelBlue.Name = "SteelBlue";
+            this.SteelBlue.Size = new System.Drawing.Size(20, 20);
+            this.SteelBlue.TabIndex = 7;
+            this.SteelBlue.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.SteelBlue.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox7
+            // Aqua
             // 
-            this.textBox7.Location = new System.Drawing.Point(742, 71);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(20, 20);
-            this.textBox7.TabIndex = 8;
+            this.Aqua.BackColor = System.Drawing.Color.Aqua;
+            this.Aqua.Location = new System.Drawing.Point(137, 45);
+            this.Aqua.Name = "Aqua";
+            this.Aqua.Size = new System.Drawing.Size(20, 20);
+            this.Aqua.TabIndex = 8;
+            this.Aqua.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.Aqua.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox8
+            // Teal
             // 
-            this.textBox8.Location = new System.Drawing.Point(742, 45);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(20, 20);
-            this.textBox8.TabIndex = 9;
+            this.Teal.BackColor = System.Drawing.Color.Teal;
+            this.Teal.Location = new System.Drawing.Point(137, 19);
+            this.Teal.Name = "Teal";
+            this.Teal.Size = new System.Drawing.Size(20, 20);
+            this.Teal.TabIndex = 9;
+            this.Teal.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.Teal.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox9
+            // DeepSkyBlue
             // 
-            this.textBox9.Location = new System.Drawing.Point(872, 45);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(20, 20);
-            this.textBox9.TabIndex = 10;
+            this.DeepSkyBlue.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.DeepSkyBlue.Location = new System.Drawing.Point(267, 19);
+            this.DeepSkyBlue.Name = "DeepSkyBlue";
+            this.DeepSkyBlue.Size = new System.Drawing.Size(20, 20);
+            this.DeepSkyBlue.TabIndex = 10;
+            this.DeepSkyBlue.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.DeepSkyBlue.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox10
+            // Blue
             // 
-            this.textBox10.Location = new System.Drawing.Point(768, 71);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(20, 20);
-            this.textBox10.TabIndex = 11;
+            this.Blue.BackColor = System.Drawing.Color.Blue;
+            this.Blue.Location = new System.Drawing.Point(163, 45);
+            this.Blue.Name = "Blue";
+            this.Blue.Size = new System.Drawing.Size(20, 20);
+            this.Blue.TabIndex = 11;
+            this.Blue.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.Blue.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox11
+            // Navy
             // 
-            this.textBox11.Location = new System.Drawing.Point(768, 45);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(20, 20);
-            this.textBox11.TabIndex = 12;
+            this.Navy.BackColor = System.Drawing.Color.Navy;
+            this.Navy.Location = new System.Drawing.Point(163, 19);
+            this.Navy.Name = "Navy";
+            this.Navy.Size = new System.Drawing.Size(20, 20);
+            this.Navy.TabIndex = 12;
+            this.Navy.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.Navy.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox12
+            // Fuchsia
             // 
-            this.textBox12.Location = new System.Drawing.Point(794, 71);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(20, 20);
-            this.textBox12.TabIndex = 13;
+            this.Fuchsia.BackColor = System.Drawing.Color.Fuchsia;
+            this.Fuchsia.Location = new System.Drawing.Point(189, 45);
+            this.Fuchsia.Name = "Fuchsia";
+            this.Fuchsia.Size = new System.Drawing.Size(20, 20);
+            this.Fuchsia.TabIndex = 13;
+            this.Fuchsia.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.Fuchsia.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox13
+            // PowderBlue
             // 
-            this.textBox13.Location = new System.Drawing.Point(872, 71);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(20, 20);
-            this.textBox13.TabIndex = 14;
+            this.PowderBlue.BackColor = System.Drawing.Color.PowderBlue;
+            this.PowderBlue.Location = new System.Drawing.Point(267, 45);
+            this.PowderBlue.Name = "PowderBlue";
+            this.PowderBlue.Size = new System.Drawing.Size(20, 20);
+            this.PowderBlue.TabIndex = 14;
+            this.PowderBlue.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.PowderBlue.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox14
+            // LemonChiffon
             // 
-            this.textBox14.Location = new System.Drawing.Point(820, 71);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(20, 20);
-            this.textBox14.TabIndex = 15;
+            this.LemonChiffon.BackColor = System.Drawing.Color.LemonChiffon;
+            this.LemonChiffon.Location = new System.Drawing.Point(215, 45);
+            this.LemonChiffon.Name = "LemonChiffon";
+            this.LemonChiffon.Size = new System.Drawing.Size(20, 20);
+            this.LemonChiffon.TabIndex = 15;
+            this.LemonChiffon.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.LemonChiffon.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox15
+            // SpringGreen
             // 
-            this.textBox15.Location = new System.Drawing.Point(846, 71);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(20, 20);
-            this.textBox15.TabIndex = 16;
+            this.SpringGreen.BackColor = System.Drawing.Color.SpringGreen;
+            this.SpringGreen.Location = new System.Drawing.Point(241, 45);
+            this.SpringGreen.Name = "SpringGreen";
+            this.SpringGreen.Size = new System.Drawing.Size(20, 20);
+            this.SpringGreen.TabIndex = 16;
+            this.SpringGreen.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.SpringGreen.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox16
+            // DarkKhaki
             // 
-            this.textBox16.Location = new System.Drawing.Point(820, 45);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(20, 20);
-            this.textBox16.TabIndex = 17;
+            this.DarkKhaki.BackColor = System.Drawing.Color.DarkKhaki;
+            this.DarkKhaki.Location = new System.Drawing.Point(215, 19);
+            this.DarkKhaki.Name = "DarkKhaki";
+            this.DarkKhaki.Size = new System.Drawing.Size(20, 20);
+            this.DarkKhaki.TabIndex = 17;
+            this.DarkKhaki.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.DarkKhaki.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox17
+            // Lime
             // 
-            this.textBox17.Location = new System.Drawing.Point(716, 71);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(20, 20);
-            this.textBox17.TabIndex = 18;
+            this.Lime.BackColor = System.Drawing.Color.Lime;
+            this.Lime.Location = new System.Drawing.Point(111, 45);
+            this.Lime.Name = "Lime";
+            this.Lime.Size = new System.Drawing.Size(20, 20);
+            this.Lime.TabIndex = 18;
+            this.Lime.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.Lime.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox18
+            // Green
             // 
-            this.textBox18.Location = new System.Drawing.Point(716, 45);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(20, 20);
-            this.textBox18.TabIndex = 19;
+            this.Green.BackColor = System.Drawing.Color.Green;
+            this.Green.Location = new System.Drawing.Point(111, 19);
+            this.Green.Name = "Green";
+            this.Green.Size = new System.Drawing.Size(20, 20);
+            this.Green.TabIndex = 19;
+            this.Green.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.Green.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox19
+            // DarkSlateGray
             // 
-            this.textBox19.Location = new System.Drawing.Point(846, 45);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(20, 20);
-            this.textBox19.TabIndex = 20;
+            this.DarkSlateGray.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.DarkSlateGray.Location = new System.Drawing.Point(241, 19);
+            this.DarkSlateGray.Name = "DarkSlateGray";
+            this.DarkSlateGray.Size = new System.Drawing.Size(20, 20);
+            this.DarkSlateGray.TabIndex = 20;
+            this.DarkSlateGray.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.DarkSlateGray.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox20
+            // Yellow
             // 
-            this.textBox20.Location = new System.Drawing.Point(691, 71);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(20, 20);
-            this.textBox20.TabIndex = 21;
+            this.Yellow.BackColor = System.Drawing.Color.Yellow;
+            this.Yellow.Location = new System.Drawing.Point(86, 45);
+            this.Yellow.Name = "Yellow";
+            this.Yellow.Size = new System.Drawing.Size(20, 20);
+            this.Yellow.TabIndex = 21;
+            this.Yellow.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.Yellow.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox21
+            // Olive
             // 
-            this.textBox21.Location = new System.Drawing.Point(691, 45);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(20, 20);
-            this.textBox21.TabIndex = 22;
+            this.Olive.BackColor = System.Drawing.Color.Olive;
+            this.Olive.Location = new System.Drawing.Point(86, 19);
+            this.Olive.Name = "Olive";
+            this.Olive.Size = new System.Drawing.Size(20, 20);
+            this.Olive.TabIndex = 22;
+            this.Olive.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.Olive.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox22
+            // White
             // 
-            this.textBox22.Location = new System.Drawing.Point(615, 71);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(20, 20);
-            this.textBox22.TabIndex = 23;
+            this.White.BackColor = System.Drawing.Color.White;
+            this.White.Location = new System.Drawing.Point(10, 45);
+            this.White.Name = "White";
+            this.White.Size = new System.Drawing.Size(20, 20);
+            this.White.TabIndex = 23;
+            this.White.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.White.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox23
+            // Black
             // 
-            this.textBox23.Location = new System.Drawing.Point(615, 45);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(20, 20);
-            this.textBox23.TabIndex = 24;
+            this.Black.BackColor = System.Drawing.Color.Black;
+            this.Black.Location = new System.Drawing.Point(10, 19);
+            this.Black.Name = "Black";
+            this.Black.Size = new System.Drawing.Size(20, 20);
+            this.Black.TabIndex = 24;
+            this.Black.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.Black.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox24
+            // Silver
             // 
-            this.textBox24.Location = new System.Drawing.Point(641, 71);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(20, 20);
-            this.textBox24.TabIndex = 25;
+            this.Silver.BackColor = System.Drawing.Color.Silver;
+            this.Silver.Location = new System.Drawing.Point(36, 45);
+            this.Silver.Name = "Silver";
+            this.Silver.Size = new System.Drawing.Size(20, 20);
+            this.Silver.TabIndex = 25;
+            this.Silver.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.Silver.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox25
+            // Gray
             // 
-            this.textBox25.Location = new System.Drawing.Point(641, 45);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(20, 20);
-            this.textBox25.TabIndex = 26;
+            this.Gray.BackColor = System.Drawing.Color.Gray;
+            this.Gray.Location = new System.Drawing.Point(36, 19);
+            this.Gray.Name = "Gray";
+            this.Gray.Size = new System.Drawing.Size(20, 20);
+            this.Gray.TabIndex = 26;
+            this.Gray.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.Gray.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox26
+            // Red
             // 
-            this.textBox26.Location = new System.Drawing.Point(667, 71);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(20, 20);
-            this.textBox26.TabIndex = 27;
+            this.Red.BackColor = System.Drawing.Color.Red;
+            this.Red.Location = new System.Drawing.Point(62, 45);
+            this.Red.Name = "Red";
+            this.Red.Size = new System.Drawing.Size(20, 20);
+            this.Red.TabIndex = 27;
+            this.Red.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.Red.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox27
+            // Maroon
             // 
-            this.textBox27.Location = new System.Drawing.Point(667, 45);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(20, 20);
-            this.textBox27.TabIndex = 28;
+            this.Maroon.BackColor = System.Drawing.Color.Maroon;
+            this.Maroon.Location = new System.Drawing.Point(62, 19);
+            this.Maroon.Name = "Maroon";
+            this.Maroon.Size = new System.Drawing.Size(20, 20);
+            this.Maroon.TabIndex = 28;
+            this.Maroon.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.Maroon.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // textBox28
+            // Purple
             // 
-            this.textBox28.Location = new System.Drawing.Point(794, 45);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(20, 20);
-            this.textBox28.TabIndex = 29;
+            this.Purple.BackColor = System.Drawing.Color.Purple;
+            this.Purple.Location = new System.Drawing.Point(189, 19);
+            this.Purple.Name = "Purple";
+            this.Purple.Size = new System.Drawing.Size(20, 20);
+            this.Purple.TabIndex = 29;
+            this.Purple.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
+            this.Purple.MouseLeave += new System.EventHandler(this.ColorMouseExit);
             // 
-            // panel2
+            // Custom
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(976, 45);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(46, 46);
-            this.panel2.TabIndex = 30;
+            this.Custom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Custom.Location = new System.Drawing.Point(371, 19);
+            this.Custom.Name = "Custom";
+            this.Custom.Size = new System.Drawing.Size(46, 46);
+            this.Custom.TabIndex = 30;
+            this.Custom.MouseEnter += new System.EventHandler(this.CustomColorMouseEnter);
+            this.Custom.MouseLeave += new System.EventHandler(this.CustomColorMouseExit);
             // 
-            // label1
+            // ColorGroup
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(617, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "label1";
+            this.ColorGroup.Controls.Add(this.Custom);
+            this.ColorGroup.Controls.Add(this.Purple);
+            this.ColorGroup.Controls.Add(this.Sienna);
+            this.ColorGroup.Controls.Add(this.Maroon);
+            this.ColorGroup.Controls.Add(this.BlueViolet);
+            this.ColorGroup.Controls.Add(this.Red);
+            this.ColorGroup.Controls.Add(this.SandyBrown);
+            this.ColorGroup.Controls.Add(this.Gray);
+            this.ColorGroup.Controls.Add(this.MediumSlateBlue);
+            this.ColorGroup.Controls.Add(this.Silver);
+            this.ColorGroup.Controls.Add(this.DeepPink);
+            this.ColorGroup.Controls.Add(this.Black);
+            this.ColorGroup.Controls.Add(this.SteelBlue);
+            this.ColorGroup.Controls.Add(this.White);
+            this.ColorGroup.Controls.Add(this.Aqua);
+            this.ColorGroup.Controls.Add(this.Olive);
+            this.ColorGroup.Controls.Add(this.Teal);
+            this.ColorGroup.Controls.Add(this.Yellow);
+            this.ColorGroup.Controls.Add(this.DeepSkyBlue);
+            this.ColorGroup.Controls.Add(this.DarkSlateGray);
+            this.ColorGroup.Controls.Add(this.Blue);
+            this.ColorGroup.Controls.Add(this.Green);
+            this.ColorGroup.Controls.Add(this.Navy);
+            this.ColorGroup.Controls.Add(this.Lime);
+            this.ColorGroup.Controls.Add(this.Fuchsia);
+            this.ColorGroup.Controls.Add(this.DarkKhaki);
+            this.ColorGroup.Controls.Add(this.PowderBlue);
+            this.ColorGroup.Controls.Add(this.SpringGreen);
+            this.ColorGroup.Controls.Add(this.LemonChiffon);
+            this.ColorGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColorGroup.Location = new System.Drawing.Point(595, 33);
+            this.ColorGroup.Name = "ColorGroup";
+            this.ColorGroup.Size = new System.Drawing.Size(427, 77);
+            this.ColorGroup.TabIndex = 0;
+            this.ColorGroup.TabStop = false;
+            this.ColorGroup.Text = "Color";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 709);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.textBox28);
-            this.Controls.Add(this.textBox27);
-            this.Controls.Add(this.textBox26);
-            this.Controls.Add(this.textBox25);
-            this.Controls.Add(this.textBox24);
-            this.Controls.Add(this.textBox23);
-            this.Controls.Add(this.textBox22);
-            this.Controls.Add(this.textBox21);
-            this.Controls.Add(this.textBox20);
-            this.Controls.Add(this.textBox19);
-            this.Controls.Add(this.textBox18);
-            this.Controls.Add(this.textBox17);
-            this.Controls.Add(this.textBox16);
-            this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ColorGroup);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -385,6 +473,8 @@
             this.Text = "Li and Ben\'s Ode to Paint!";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.ColorGroup.ResumeLayout(false);
+            this.ColorGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,36 +490,36 @@
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem recentlyOpenedToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.TextBox textBox23;
-        private System.Windows.Forms.TextBox textBox24;
-        private System.Windows.Forms.TextBox textBox25;
-        private System.Windows.Forms.TextBox textBox26;
-        private System.Windows.Forms.TextBox textBox27;
-        private System.Windows.Forms.TextBox textBox28;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox Sienna;
+        private System.Windows.Forms.TextBox BlueViolet;
+        private System.Windows.Forms.TextBox SandyBrown;
+        private System.Windows.Forms.TextBox MediumSlateBlue;
+        private System.Windows.Forms.TextBox DeepPink;
+        private System.Windows.Forms.TextBox SteelBlue;
+        private System.Windows.Forms.TextBox Aqua;
+        private System.Windows.Forms.TextBox Teal;
+        private System.Windows.Forms.TextBox DeepSkyBlue;
+        private System.Windows.Forms.TextBox Blue;
+        private System.Windows.Forms.TextBox Navy;
+        private System.Windows.Forms.TextBox Fuchsia;
+        private System.Windows.Forms.TextBox PowderBlue;
+        private System.Windows.Forms.TextBox LemonChiffon;
+        private System.Windows.Forms.TextBox SpringGreen;
+        private System.Windows.Forms.TextBox DarkKhaki;
+        private System.Windows.Forms.TextBox Lime;
+        private System.Windows.Forms.TextBox Green;
+        private System.Windows.Forms.TextBox DarkSlateGray;
+        private System.Windows.Forms.TextBox Yellow;
+        private System.Windows.Forms.TextBox Olive;
+        private System.Windows.Forms.TextBox White;
+        private System.Windows.Forms.TextBox Black;
+        private System.Windows.Forms.TextBox Silver;
+        private System.Windows.Forms.TextBox Gray;
+        private System.Windows.Forms.TextBox Red;
+        private System.Windows.Forms.TextBox Maroon;
+        private System.Windows.Forms.TextBox Purple;
+        private System.Windows.Forms.Panel Custom;
+        private System.Windows.Forms.GroupBox ColorGroup;
     }
 }
 
