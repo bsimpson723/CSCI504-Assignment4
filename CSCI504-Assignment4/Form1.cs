@@ -24,17 +24,7 @@ namespace CSCI504_Assignment4
 
         private void ColorMouseEnter(object sender, EventArgs e)
         {
-            var textBox = (TextBox) sender;
-            tt = new ToolTip();
-            tt.InitialDelay = 0;
-            tt.IsBalloon = false;
-            tt.Show(string.Empty, textBox);
-            tt.Show(textBox.Name, textBox, 0);
-        }
-
-        private void CustomColorMouseEnter(object sender, EventArgs e)
-        {
-            var panel = (Panel)sender;
+            var panel = (Panel) sender;
             tt = new ToolTip();
             tt.InitialDelay = 0;
             tt.IsBalloon = false;
@@ -43,11 +33,6 @@ namespace CSCI504_Assignment4
         }
 
         private void ColorMouseExit(object sender, EventArgs e)
-        {
-            tt.Dispose();
-        }
-
-        private void CustomColorMouseExit(object sender, EventArgs e)
         {
             tt.Dispose();
         }
