@@ -74,10 +74,10 @@
             this.Undo = new System.Windows.Forms.Button();
             this.Redo = new System.Windows.Forms.Button();
             this.ToolSelector = new System.Windows.Forms.GroupBox();
-            this.LineRadio = new System.Windows.Forms.RadioButton();
-            this.PencilRadio = new System.Windows.Forms.RadioButton();
-            this.BrushRadio = new System.Windows.Forms.RadioButton();
             this.EraserRadio = new System.Windows.Forms.RadioButton();
+            this.BrushRadio = new System.Windows.Forms.RadioButton();
+            this.PencilRadio = new System.Windows.Forms.RadioButton();
+            this.LineRadio = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.ColorGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WidthUpDown)).BeginInit();
@@ -572,6 +572,7 @@
             this.Undo.TabIndex = 33;
             this.Undo.Text = "Undo";
             this.Undo.UseVisualStyleBackColor = true;
+            this.Undo.Click += new System.EventHandler(this.UndoClick);
             // 
             // Redo
             // 
@@ -582,6 +583,7 @@
             this.Redo.TabIndex = 34;
             this.Redo.Text = "Redo";
             this.Redo.UseVisualStyleBackColor = true;
+            this.Redo.Click += new System.EventHandler(this.RedoClick);
             // 
             // ToolSelector
             // 
@@ -596,27 +598,16 @@
             this.ToolSelector.TabStop = false;
             this.ToolSelector.Text = "Tools";
             // 
-            // LineRadio
+            // EraserRadio
             // 
-            this.LineRadio.AutoSize = true;
-            this.LineRadio.Location = new System.Drawing.Point(13, 26);
-            this.LineRadio.Name = "LineRadio";
-            this.LineRadio.Size = new System.Drawing.Size(45, 17);
-            this.LineRadio.TabIndex = 0;
-            this.LineRadio.TabStop = true;
-            this.LineRadio.Text = "Line";
-            this.LineRadio.UseVisualStyleBackColor = true;
-            // 
-            // PencilRadio
-            // 
-            this.PencilRadio.AutoSize = true;
-            this.PencilRadio.Location = new System.Drawing.Point(76, 26);
-            this.PencilRadio.Name = "PencilRadio";
-            this.PencilRadio.Size = new System.Drawing.Size(54, 17);
-            this.PencilRadio.TabIndex = 1;
-            this.PencilRadio.TabStop = true;
-            this.PencilRadio.Text = "Pencil";
-            this.PencilRadio.UseVisualStyleBackColor = true;
+            this.EraserRadio.AutoSize = true;
+            this.EraserRadio.Location = new System.Drawing.Point(235, 26);
+            this.EraserRadio.Name = "EraserRadio";
+            this.EraserRadio.Size = new System.Drawing.Size(55, 17);
+            this.EraserRadio.TabIndex = 3;
+            this.EraserRadio.TabStop = true;
+            this.EraserRadio.Text = "Eraser";
+            this.EraserRadio.UseVisualStyleBackColor = true;
             // 
             // BrushRadio
             // 
@@ -629,16 +620,27 @@
             this.BrushRadio.Text = "Brush";
             this.BrushRadio.UseVisualStyleBackColor = true;
             // 
-            // EraserRadio
+            // PencilRadio
             // 
-            this.EraserRadio.AutoSize = true;
-            this.EraserRadio.Location = new System.Drawing.Point(235, 26);
-            this.EraserRadio.Name = "EraserRadio";
-            this.EraserRadio.Size = new System.Drawing.Size(55, 17);
-            this.EraserRadio.TabIndex = 3;
-            this.EraserRadio.TabStop = true;
-            this.EraserRadio.Text = "Eraser";
-            this.EraserRadio.UseVisualStyleBackColor = true;
+            this.PencilRadio.AutoSize = true;
+            this.PencilRadio.Location = new System.Drawing.Point(76, 26);
+            this.PencilRadio.Name = "PencilRadio";
+            this.PencilRadio.Size = new System.Drawing.Size(54, 17);
+            this.PencilRadio.TabIndex = 1;
+            this.PencilRadio.TabStop = true;
+            this.PencilRadio.Text = "Pencil";
+            this.PencilRadio.UseVisualStyleBackColor = true;
+            // 
+            // LineRadio
+            // 
+            this.LineRadio.AutoSize = true;
+            this.LineRadio.Location = new System.Drawing.Point(13, 26);
+            this.LineRadio.Name = "LineRadio";
+            this.LineRadio.Size = new System.Drawing.Size(45, 17);
+            this.LineRadio.TabIndex = 0;
+            this.LineRadio.TabStop = true;
+            this.LineRadio.Text = "Line";
+            this.LineRadio.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

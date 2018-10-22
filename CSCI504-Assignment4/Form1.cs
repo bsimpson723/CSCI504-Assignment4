@@ -18,6 +18,7 @@ namespace CSCI504_Assignment4
         private Point start;
         private Point finish;
         private Stack<Line> undoLines = new Stack<Line>();
+        private Stack<Line> redoLines = new Stack<Line>();
 
         public Form1()
         {
@@ -45,6 +46,8 @@ namespace CSCI504_Assignment4
             if (e.Button == MouseButtons.Left)
             {
                 start = e.Location;
+                redoLines.Clear();      //once you draw a new line
+                Redo.Enabled = false;   //"Redo" is no longer possible
             }
         }
 
@@ -56,7 +59,8 @@ namespace CSCI504_Assignment4
                 undoLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point,Point>(start, finish)));
             start = Point.Empty;
             finish = Point.Empty;
-            Refresh();
+            Undo.Enabled = true;
+            DrawPanel.Invalidate();
         }
 
         private void OnPaint(object sender, PaintEventArgs e)
@@ -92,6 +96,30 @@ namespace CSCI504_Assignment4
             DrawPanel.DrawToBitmap(bm, new Rectangle(0, 0, width, height));
 
             bm.Save(saveFile.FileName, ImageFormat.Png);
+        }
+
+        private void UndoClick(object sender, EventArgs e)
+        {
+            var line = undoLines.Pop();
+            redoLines.Push(line);
+            Redo.Enabled = true;
+            if (!undoLines.Any())
+            {
+                Undo.Enabled = false;
+            }
+            DrawPanel.Invalidate();
+        }
+
+        private void RedoClick(object sender, EventArgs e)
+        {
+            var line = redoLines.Pop();
+            undoLines.Push(line);
+            Undo.Enabled = true;
+            if (!redoLines.Any())
+            {
+                Redo.Enabled = false;
+            }
+            DrawPanel.Invalidate();
         }
     }
 }
