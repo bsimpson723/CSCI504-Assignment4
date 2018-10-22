@@ -35,7 +35,7 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recentlyOpenedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.DrawPanel = new System.Windows.Forms.Panel();
             this.Custom = new System.Windows.Forms.Panel();
             this.ColorGroup = new System.Windows.Forms.GroupBox();
             this.Silver = new System.Windows.Forms.Panel();
@@ -68,6 +68,9 @@
             this.Black = new System.Windows.Forms.Panel();
             this.WidthLabel = new System.Windows.Forms.Label();
             this.WidthUpDown = new System.Windows.Forms.NumericUpDown();
+            this.SelectedColor = new System.Windows.Forms.Panel();
+            this.SelectedColorLabel = new System.Windows.Forms.Label();
+            this.saveFile = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.ColorGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WidthUpDown)).BeginInit();
@@ -98,43 +101,45 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "Save as";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // recentlyOpenedToolStripMenuItem
             // 
             this.recentlyOpenedToolStripMenuItem.Name = "recentlyOpenedToolStripMenuItem";
-            this.recentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.recentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.recentlyOpenedToolStripMenuItem.Text = "Recently opened,,,";
             // 
-            // panel1
+            // DrawPanel
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(12, 116);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1010, 581);
-            this.panel1.TabIndex = 1;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MouseUp);
+            this.DrawPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DrawPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DrawPanel.Location = new System.Drawing.Point(12, 116);
+            this.DrawPanel.Name = "DrawPanel";
+            this.DrawPanel.Size = new System.Drawing.Size(1010, 581);
+            this.DrawPanel.TabIndex = 1;
+            this.DrawPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.OnPaint);
+            this.DrawPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
+            this.DrawPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MouseUp);
             // 
             // Custom
             // 
@@ -526,15 +531,41 @@
             0});
             this.WidthUpDown.ValueChanged += new System.EventHandler(this.WidthChange);
             // 
+            // SelectedColor
+            // 
+            this.SelectedColor.BackColor = System.Drawing.Color.Black;
+            this.SelectedColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedColor.Location = new System.Drawing.Point(531, 52);
+            this.SelectedColor.Name = "SelectedColor";
+            this.SelectedColor.Size = new System.Drawing.Size(46, 46);
+            this.SelectedColor.TabIndex = 31;
+            // 
+            // SelectedColorLabel
+            // 
+            this.SelectedColorLabel.AutoSize = true;
+            this.SelectedColorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectedColorLabel.Location = new System.Drawing.Point(518, 33);
+            this.SelectedColorLabel.Name = "SelectedColorLabel";
+            this.SelectedColorLabel.Size = new System.Drawing.Size(71, 17);
+            this.SelectedColorLabel.TabIndex = 32;
+            this.SelectedColorLabel.Text = "Selected";
+            // 
+            // saveFile
+            // 
+            this.saveFile.Filter = "Png Image (.png)|*.png";
+            this.saveFile.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFile_FileOk);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 709);
+            this.Controls.Add(this.SelectedColorLabel);
+            this.Controls.Add(this.SelectedColor);
             this.Controls.Add(this.WidthUpDown);
             this.Controls.Add(this.WidthLabel);
             this.Controls.Add(this.ColorGroup);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.DrawPanel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -557,7 +588,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem recentlyOpenedToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel DrawPanel;
         private System.Windows.Forms.Panel Custom;
         private System.Windows.Forms.GroupBox ColorGroup;
         private System.Windows.Forms.Label WidthLabel;
@@ -590,6 +621,9 @@
         private System.Windows.Forms.Panel Green;
         private System.Windows.Forms.Panel Olive;
         private System.Windows.Forms.Panel Silver;
+        private System.Windows.Forms.Panel SelectedColor;
+        private System.Windows.Forms.Label SelectedColorLabel;
+        private System.Windows.Forms.SaveFileDialog saveFile;
     }
 }
 
