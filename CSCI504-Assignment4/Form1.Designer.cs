@@ -71,9 +71,17 @@
             this.SelectedColor = new System.Windows.Forms.Panel();
             this.SelectedColorLabel = new System.Windows.Forms.Label();
             this.saveFile = new System.Windows.Forms.SaveFileDialog();
+            this.Undo = new System.Windows.Forms.Button();
+            this.Redo = new System.Windows.Forms.Button();
+            this.ToolSelector = new System.Windows.Forms.GroupBox();
+            this.LineRadio = new System.Windows.Forms.RadioButton();
+            this.PencilRadio = new System.Windows.Forms.RadioButton();
+            this.BrushRadio = new System.Windows.Forms.RadioButton();
+            this.EraserRadio = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.ColorGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WidthUpDown)).BeginInit();
+            this.ToolSelector.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -101,32 +109,32 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // recentlyOpenedToolStripMenuItem
             // 
             this.recentlyOpenedToolStripMenuItem.Name = "recentlyOpenedToolStripMenuItem";
-            this.recentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.recentlyOpenedToolStripMenuItem.Text = "Recently opened,,,";
             // 
             // DrawPanel
@@ -555,11 +563,91 @@
             this.saveFile.Filter = "Png Image (.png)|*.png";
             this.saveFile.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFile_FileOk);
             // 
+            // Undo
+            // 
+            this.Undo.Enabled = false;
+            this.Undo.Location = new System.Drawing.Point(24, 40);
+            this.Undo.Name = "Undo";
+            this.Undo.Size = new System.Drawing.Size(60, 57);
+            this.Undo.TabIndex = 33;
+            this.Undo.Text = "Undo";
+            this.Undo.UseVisualStyleBackColor = true;
+            // 
+            // Redo
+            // 
+            this.Redo.Enabled = false;
+            this.Redo.Location = new System.Drawing.Point(90, 41);
+            this.Redo.Name = "Redo";
+            this.Redo.Size = new System.Drawing.Size(60, 57);
+            this.Redo.TabIndex = 34;
+            this.Redo.Text = "Redo";
+            this.Redo.UseVisualStyleBackColor = true;
+            // 
+            // ToolSelector
+            // 
+            this.ToolSelector.Controls.Add(this.EraserRadio);
+            this.ToolSelector.Controls.Add(this.BrushRadio);
+            this.ToolSelector.Controls.Add(this.PencilRadio);
+            this.ToolSelector.Controls.Add(this.LineRadio);
+            this.ToolSelector.Location = new System.Drawing.Point(158, 44);
+            this.ToolSelector.Name = "ToolSelector";
+            this.ToolSelector.Size = new System.Drawing.Size(296, 53);
+            this.ToolSelector.TabIndex = 35;
+            this.ToolSelector.TabStop = false;
+            this.ToolSelector.Text = "Tools";
+            // 
+            // LineRadio
+            // 
+            this.LineRadio.AutoSize = true;
+            this.LineRadio.Location = new System.Drawing.Point(13, 26);
+            this.LineRadio.Name = "LineRadio";
+            this.LineRadio.Size = new System.Drawing.Size(45, 17);
+            this.LineRadio.TabIndex = 0;
+            this.LineRadio.TabStop = true;
+            this.LineRadio.Text = "Line";
+            this.LineRadio.UseVisualStyleBackColor = true;
+            // 
+            // PencilRadio
+            // 
+            this.PencilRadio.AutoSize = true;
+            this.PencilRadio.Location = new System.Drawing.Point(76, 26);
+            this.PencilRadio.Name = "PencilRadio";
+            this.PencilRadio.Size = new System.Drawing.Size(54, 17);
+            this.PencilRadio.TabIndex = 1;
+            this.PencilRadio.TabStop = true;
+            this.PencilRadio.Text = "Pencil";
+            this.PencilRadio.UseVisualStyleBackColor = true;
+            // 
+            // BrushRadio
+            // 
+            this.BrushRadio.AutoSize = true;
+            this.BrushRadio.Location = new System.Drawing.Point(153, 26);
+            this.BrushRadio.Name = "BrushRadio";
+            this.BrushRadio.Size = new System.Drawing.Size(52, 17);
+            this.BrushRadio.TabIndex = 2;
+            this.BrushRadio.TabStop = true;
+            this.BrushRadio.Text = "Brush";
+            this.BrushRadio.UseVisualStyleBackColor = true;
+            // 
+            // EraserRadio
+            // 
+            this.EraserRadio.AutoSize = true;
+            this.EraserRadio.Location = new System.Drawing.Point(235, 26);
+            this.EraserRadio.Name = "EraserRadio";
+            this.EraserRadio.Size = new System.Drawing.Size(55, 17);
+            this.EraserRadio.TabIndex = 3;
+            this.EraserRadio.TabStop = true;
+            this.EraserRadio.Text = "Eraser";
+            this.EraserRadio.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 709);
+            this.Controls.Add(this.ToolSelector);
+            this.Controls.Add(this.Redo);
+            this.Controls.Add(this.Undo);
             this.Controls.Add(this.SelectedColorLabel);
             this.Controls.Add(this.SelectedColor);
             this.Controls.Add(this.WidthUpDown);
@@ -574,6 +662,8 @@
             this.menuStrip1.PerformLayout();
             this.ColorGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.WidthUpDown)).EndInit();
+            this.ToolSelector.ResumeLayout(false);
+            this.ToolSelector.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -624,6 +714,13 @@
         private System.Windows.Forms.Panel SelectedColor;
         private System.Windows.Forms.Label SelectedColorLabel;
         private System.Windows.Forms.SaveFileDialog saveFile;
+        private System.Windows.Forms.Button Undo;
+        private System.Windows.Forms.Button Redo;
+        private System.Windows.Forms.GroupBox ToolSelector;
+        private System.Windows.Forms.RadioButton EraserRadio;
+        private System.Windows.Forms.RadioButton BrushRadio;
+        private System.Windows.Forms.RadioButton PencilRadio;
+        private System.Windows.Forms.RadioButton LineRadio;
     }
 }
 
