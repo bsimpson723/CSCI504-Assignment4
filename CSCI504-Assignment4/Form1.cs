@@ -17,7 +17,7 @@ namespace CSCI504_Assignment4
         private Pen pen = new Pen(Color.Black, 1);
         private Point start;
         private Point finish;
-        private List<Line> lines = new List<Line>();
+        private Stack<Line> undoLines = new Stack<Line>();
 
         public Form1()
         {
@@ -53,7 +53,7 @@ namespace CSCI504_Assignment4
             OnMouseUp(e);
             finish = e.Location;
             if (!start.IsEmpty && !finish.IsEmpty)
-                lines.Add(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point,Point>(start, finish)));
+                undoLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point,Point>(start, finish)));
             start = Point.Empty;
             finish = Point.Empty;
             Refresh();
@@ -61,7 +61,7 @@ namespace CSCI504_Assignment4
 
         private void OnPaint(object sender, PaintEventArgs e)
         {
-            foreach (var line in lines)
+            foreach (var line in undoLines)
                 e.Graphics.DrawLine(line.Pen, line.Points.Item1, line.Points.Item2);
             if (!start.IsEmpty && !finish.IsEmpty)
                 e.Graphics.DrawLine(pen, start, finish);
