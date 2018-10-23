@@ -78,6 +78,7 @@
             this.BrushRadio = new System.Windows.Forms.RadioButton();
             this.PencilRadio = new System.Windows.Forms.RadioButton();
             this.LineRadio = new System.Windows.Forms.RadioButton();
+            this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.ColorGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WidthUpDown)).BeginInit();
@@ -109,33 +110,36 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.NewImageClick);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenFileClick);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.Save);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "Save as";
-            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAs);
             // 
             // recentlyOpenedToolStripMenuItem
             // 
             this.recentlyOpenedToolStripMenuItem.Name = "recentlyOpenedToolStripMenuItem";
-            this.recentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.recentlyOpenedToolStripMenuItem.Text = "Recently opened,,,";
+            this.recentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recentlyOpenedToolStripMenuItem.Text = "Recent Images";
             // 
             // DrawPanel
             // 
@@ -156,8 +160,8 @@
             this.Custom.Name = "Custom";
             this.Custom.Size = new System.Drawing.Size(46, 46);
             this.Custom.TabIndex = 30;
-            this.Custom.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Custom.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.Custom.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Custom.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // ColorGroup
             // 
@@ -206,8 +210,8 @@
             this.Silver.Size = new System.Drawing.Size(20, 20);
             this.Silver.TabIndex = 13;
             this.Silver.Click += new System.EventHandler(this.ColorClick);
-            this.Silver.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Silver.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.Silver.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Silver.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // White
             // 
@@ -217,8 +221,8 @@
             this.White.Size = new System.Drawing.Size(20, 20);
             this.White.TabIndex = 12;
             this.White.Click += new System.EventHandler(this.ColorClick);
-            this.White.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.White.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.White.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.White.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Red
             // 
@@ -228,8 +232,8 @@
             this.Red.Size = new System.Drawing.Size(20, 20);
             this.Red.TabIndex = 12;
             this.Red.Click += new System.EventHandler(this.ColorClick);
-            this.Red.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Red.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.Red.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Red.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Yellow
             // 
@@ -239,8 +243,8 @@
             this.Yellow.Size = new System.Drawing.Size(20, 20);
             this.Yellow.TabIndex = 12;
             this.Yellow.Click += new System.EventHandler(this.ColorClick);
-            this.Yellow.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Yellow.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.Yellow.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Yellow.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Lime
             // 
@@ -250,8 +254,8 @@
             this.Lime.Size = new System.Drawing.Size(20, 20);
             this.Lime.TabIndex = 12;
             this.Lime.Click += new System.EventHandler(this.ColorClick);
-            this.Lime.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Lime.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.Lime.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Lime.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Aqua
             // 
@@ -261,8 +265,8 @@
             this.Aqua.Size = new System.Drawing.Size(20, 20);
             this.Aqua.TabIndex = 11;
             this.Aqua.Click += new System.EventHandler(this.ColorClick);
-            this.Aqua.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Aqua.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.Aqua.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Aqua.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Blue
             // 
@@ -272,8 +276,8 @@
             this.Blue.Size = new System.Drawing.Size(20, 20);
             this.Blue.TabIndex = 11;
             this.Blue.Click += new System.EventHandler(this.ColorClick);
-            this.Blue.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Blue.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.Blue.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Blue.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Fuchsia
             // 
@@ -283,8 +287,8 @@
             this.Fuchsia.Size = new System.Drawing.Size(20, 20);
             this.Fuchsia.TabIndex = 11;
             this.Fuchsia.Click += new System.EventHandler(this.ColorClick);
-            this.Fuchsia.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Fuchsia.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.Fuchsia.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Fuchsia.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // LemonChiffon
             // 
@@ -294,8 +298,8 @@
             this.LemonChiffon.Size = new System.Drawing.Size(20, 20);
             this.LemonChiffon.TabIndex = 11;
             this.LemonChiffon.Click += new System.EventHandler(this.ColorClick);
-            this.LemonChiffon.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.LemonChiffon.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.LemonChiffon.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.LemonChiffon.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // SpringGreen
             // 
@@ -305,8 +309,8 @@
             this.SpringGreen.Size = new System.Drawing.Size(20, 20);
             this.SpringGreen.TabIndex = 11;
             this.SpringGreen.Click += new System.EventHandler(this.ColorClick);
-            this.SpringGreen.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.SpringGreen.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.SpringGreen.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.SpringGreen.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // PowderBlue
             // 
@@ -316,8 +320,8 @@
             this.PowderBlue.Size = new System.Drawing.Size(20, 20);
             this.PowderBlue.TabIndex = 11;
             this.PowderBlue.Click += new System.EventHandler(this.ColorClick);
-            this.PowderBlue.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.PowderBlue.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.PowderBlue.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.PowderBlue.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // MediumSlateBlue
             // 
@@ -327,8 +331,8 @@
             this.MediumSlateBlue.Size = new System.Drawing.Size(20, 20);
             this.MediumSlateBlue.TabIndex = 11;
             this.MediumSlateBlue.Click += new System.EventHandler(this.ColorClick);
-            this.MediumSlateBlue.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.MediumSlateBlue.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.MediumSlateBlue.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.MediumSlateBlue.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // DeepPink
             // 
@@ -338,8 +342,8 @@
             this.DeepPink.Size = new System.Drawing.Size(20, 20);
             this.DeepPink.TabIndex = 11;
             this.DeepPink.Click += new System.EventHandler(this.ColorClick);
-            this.DeepPink.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.DeepPink.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.DeepPink.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.DeepPink.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // SandyBrown
             // 
@@ -349,8 +353,8 @@
             this.SandyBrown.Size = new System.Drawing.Size(20, 20);
             this.SandyBrown.TabIndex = 11;
             this.SandyBrown.Click += new System.EventHandler(this.ColorClick);
-            this.SandyBrown.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.SandyBrown.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.SandyBrown.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.SandyBrown.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Sienna
             // 
@@ -360,8 +364,8 @@
             this.Sienna.Size = new System.Drawing.Size(20, 20);
             this.Sienna.TabIndex = 11;
             this.Sienna.Click += new System.EventHandler(this.ColorClick);
-            this.Sienna.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Sienna.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.Sienna.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Sienna.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // BlueViolet
             // 
@@ -371,8 +375,8 @@
             this.BlueViolet.Size = new System.Drawing.Size(20, 20);
             this.BlueViolet.TabIndex = 11;
             this.BlueViolet.Click += new System.EventHandler(this.ColorClick);
-            this.BlueViolet.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.BlueViolet.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.BlueViolet.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.BlueViolet.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // SteelBlue
             // 
@@ -382,8 +386,8 @@
             this.SteelBlue.Size = new System.Drawing.Size(20, 20);
             this.SteelBlue.TabIndex = 11;
             this.SteelBlue.Click += new System.EventHandler(this.ColorClick);
-            this.SteelBlue.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.SteelBlue.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.SteelBlue.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.SteelBlue.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // DeepSkyBlue
             // 
@@ -393,8 +397,8 @@
             this.DeepSkyBlue.Size = new System.Drawing.Size(20, 20);
             this.DeepSkyBlue.TabIndex = 10;
             this.DeepSkyBlue.Click += new System.EventHandler(this.ColorClick);
-            this.DeepSkyBlue.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.DeepSkyBlue.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.DeepSkyBlue.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.DeepSkyBlue.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // DarkSlateGray
             // 
@@ -404,8 +408,8 @@
             this.DarkSlateGray.Size = new System.Drawing.Size(20, 20);
             this.DarkSlateGray.TabIndex = 9;
             this.DarkSlateGray.Click += new System.EventHandler(this.ColorClick);
-            this.DarkSlateGray.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.DarkSlateGray.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.DarkSlateGray.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.DarkSlateGray.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // DarkKhaki
             // 
@@ -415,8 +419,8 @@
             this.DarkKhaki.Size = new System.Drawing.Size(20, 20);
             this.DarkKhaki.TabIndex = 8;
             this.DarkKhaki.Click += new System.EventHandler(this.ColorClick);
-            this.DarkKhaki.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.DarkKhaki.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.DarkKhaki.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.DarkKhaki.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Purple
             // 
@@ -426,8 +430,8 @@
             this.Purple.Size = new System.Drawing.Size(20, 20);
             this.Purple.TabIndex = 7;
             this.Purple.Click += new System.EventHandler(this.ColorClick);
-            this.Purple.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Purple.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.Purple.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Purple.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Navy
             // 
@@ -437,8 +441,8 @@
             this.Navy.Size = new System.Drawing.Size(20, 20);
             this.Navy.TabIndex = 6;
             this.Navy.Click += new System.EventHandler(this.ColorClick);
-            this.Navy.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Navy.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.Navy.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Navy.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Teal
             // 
@@ -448,8 +452,8 @@
             this.Teal.Size = new System.Drawing.Size(20, 20);
             this.Teal.TabIndex = 5;
             this.Teal.Click += new System.EventHandler(this.ColorClick);
-            this.Teal.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Teal.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.Teal.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Teal.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Green
             // 
@@ -459,8 +463,8 @@
             this.Green.Size = new System.Drawing.Size(20, 20);
             this.Green.TabIndex = 4;
             this.Green.Click += new System.EventHandler(this.ColorClick);
-            this.Green.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Green.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.Green.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Green.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Olive
             // 
@@ -470,8 +474,8 @@
             this.Olive.Size = new System.Drawing.Size(20, 20);
             this.Olive.TabIndex = 3;
             this.Olive.Click += new System.EventHandler(this.ColorClick);
-            this.Olive.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Olive.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.Olive.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Olive.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Maroon
             // 
@@ -481,8 +485,8 @@
             this.Maroon.Size = new System.Drawing.Size(20, 20);
             this.Maroon.TabIndex = 2;
             this.Maroon.Click += new System.EventHandler(this.ColorClick);
-            this.Maroon.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Maroon.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.Maroon.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Maroon.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Gray
             // 
@@ -492,8 +496,8 @@
             this.Gray.Size = new System.Drawing.Size(20, 20);
             this.Gray.TabIndex = 1;
             this.Gray.Click += new System.EventHandler(this.ColorClick);
-            this.Gray.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Gray.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.Gray.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Gray.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Black
             // 
@@ -503,8 +507,8 @@
             this.Black.Size = new System.Drawing.Size(20, 20);
             this.Black.TabIndex = 0;
             this.Black.Click += new System.EventHandler(this.ColorClick);
-            this.Black.MouseEnter += new System.EventHandler(this.ColorMouseEnter);
-            this.Black.MouseLeave += new System.EventHandler(this.ColorMouseExit);
+            this.Black.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Black.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // WidthLabel
             // 
@@ -561,7 +565,7 @@
             // saveFile
             // 
             this.saveFile.Filter = "Png Image (.png)|*.png";
-            this.saveFile.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFile_FileOk);
+            this.saveFile.FileOk += new System.ComponentModel.CancelEventHandler(this.SaveAsFileOk);
             // 
             // Undo
             // 
@@ -605,7 +609,6 @@
             this.EraserRadio.Name = "EraserRadio";
             this.EraserRadio.Size = new System.Drawing.Size(55, 17);
             this.EraserRadio.TabIndex = 3;
-            this.EraserRadio.TabStop = true;
             this.EraserRadio.Text = "Eraser";
             this.EraserRadio.UseVisualStyleBackColor = true;
             // 
@@ -616,7 +619,6 @@
             this.BrushRadio.Name = "BrushRadio";
             this.BrushRadio.Size = new System.Drawing.Size(52, 17);
             this.BrushRadio.TabIndex = 2;
-            this.BrushRadio.TabStop = true;
             this.BrushRadio.Text = "Brush";
             this.BrushRadio.UseVisualStyleBackColor = true;
             // 
@@ -627,13 +629,13 @@
             this.PencilRadio.Name = "PencilRadio";
             this.PencilRadio.Size = new System.Drawing.Size(54, 17);
             this.PencilRadio.TabIndex = 1;
-            this.PencilRadio.TabStop = true;
             this.PencilRadio.Text = "Pencil";
             this.PencilRadio.UseVisualStyleBackColor = true;
             // 
             // LineRadio
             // 
             this.LineRadio.AutoSize = true;
+            this.LineRadio.Checked = true;
             this.LineRadio.Location = new System.Drawing.Point(13, 26);
             this.LineRadio.Name = "LineRadio";
             this.LineRadio.Size = new System.Drawing.Size(45, 17);
@@ -641,6 +643,12 @@
             this.LineRadio.TabStop = true;
             this.LineRadio.Text = "Line";
             this.LineRadio.UseVisualStyleBackColor = true;
+            this.LineRadio.Click += new System.EventHandler(this.LineRadioSelected);
+            // 
+            // openFile
+            // 
+            this.openFile.FileName = "openFileDialog1";
+            this.openFile.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileOk);
             // 
             // Form1
             // 
@@ -723,6 +731,7 @@
         private System.Windows.Forms.RadioButton BrushRadio;
         private System.Windows.Forms.RadioButton PencilRadio;
         private System.Windows.Forms.RadioButton LineRadio;
+        private System.Windows.Forms.OpenFileDialog openFile;
     }
 }
 
