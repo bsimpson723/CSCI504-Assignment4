@@ -74,10 +74,10 @@ namespace CSCI504_Assignment4
             this.Undo = new System.Windows.Forms.Button();
             this.Redo = new System.Windows.Forms.Button();
             this.ToolSelector = new System.Windows.Forms.GroupBox();
-            this.EraserRadio = new System.Windows.Forms.RadioButton();
-            this.BrushRadio = new System.Windows.Forms.RadioButton();
-            this.PencilRadio = new System.Windows.Forms.RadioButton();
             this.LineRadio = new System.Windows.Forms.RadioButton();
+            this.PencilRadio = new System.Windows.Forms.RadioButton();
+            this.BrushRadio = new System.Windows.Forms.RadioButton();
+            this.EraserRadio = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.ColorGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WidthUpDown)).BeginInit();
@@ -111,33 +111,33 @@ namespace CSCI504_Assignment4
             // 
             // newToolStripMenuItem
             // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";        
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // recentlyOpenedToolStripMenuItem
             // 
             this.recentlyOpenedToolStripMenuItem.Name = "recentlyOpenedToolStripMenuItem";
-            this.recentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.recentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.recentlyOpenedToolStripMenuItem.Text = "Recently opened,,,";
             // 
             // DrawPanel
@@ -606,10 +606,9 @@ namespace CSCI504_Assignment4
             // Undo
             // 
             this.Undo.Enabled = false;
-            this.Undo.Location = new System.Drawing.Point(32, 49);
-            this.Undo.Margin = new System.Windows.Forms.Padding(4);
+            this.Undo.Location = new System.Drawing.Point(24, 40);
             this.Undo.Name = "Undo";
-            this.Undo.Size = new System.Drawing.Size(80, 70);
+            this.Undo.Size = new System.Drawing.Size(60, 57);
             this.Undo.TabIndex = 33;
             this.Undo.Text = "Undo";
             this.Undo.UseVisualStyleBackColor = true;
@@ -617,10 +616,9 @@ namespace CSCI504_Assignment4
             // Redo
             // 
             this.Redo.Enabled = false;
-            this.Redo.Location = new System.Drawing.Point(120, 50);
-            this.Redo.Margin = new System.Windows.Forms.Padding(4);
+            this.Redo.Location = new System.Drawing.Point(90, 41);
             this.Redo.Name = "Redo";
-            this.Redo.Size = new System.Drawing.Size(80, 70);
+            this.Redo.Size = new System.Drawing.Size(60, 57);
             this.Redo.TabIndex = 34;
             this.Redo.Text = "Redo";
             this.Redo.UseVisualStyleBackColor = true;
@@ -631,68 +629,62 @@ namespace CSCI504_Assignment4
             this.ToolSelector.Controls.Add(this.BrushRadio);
             this.ToolSelector.Controls.Add(this.PencilRadio);
             this.ToolSelector.Controls.Add(this.LineRadio);
-            this.ToolSelector.Location = new System.Drawing.Point(211, 54);
-            this.ToolSelector.Margin = new System.Windows.Forms.Padding(4);
+            this.ToolSelector.Location = new System.Drawing.Point(158, 44);
             this.ToolSelector.Name = "ToolSelector";
-            this.ToolSelector.Padding = new System.Windows.Forms.Padding(4);
-            this.ToolSelector.Size = new System.Drawing.Size(395, 65);
+            this.ToolSelector.Size = new System.Drawing.Size(296, 53);
             this.ToolSelector.TabIndex = 35;
             this.ToolSelector.TabStop = false;
             this.ToolSelector.Text = "Tools";
             // 
-            // EraserRadio
-            // 
-            this.EraserRadio.AutoSize = true;
-            this.EraserRadio.Location = new System.Drawing.Point(313, 32);
-            this.EraserRadio.Margin = new System.Windows.Forms.Padding(4);
-            this.EraserRadio.Name = "EraserRadio";
-            this.EraserRadio.Size = new System.Drawing.Size(71, 21);
-            this.EraserRadio.TabIndex = 3;
-            this.EraserRadio.Text = "Eraser";
-            this.EraserRadio.UseVisualStyleBackColor = true;
-            // 
-            // BrushRadio
-            // 
-            this.BrushRadio.AutoSize = true;
-            this.BrushRadio.Location = new System.Drawing.Point(204, 32);
-            this.BrushRadio.Margin = new System.Windows.Forms.Padding(4);
-            this.BrushRadio.Name = "BrushRadio";
-            this.BrushRadio.Size = new System.Drawing.Size(66, 21);
-            this.BrushRadio.TabIndex = 2;
-            this.BrushRadio.Text = "Brush";
-            this.BrushRadio.UseVisualStyleBackColor = true;
-            this.BrushRadio.Click += new System.EventHandler(this.BrushRadio_Click);
-            // 
-            // PencilRadio
-            // 
-            this.PencilRadio.AutoSize = true;
-            this.PencilRadio.Location = new System.Drawing.Point(101, 32);
-            this.PencilRadio.Margin = new System.Windows.Forms.Padding(4);
-            this.PencilRadio.Name = "PencilRadio";
-            this.PencilRadio.Size = new System.Drawing.Size(67, 21);
-            this.PencilRadio.TabIndex = 1;
-            this.PencilRadio.Text = "Pencil";
-            this.PencilRadio.UseVisualStyleBackColor = true;
-            this.PencilRadio.Click += new System.EventHandler(this.PencilRadio_Click);
-            // 
             // LineRadio
             // 
             this.LineRadio.AutoSize = true;
-            this.LineRadio.Checked = true;
-            this.LineRadio.Location = new System.Drawing.Point(17, 32);
-            this.LineRadio.Margin = new System.Windows.Forms.Padding(4);
+            this.LineRadio.Location = new System.Drawing.Point(13, 26);
             this.LineRadio.Name = "LineRadio";
-            this.LineRadio.Size = new System.Drawing.Size(56, 21);
+            this.LineRadio.Size = new System.Drawing.Size(45, 17);
             this.LineRadio.TabIndex = 0;
             this.LineRadio.TabStop = true;
             this.LineRadio.Text = "Line";
             this.LineRadio.UseVisualStyleBackColor = true;
             // 
+            // PencilRadio
+            // 
+            this.PencilRadio.AutoSize = true;
+            this.PencilRadio.Location = new System.Drawing.Point(76, 26);
+            this.PencilRadio.Name = "PencilRadio";
+            this.PencilRadio.Size = new System.Drawing.Size(54, 17);
+            this.PencilRadio.TabIndex = 1;
+            this.PencilRadio.TabStop = true;
+            this.PencilRadio.Text = "Pencil";
+            this.PencilRadio.UseVisualStyleBackColor = true;
+            // 
+            // BrushRadio
+            // 
+            this.BrushRadio.AutoSize = true;
+            this.BrushRadio.Location = new System.Drawing.Point(153, 26);
+            this.BrushRadio.Name = "BrushRadio";
+            this.BrushRadio.Size = new System.Drawing.Size(52, 17);
+            this.BrushRadio.TabIndex = 2;
+            this.BrushRadio.TabStop = true;
+            this.BrushRadio.Text = "Brush";
+            this.BrushRadio.UseVisualStyleBackColor = true;
+            // 
+            // EraserRadio
+            // 
+            this.EraserRadio.AutoSize = true;
+            this.EraserRadio.Location = new System.Drawing.Point(235, 26);
+            this.EraserRadio.Name = "EraserRadio";
+            this.EraserRadio.Size = new System.Drawing.Size(55, 17);
+            this.EraserRadio.TabIndex = 3;
+            this.EraserRadio.TabStop = true;
+            this.EraserRadio.Text = "Eraser";
+            this.EraserRadio.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1379, 873);
+            this.ClientSize = new System.Drawing.Size(1034, 709);
             this.Controls.Add(this.ToolSelector);
             this.Controls.Add(this.Redo);
             this.Controls.Add(this.Undo);
@@ -715,7 +707,6 @@ namespace CSCI504_Assignment4
             this.ToolSelector.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
