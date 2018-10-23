@@ -148,6 +148,7 @@
             this.DrawPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.OnPaint);
             this.DrawPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             this.DrawPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MouseUp);
+            this.DrawPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMove);
             // 
             // Custom
             // 
@@ -518,9 +519,10 @@
             // 
             // WidthUpDown
             // 
-            this.WidthUpDown.Location = new System.Drawing.Point(466, 53);
+            this.WidthUpDown.Location = new System.Drawing.Point(621, 65);
+            this.WidthUpDown.Margin = new System.Windows.Forms.Padding(4);
             this.WidthUpDown.Maximum = new decimal(new int[] {
-            5,
+            25,
             0,
             0,
             0});
@@ -530,7 +532,7 @@
             0,
             0});
             this.WidthUpDown.Name = "WidthUpDown";
-            this.WidthUpDown.Size = new System.Drawing.Size(46, 20);
+            this.WidthUpDown.Size = new System.Drawing.Size(61, 22);
             this.WidthUpDown.TabIndex = 3;
             this.WidthUpDown.Value = new decimal(new int[] {
             1,
@@ -599,6 +601,7 @@
             // LineRadio
             // 
             this.LineRadio.AutoSize = true;
+            this.LineRadio.Checked = true;
             this.LineRadio.Location = new System.Drawing.Point(13, 26);
             this.LineRadio.Name = "LineRadio";
             this.LineRadio.Size = new System.Drawing.Size(45, 17);
@@ -617,6 +620,7 @@
             this.PencilRadio.TabStop = true;
             this.PencilRadio.Text = "Pencil";
             this.PencilRadio.UseVisualStyleBackColor = true;
+            this.PencilRadio.Click += new System.EventHandler(this.PencilRadio_Click);
             // 
             // BrushRadio
             // 
@@ -628,6 +632,7 @@
             this.BrushRadio.TabStop = true;
             this.BrushRadio.Text = "Brush";
             this.BrushRadio.UseVisualStyleBackColor = true;
+            this.BrushRadio.Click += new System.EventHandler(this.BrushRadio_Click);
             // 
             // EraserRadio
             // 
