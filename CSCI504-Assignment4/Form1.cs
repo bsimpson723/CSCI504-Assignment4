@@ -17,11 +17,12 @@ namespace CSCI504_Assignment4
         private Pen pen = new Pen(Color.Black, 1);
         private Point start;
         private Point finish;
-        private Stack<Line> undoLines = new Stack<Line>();
+        private List<Line> undoLines = new List<Line>();
 
         public Form1()
         {
             InitializeComponent();
+            pen.SetLineCap(System.Drawing.Drawing2D.LineCap.Round, System.Drawing.Drawing2D.LineCap.Round, System.Drawing.Drawing2D.DashCap.Round);
         }
 
         private void ColorMouseEnter(object sender, EventArgs e)
@@ -53,10 +54,23 @@ namespace CSCI504_Assignment4
             OnMouseUp(e);
             finish = e.Location;
             if (!start.IsEmpty && !finish.IsEmpty)
-                undoLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point,Point>(start, finish)));
+                if (LineRadio.Checked)
+                    undoLines.Add(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point,Point>(start, finish)));
             start = Point.Empty;
             finish = Point.Empty;
             Refresh();
+        }
+        
+        private void MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && !LineRadio.Checked)
+            {
+                finish = e.Location;
+                if (EraserRadio.Checked)
+                    pen.Color = DrawPanel.BackColor;
+                undoLines.Add(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
+                start = finish;
+            }
         }
 
         private void OnPaint(object sender, PaintEventArgs e)
@@ -92,6 +106,22 @@ namespace CSCI504_Assignment4
             DrawPanel.DrawToBitmap(bm, new Rectangle(0, 0, width, height));
 
             bm.Save(saveFile.FileName, ImageFormat.Png);
+        }
+        
+        private void PencilRadio_Click(object sender, EventArgs e)
+        {
+            WidthUpDown.Minimum = 1;
+            WidthUpDown.Maximum = 5;
+            WidthUpDown.Value = 1;
+            pen.Width = 1;
+        }
+
+        private void BrushRadio_Click(object sender, EventArgs e)
+        {
+            WidthUpDown.Minimum = 10;
+            WidthUpDown.Maximum = 25;
+            WidthUpDown.Value = 10;
+            pen.Width = 10;
         }
     }
 }
