@@ -32,6 +32,9 @@ namespace CSCI504_Assignment4
         private Stack<Line> undoLines = new Stack<Line>();
         private Stack<Line> redoLines = new Stack<Line>();
         private string fileName = string.Empty;
+        private List<Line> drawLines = new List<Line>();
+        private Timer timer = new Timer();
+        private ColorDialog custom = new ColorDialog();
 
         public Form1()
         {
@@ -61,6 +64,9 @@ namespace CSCI504_Assignment4
                 start = e.Location;
                 redoLines.Clear();      //once you draw a new line
                 Redo.Enabled = false;   //"Redo" is no longer possible
+                timer.Tick += DrawImage;
+                timer.Interval = 5000;
+                timer.Start();
             }
         }
 
@@ -69,19 +75,35 @@ namespace CSCI504_Assignment4
             OnMouseUp(e);
             finish = e.Location;
             if (!start.IsEmpty && !finish.IsEmpty)
-                undoLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point,Point>(start, finish)));
+                if (LineRadio.Checked)
+                {
+                    undoLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point,Point>(start, finish)));
+                    drawLines.Add(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
+                }
             start = Point.Empty;
             finish = Point.Empty;
             Undo.Enabled = true;    //as soon as a line exists we want to be able to undo it.
             DrawPanel.Invalidate();
         }
+        
+        private void DrawImage(object sender, EventArgs e)
+        {
+            finish = MousePosition;
+            if (EraserRadio.Checked)
+                pen.Color = DrawPanel.BackColor;
+            undoLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
+            drawLines.Add(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
+            start = finish;
+            System.Threading.Thread.Sleep(500);
+        }
 
         private void OnPaint(object sender, PaintEventArgs e)
         {
-            foreach (var line in undoLines)
+            foreach (var line in drawLines)
                 e.Graphics.DrawLine(line.Pen, line.Points.Item1, line.Points.Item2);
             if (!start.IsEmpty && !finish.IsEmpty)
                 e.Graphics.DrawLine(pen, start, finish);
+            timer.Stop();
         }
 
         private void ColorClick(object sender, EventArgs e)
@@ -157,11 +179,36 @@ namespace CSCI504_Assignment4
             DrawPanel.Invalidate();     //redraw the Draw Panel
         }
 
-        private void LineRadioSelected(object sender, EventArgs e)
+        private void ToolSelected(object sender, EventArgs e)
         {
-            WidthUpDown.Minimum = 1;
-            WidthUpDown.Maximum = 5;
-            tool = Tool.Line;
+            if (LineRadio.Checked)
+            {
+                WidthUpDown.Minimum = 1;
+                WidthUpDown.Maximum = 5;
+                tool = Tool.Line;
+                WidthUpDown.Value = 1;
+            }
+            else if (PencilRadio.Checked)
+            {
+                WidthUpDown.Minimum = 1;
+                WidthUpDown.Maximum = 3;
+                tool = Tool.Pencil;
+                WidthUpDown.Value = 1;
+            }
+            else if (BrushRadio.Checked)
+            {
+                WidthUpDown.Minimum = 5;
+                WidthUpDown.Maximum = 8;
+                tool = Tool.Brush;
+                WidthUpDown.Value = 5;
+            }
+            else if (EraserRadio.Checked)
+            {
+                WidthUpDown.Minimum = 1;
+                WidthUpDown.Maximum = 10;
+                tool = Tool.Eraser;
+                WidthUpDown.Value = 1;
+            }
         }
 
         private void OpenFileClick(object sender, EventArgs e)
@@ -217,6 +264,16 @@ namespace CSCI504_Assignment4
             Redo.Enabled = false;
             fileName = string.Empty;
             DrawPanel.Invalidate();
+        }
+        
+        private void Custom_Click(object sender, EventArgs e)
+        {
+            if (custom.ShowDialog() != DialogResult.Cancel)
+            {
+                pen.Color = custom.Color;
+                SelectedColor.BackColor = custom.Color;
+                Custom.BackColor = custom.Color;
+            }
         }
     }
 }
