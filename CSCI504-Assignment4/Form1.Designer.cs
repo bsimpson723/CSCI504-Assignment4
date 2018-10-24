@@ -162,6 +162,7 @@
             this.Custom.TabIndex = 30;
             this.Custom.MouseEnter += new System.EventHandler(this.DisplayTooltip);
             this.Custom.MouseLeave += new System.EventHandler(this.HideTooltip);
+            this.Custom.Click += new System.EventHandler(this.Custom_Click);
             // 
             // ColorGroup
             // 
@@ -611,6 +612,7 @@
             this.EraserRadio.TabIndex = 3;
             this.EraserRadio.Text = "Eraser";
             this.EraserRadio.UseVisualStyleBackColor = true;
+            this.EraserRadio.Click += new System.EventHandler(this.ToolSelected);
             // 
             // BrushRadio
             // 
@@ -621,6 +623,7 @@
             this.BrushRadio.TabIndex = 2;
             this.BrushRadio.Text = "Brush";
             this.BrushRadio.UseVisualStyleBackColor = true;
+            this.BrushRadio.Click += new System.EventHandler(this.ToolSelected);
             // 
             // PencilRadio
             // 
@@ -631,6 +634,7 @@
             this.PencilRadio.TabIndex = 1;
             this.PencilRadio.Text = "Pencil";
             this.PencilRadio.UseVisualStyleBackColor = true;
+            this.PencilRadio.Click += new System.EventHandler(this.ToolSelected);
             // 
             // LineRadio
             // 
@@ -643,7 +647,7 @@
             this.LineRadio.TabStop = true;
             this.LineRadio.Text = "Line";
             this.LineRadio.UseVisualStyleBackColor = true;
-            this.LineRadio.Click += new System.EventHandler(this.LineRadioSelected);
+            this.LineRadio.Click += new System.EventHandler(this.ToolSelected);
             // 
             // openFile
             // 
