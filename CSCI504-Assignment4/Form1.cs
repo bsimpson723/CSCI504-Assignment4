@@ -157,26 +157,26 @@ namespace CSCI504_Assignment4
 
         private void UndoClick(object sender, EventArgs e)
         {
-            var line = drawLines.Pop();          //remove most recently added line from the list.
-            redoLines.Push(line);               //add line to redoList
-            Redo.Enabled = true;                //as soon as a line is undone we want to be able to redo it.
+            var line = drawLines.Pop();     //pop line from drawLines
+            redoLines.Push(line);           //add line to redoLines
+            Redo.Enabled = true;            //as soon as a line is undone we want to be able to redo it.
             if (!drawLines.Any())
             {
-                Undo.Enabled = false;           //if the undo list is empty disable the button
+                Undo.Enabled = false;       //if drawLines is empty disable the undo button
             }
-            DrawPanel.Invalidate();             //redraw the Draw Panel
+            DrawPanel.Invalidate();         //redraw the Draw Panel
         }
 
         private void RedoClick(object sender, EventArgs e)
         {
-            var line = redoLines.Pop(); //pop line from the redoList
-            drawLines.Push(line);       //add line back to the undoList
-            Undo.Enabled = true;        //as soon as a line is redone we want to be able to undo it.
+            var line = redoLines.Pop();     //pop line from redoLines
+            drawLines.Push(line);           //add line back to drawLines
+            Undo.Enabled = true;            //as soon as a line is redone we want to be able to undo it.
             if (!redoLines.Any())
             {
-                Redo.Enabled = false;   //if the redo list is empty disable the button
+                Redo.Enabled = false;       //if redoLines is empty disable the redo button
             }
-            DrawPanel.Invalidate();     //redraw the Draw Panel
+            DrawPanel.Invalidate();         //redraw the Draw Panel
         }
 
         private void ToolSelected(object sender, EventArgs e)
