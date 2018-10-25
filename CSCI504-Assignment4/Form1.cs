@@ -31,7 +31,10 @@ namespace CSCI504_Assignment4
         private Point finish;
         private Stack<Line> redoLines;
         private string fileName = string.Empty;
-        private List<Line> drawLines;
+        private List<Line> drawLines;               // Stack seems right, but...
+                                                    // When using a stack, the most 
+                                                    //recently drawn line appears as 
+                                                    //the bottom most layer
         private Timer timer;
         private ColorDialog customColor;
 
