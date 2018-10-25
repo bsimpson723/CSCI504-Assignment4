@@ -89,8 +89,6 @@ namespace CSCI504_Assignment4
         private void DrawImage(object sender, EventArgs e)
         {
             finish = MousePosition;
-            if (EraserRadio.Checked)
-                pen.Color = DrawPanel.BackColor;
             undoLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
             drawLines.Add(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
             start = finish;
@@ -185,6 +183,7 @@ namespace CSCI504_Assignment4
             {
                 WidthUpDown.Minimum = 1;
                 WidthUpDown.Maximum = 5;
+                pen.Color = SelectedColor.BackColor;
                 tool = Tool.Line;
                 WidthUpDown.Value = 1;
             }
@@ -192,6 +191,7 @@ namespace CSCI504_Assignment4
             {
                 WidthUpDown.Minimum = 1;
                 WidthUpDown.Maximum = 3;
+                pen.Color = SelectedColor.BackColor;
                 tool = Tool.Pencil;
                 WidthUpDown.Value = 1;
             }
@@ -199,6 +199,7 @@ namespace CSCI504_Assignment4
             {
                 WidthUpDown.Minimum = 5;
                 WidthUpDown.Maximum = 8;
+                pen.Color = SelectedColor.BackColor;
                 tool = Tool.Brush;
                 WidthUpDown.Value = 5;
             }
@@ -206,6 +207,7 @@ namespace CSCI504_Assignment4
             {
                 WidthUpDown.Minimum = 1;
                 WidthUpDown.Maximum = 10;
+                pen.Color = DrawPanel.BackColor;
                 tool = Tool.Eraser;
                 WidthUpDown.Value = 1;
             }
