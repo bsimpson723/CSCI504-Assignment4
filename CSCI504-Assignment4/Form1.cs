@@ -29,13 +29,14 @@ namespace CSCI504_Assignment4
         private Pen pen;
         private Point start;
         private Point finish;
-        private Stack<Line> redoLines;
         private string fileName = string.Empty;
+        private Timer timer;
+        private Stack<Line> redoLines;
         private List<Line> drawLines;               // Stack seems right, but...
                                                     // When using a stack, the most 
                                                     //recently drawn line appears as 
                                                     //the bottom most layer
-        private Timer timer;
+        
 
         public Form1()
         {
