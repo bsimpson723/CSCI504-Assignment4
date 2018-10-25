@@ -36,7 +36,6 @@ namespace CSCI504_Assignment4
                                                     //recently drawn line appears as 
                                                     //the bottom most layer
         private Timer timer;
-        private ColorDialog customColor;
 
         public Form1()
         {
@@ -45,7 +44,6 @@ namespace CSCI504_Assignment4
             redoLines = new Stack<Line>();
             drawLines = new List<Line>();
             timer = new Timer();
-            customColor = new ColorDialog();
         }
 
         private void DisplayTooltip(object sender, EventArgs e)
@@ -277,11 +275,10 @@ namespace CSCI504_Assignment4
         
         private void Custom_Click(object sender, EventArgs e)
         {
-            if (customColor.ShowDialog() != DialogResult.Cancel)
+            if (customColorDialog.ShowDialog() != DialogResult.Cancel)
             {
-                pen.Color = customColor.Color;
-                SelectedColor.BackColor = customColor.Color;
-                Custom.BackColor = customColor.Color;
+                pen.Color = customColorDialog.Color;
+                SelectedColor.BackColor = customColorDialog.Color;
             }
         }
     }

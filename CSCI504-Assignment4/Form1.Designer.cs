@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,21 +79,22 @@
             this.PencilRadio = new System.Windows.Forms.RadioButton();
             this.LineRadio = new System.Windows.Forms.RadioButton();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
-            this.menuStrip1.SuspendLayout();
+            this.customColorDialog = new System.Windows.Forms.ColorDialog();
+            this.menuStrip.SuspendLayout();
             this.ColorGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WidthUpDown)).BeginInit();
             this.ToolSelector.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1034, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1034, 24);
+            this.menuStrip.TabIndex = 0;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -110,35 +111,35 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.NewImageClick);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenFileClick);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.Save);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAs);
             // 
             // recentlyOpenedToolStripMenuItem
             // 
             this.recentlyOpenedToolStripMenuItem.Name = "recentlyOpenedToolStripMenuItem";
-            this.recentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.recentlyOpenedToolStripMenuItem.Text = "Recent Images";
             // 
             // DrawPanel
@@ -160,9 +161,9 @@
             this.Custom.Name = "Custom";
             this.Custom.Size = new System.Drawing.Size(46, 46);
             this.Custom.TabIndex = 30;
+            this.Custom.Click += new System.EventHandler(this.Custom_Click);
             this.Custom.MouseEnter += new System.EventHandler(this.DisplayTooltip);
             this.Custom.MouseLeave += new System.EventHandler(this.HideTooltip);
-            this.Custom.Click += new System.EventHandler(this.Custom_Click);
             // 
             // ColorGroup
             // 
@@ -668,12 +669,12 @@
             this.Controls.Add(this.WidthLabel);
             this.Controls.Add(this.ColorGroup);
             this.Controls.Add(this.DrawPanel);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "Form1";
             this.Text = "Li and Ben\'s Ode to Paint!";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ColorGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.WidthUpDown)).EndInit();
             this.ToolSelector.ResumeLayout(false);
@@ -685,7 +686,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
@@ -736,6 +737,7 @@
         private System.Windows.Forms.RadioButton PencilRadio;
         private System.Windows.Forms.RadioButton LineRadio;
         private System.Windows.Forms.OpenFileDialog openFile;
+        private System.Windows.Forms.ColorDialog customColorDialog;
     }
 }
 
