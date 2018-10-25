@@ -29,7 +29,6 @@ namespace CSCI504_Assignment4
         private Pen pen = new Pen(Color.Black, 1);
         private Point start;
         private Point finish;
-        private Stack<Line> undoLines = new Stack<Line>();
         private Stack<Line> redoLines = new Stack<Line>();
         private string fileName = string.Empty;
         private List<Line> drawLines = new List<Line>();
@@ -77,7 +76,7 @@ namespace CSCI504_Assignment4
             if (!start.IsEmpty && !finish.IsEmpty)
                 if (LineRadio.Checked)
                 {
-                    undoLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point,Point>(start, finish)));
+                    
                     drawLines.Add(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
                 }
             start = Point.Empty;
@@ -89,7 +88,6 @@ namespace CSCI504_Assignment4
         private void DrawImage(object sender, EventArgs e)
         {
             finish = MousePosition;
-            undoLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
             drawLines.Add(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
             start = finish;
             System.Threading.Thread.Sleep(500);
@@ -155,20 +153,21 @@ namespace CSCI504_Assignment4
 
         private void UndoClick(object sender, EventArgs e)
         {
-            var line = undoLines.Pop(); //pop line from undoList
-            redoLines.Push(line);       //add line to redoList
-            Redo.Enabled = true;        //as soon as a line is undone we want to be able to redo it.
-            if (!undoLines.Any())
+            var line = drawLines.Last();
+            drawLines.Remove(drawLines.Last()); //remove most recently added line from the list.
+            redoLines.Push(line);               //add line to redoList
+            Redo.Enabled = true;                //as soon as a line is undone we want to be able to redo it.
+            if (!drawLines.Any())
             {
-                Undo.Enabled = false;   //if the undo list is empty disable the button
+                Undo.Enabled = false;           //if the undo list is empty disable the button
             }
-            DrawPanel.Invalidate();     //redraw the Draw Panel
+            DrawPanel.Invalidate();             //redraw the Draw Panel
         }
 
         private void RedoClick(object sender, EventArgs e)
         {
             var line = redoLines.Pop(); //pop line from the redoList
-            undoLines.Push(line);       //add line back to the undoList
+            drawLines.Add(line);       //add line back to the undoList
             Undo.Enabled = true;        //as soon as a line is redone we want to be able to undo it.
             if (!redoLines.Any())
             {
@@ -216,7 +215,7 @@ namespace CSCI504_Assignment4
         private void OpenFileClick(object sender, EventArgs e)
         {
             DialogResult response = DialogResult.Cancel;
-            if (undoLines.Any() || redoLines.Any())
+            if (drawLines.Any() || redoLines.Any())
             {
                 response = MessageBox.Show("Would you like to save your changes first?", "Unsaved Changes!", MessageBoxButtons.OKCancel);
             }
@@ -240,7 +239,7 @@ namespace CSCI504_Assignment4
             }
             
             DrawPanel.BackgroundImage = img;
-            undoLines.Clear();
+            drawLines.Clear();
             Undo.Enabled = false;
             redoLines.Clear();
             Redo.Enabled = false;
@@ -250,7 +249,7 @@ namespace CSCI504_Assignment4
         private void NewImageClick(object sender, EventArgs e)
         {
             DialogResult response = DialogResult.Cancel;
-            if (undoLines.Any() || redoLines.Any())
+            if (drawLines.Any() || redoLines.Any())
             {
                 response = MessageBox.Show("Would you like to save your changes first?", "Unsaved Changes!", MessageBoxButtons.OKCancel);
             }
@@ -260,7 +259,7 @@ namespace CSCI504_Assignment4
                 MessageBox.Show("Your file has been saved!");
             }
 
-            undoLines.Clear();
+            drawLines.Clear();
             Undo.Enabled = false;
             redoLines.Clear();
             Redo.Enabled = false;
