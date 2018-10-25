@@ -32,11 +32,7 @@ namespace CSCI504_Assignment4
         private string fileName = string.Empty;
         private Timer timer;
         private Stack<Line> redoLines;
-        private Stack<Line> drawLines;               // Stack seems right, but...
-                                                    // When using a stack, the most 
-                                                    //recently drawn line appears as 
-                                                    //the bottom most layer
-        
+        private Stack<Line> drawLines;
 
         public Form1()
         {
@@ -83,7 +79,6 @@ namespace CSCI504_Assignment4
             if (!start.IsEmpty && !finish.IsEmpty)
                 if (LineRadio.Checked)
                 {
-                    
                     drawLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
                 }
             start = Point.Empty;
