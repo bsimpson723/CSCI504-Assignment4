@@ -26,18 +26,23 @@ namespace CSCI504_Assignment4
         };
         private Tool tool = Tool.Line;
         private ToolTip tt;
-        private Pen pen = new Pen(Color.Black, 1);
+        private Pen pen;
         private Point start;
         private Point finish;
-        private Stack<Line> redoLines = new Stack<Line>();
+        private Stack<Line> redoLines;
         private string fileName = string.Empty;
-        private List<Line> drawLines = new List<Line>();
-        private Timer timer = new Timer();
-        private ColorDialog custom = new ColorDialog();
+        private List<Line> drawLines;
+        private Timer timer;
+        private ColorDialog customColor;
 
         public Form1()
         {
             InitializeComponent();
+            pen = new Pen(Color.Black, 1);
+            redoLines = new Stack<Line>();
+            drawLines = new List<Line>();
+            timer = new Timer();
+            customColor = new ColorDialog();
         }
 
         private void DisplayTooltip(object sender, EventArgs e)
@@ -269,11 +274,11 @@ namespace CSCI504_Assignment4
         
         private void Custom_Click(object sender, EventArgs e)
         {
-            if (custom.ShowDialog() != DialogResult.Cancel)
+            if (customColor.ShowDialog() != DialogResult.Cancel)
             {
-                pen.Color = custom.Color;
-                SelectedColor.BackColor = custom.Color;
-                Custom.BackColor = custom.Color;
+                pen.Color = customColor.Color;
+                SelectedColor.BackColor = customColor.Color;
+                Custom.BackColor = customColor.Color;
             }
         }
     }
