@@ -32,7 +32,7 @@ namespace CSCI504_Assignment4
         private string fileName = string.Empty;
         private Timer timer;
         private Stack<Line> redoLines;
-        private List<Line> drawLines;               // Stack seems right, but...
+        private Stack<Line> drawLines;               // Stack seems right, but...
                                                     // When using a stack, the most 
                                                     //recently drawn line appears as 
                                                     //the bottom most layer
@@ -43,7 +43,7 @@ namespace CSCI504_Assignment4
             InitializeComponent();
             pen = new Pen(Color.Black, 1);
             redoLines = new Stack<Line>();
-            drawLines = new List<Line>();
+            drawLines = new Stack<Line>();
             timer = new Timer();
         }
 
@@ -84,7 +84,7 @@ namespace CSCI504_Assignment4
                 if (LineRadio.Checked)
                 {
                     
-                    drawLines.Add(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
+                    drawLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
                 }
             start = Point.Empty;
             finish = Point.Empty;
@@ -95,14 +95,14 @@ namespace CSCI504_Assignment4
         private void DrawImage(object sender, EventArgs e)
         {
             finish = MousePosition;
-            drawLines.Add(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
+            drawLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
             start = finish;
             System.Threading.Thread.Sleep(500);
         }
 
         private void OnPaint(object sender, PaintEventArgs e)
         {
-            foreach (var line in drawLines)
+            foreach (var line in drawLines.Reverse())
                 e.Graphics.DrawLine(line.Pen, line.Points.Item1, line.Points.Item2);
             if (!start.IsEmpty && !finish.IsEmpty)
                 e.Graphics.DrawLine(pen, start, finish);
@@ -162,8 +162,7 @@ namespace CSCI504_Assignment4
 
         private void UndoClick(object sender, EventArgs e)
         {
-            var line = drawLines.Last();
-            drawLines.Remove(drawLines.Last()); //remove most recently added line from the list.
+            var line = drawLines.Pop();          //remove most recently added line from the list.
             redoLines.Push(line);               //add line to redoList
             Redo.Enabled = true;                //as soon as a line is undone we want to be able to redo it.
             if (!drawLines.Any())
@@ -176,7 +175,7 @@ namespace CSCI504_Assignment4
         private void RedoClick(object sender, EventArgs e)
         {
             var line = redoLines.Pop(); //pop line from the redoList
-            drawLines.Add(line);       //add line back to the undoList
+            drawLines.Push(line);       //add line back to the undoList
             Undo.Enabled = true;        //as soon as a line is redone we want to be able to undo it.
             if (!redoLines.Any())
             {
