@@ -97,7 +97,7 @@ namespace CSCI504_Assignment4
 
         private void OnPaint(object sender, PaintEventArgs e)
         {
-            foreach (var line in drawLines.Reverse())
+            foreach (var line in drawLines.Reverse())   //This prints the stack in reverse order so that the most recent line is on top.
                 e.Graphics.DrawLine(line.Pen, line.Points.Item1, line.Points.Item2);
             if (!start.IsEmpty && !finish.IsEmpty)
                 e.Graphics.DrawLine(pen, start, finish);
