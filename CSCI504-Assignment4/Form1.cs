@@ -140,6 +140,7 @@ namespace CSCI504_Assignment4
                 }
 
                 bm.Save(fileName, ImageFormat.Png);
+                MessageBox.Show("Your file has been saved!");
             }
         }
 
@@ -156,6 +157,7 @@ namespace CSCI504_Assignment4
             DrawPanel.DrawToBitmap(bm, new Rectangle(0, 0, width, height));
 
             bm.Save(saveFile.FileName, ImageFormat.Png);
+            MessageBox.Show("Your file has been saved!");
         }
 
         private void UndoClick(object sender, EventArgs e)
@@ -271,7 +273,6 @@ namespace CSCI504_Assignment4
             if (response == DialogResult.Yes)
             {
                 Save(sender, e);
-                MessageBox.Show("Your file has been saved!");
             }
         }
         
