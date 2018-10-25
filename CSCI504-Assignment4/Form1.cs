@@ -224,13 +224,9 @@ namespace CSCI504_Assignment4
             DialogResult response = DialogResult.Cancel;
             if (drawLines.Any() || redoLines.Any())
             {
-                response = MessageBox.Show("Would you like to save your changes first?", "Unsaved Changes!", MessageBoxButtons.OKCancel);
+                ShowUnsavedChangedWarning(sender, e);
             }
-            if (response == DialogResult.OK)
-            {
-                Save(sender, e);
-                MessageBox.Show("Your file has been saved!");
-            }
+
             openFile.ShowDialog();
         }
 
@@ -255,15 +251,9 @@ namespace CSCI504_Assignment4
 
         private void NewImageClick(object sender, EventArgs e)
         {
-            DialogResult response = DialogResult.Cancel;
             if (drawLines.Any() || redoLines.Any())
             {
-                response = MessageBox.Show("Would you like to save your changes first?", "Unsaved Changes!", MessageBoxButtons.OKCancel);
-            }
-            if (response == DialogResult.OK)
-            {
-                Save(sender, e);
-                MessageBox.Show("Your file has been saved!");
+                ShowUnsavedChangedWarning(sender, e);
             }
 
             drawLines.Clear();
@@ -271,7 +261,18 @@ namespace CSCI504_Assignment4
             redoLines.Clear();
             Redo.Enabled = false;
             fileName = string.Empty;
+            DrawPanel.BackgroundImage = null;
             DrawPanel.Invalidate();
+        }
+
+        private void ShowUnsavedChangedWarning(object sender, EventArgs e)
+        {
+            var response = MessageBox.Show("Would you like to save your changes first?", "Unsaved Changes!", MessageBoxButtons.YesNo);
+            if (response == DialogResult.Yes)
+            {
+                Save(sender, e);
+                MessageBox.Show("Your file has been saved!");
+            }
         }
         
         private void Custom_Click(object sender, EventArgs e)
