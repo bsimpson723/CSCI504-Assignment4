@@ -139,6 +139,8 @@ namespace CSCI504_Assignment4
 
                 bm.Save(fileName, ImageFormat.Png);
                 MessageBox.Show("Your file has been saved!");
+                
+                UpdateRecent(saveFile.FileName);
             }
         }
 
@@ -337,6 +339,7 @@ namespace CSCI504_Assignment4
             redoLines.Clear();
             Redo.Enabled = false;
             DrawPanel.Invalidate();
+            UpdateRecent(fileName);
         }
     }
 }
