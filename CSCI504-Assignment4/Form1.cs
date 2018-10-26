@@ -280,5 +280,17 @@ namespace CSCI504_Assignment4
                 SelectedColor.BackColor = customColorDialog.Color;
             }
         }
+        
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.Z)
+            {
+                UndoClick(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.X)
+            {
+                RedoClick(sender, e);
+            }
+        }
     }
 }
