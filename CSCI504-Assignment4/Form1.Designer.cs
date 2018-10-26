@@ -156,6 +156,7 @@
             // 
             // Custom
             // 
+            this.Custom.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.gradiant;
             this.Custom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Custom.Location = new System.Drawing.Point(371, 19);
             this.Custom.Name = "Custom";
