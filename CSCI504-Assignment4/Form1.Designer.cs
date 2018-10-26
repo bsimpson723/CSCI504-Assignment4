@@ -710,9 +710,11 @@
             this.Controls.Add(this.ColorGroup);
             this.Controls.Add(this.DrawPanel);
             this.Controls.Add(this.menuStrip);
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "Form1";
             this.Text = "Li and Ben\'s Ode to Paint!";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ColorGroup.ResumeLayout(false);
