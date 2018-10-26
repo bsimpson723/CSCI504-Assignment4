@@ -41,6 +41,7 @@ namespace CSCI504_Assignment4
             redoLines = new Stack<Line>();
             drawLines = new Stack<Line>();
             timer = new Timer();
+            RecentImages();
         }
 
         private void DisplayTooltip(object sender, EventArgs e)
@@ -291,6 +292,50 @@ namespace CSCI504_Assignment4
             {
                 RedoClick(sender, e);
             }
+        }
+        
+        private void RecentImages()
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader(@"RecentImages.txt"))
+                {
+                    String image = sr.ReadToEnd();
+                    recentlyOpenedToolStripMenuItem.DropDownItems.Add(image);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("RecentImages.txt file could not be read.");
+            }
+
+            foreach (ToolStripMenuItem images in recentlyOpenedToolStripMenuItem.DropDownItems)
+                images.Click += new EventHandler(RecentImagesClick);
+        }
+
+        private void RecentImagesClick(object sender, EventArgs e)
+        {
+            if (drawLines.Any() || redoLines.Any())
+            {
+                ShowUnsavedChangedWarning(sender, e);
+            }
+
+            var images = (ToolStripMenuItem)sender;
+            string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            fileName = projectPath + "/" + images.Text;
+
+            Image img;
+            using (var bmpTemp = new Bitmap(fileName))
+            {
+                img = new Bitmap(bmpTemp);
+            }
+
+            DrawPanel.BackgroundImage = img;
+            drawLines.Clear();
+            Undo.Enabled = false;
+            redoLines.Clear();
+            Redo.Enabled = false;
+            DrawPanel.Invalidate();
         }
     }
 }
