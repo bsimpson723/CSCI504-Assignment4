@@ -84,10 +84,6 @@ namespace CSCI504_Assignment4
                 {
                     drawLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
                 }
-                else
-                {
-                    timer.Stop();
-                }
             start = Point.Empty;
             finish = Point.Empty;
             Undo.Enabled = true;    //as soon as a line exists we want to be able to undo it.
