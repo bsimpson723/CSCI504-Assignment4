@@ -83,5 +83,11 @@
   <ItemGroup>
     <None Include="gradiant.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Redo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

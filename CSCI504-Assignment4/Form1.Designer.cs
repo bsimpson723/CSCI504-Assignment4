@@ -36,7 +36,6 @@
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recentlyOpenedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DrawPanel = new System.Windows.Forms.Panel();
-            this.Custom = new System.Windows.Forms.Panel();
             this.ColorGroup = new System.Windows.Forms.GroupBox();
             this.Silver = new System.Windows.Forms.Panel();
             this.White = new System.Windows.Forms.Panel();
@@ -71,7 +70,6 @@
             this.SelectedColor = new System.Windows.Forms.Panel();
             this.SelectedColorLabel = new System.Windows.Forms.Label();
             this.saveFile = new System.Windows.Forms.SaveFileDialog();
-            this.Undo = new System.Windows.Forms.Button();
             this.Redo = new System.Windows.Forms.Button();
             this.ToolSelector = new System.Windows.Forms.GroupBox();
             this.EraserRadio = new System.Windows.Forms.RadioButton();
@@ -80,6 +78,8 @@
             this.LineRadio = new System.Windows.Forms.RadioButton();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.customColorDialog = new System.Windows.Forms.ColorDialog();
+            this.Undo = new System.Windows.Forms.Button();
+            this.Custom = new System.Windows.Forms.Panel();
             this.menuStrip.SuspendLayout();
             this.ColorGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WidthUpDown)).BeginInit();
@@ -153,18 +153,6 @@
             this.DrawPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.OnPaint);
             this.DrawPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             this.DrawPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MouseUp);
-            // 
-            // Custom
-            // 
-            this.Custom.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.gradiant;
-            this.Custom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Custom.Location = new System.Drawing.Point(371, 19);
-            this.Custom.Name = "Custom";
-            this.Custom.Size = new System.Drawing.Size(46, 46);
-            this.Custom.TabIndex = 30;
-            this.Custom.Click += new System.EventHandler(this.Custom_Click);
-            this.Custom.MouseEnter += new System.EventHandler(this.DisplayTooltip);
-            this.Custom.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // ColorGroup
             // 
@@ -598,25 +586,14 @@
             this.saveFile.Filter = "Png Image (.png)|*.png";
             this.saveFile.FileOk += new System.ComponentModel.CancelEventHandler(this.SaveAsFileOk);
             // 
-            // Undo
-            // 
-            this.Undo.Enabled = false;
-            this.Undo.Location = new System.Drawing.Point(24, 40);
-            this.Undo.Name = "Undo";
-            this.Undo.Size = new System.Drawing.Size(60, 57);
-            this.Undo.TabIndex = 33;
-            this.Undo.Text = "Undo";
-            this.Undo.UseVisualStyleBackColor = true;
-            this.Undo.Click += new System.EventHandler(this.UndoClick);
-            // 
             // Redo
             // 
+            this.Redo.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.Redo;
             this.Redo.Enabled = false;
-            this.Redo.Location = new System.Drawing.Point(90, 41);
+            this.Redo.Location = new System.Drawing.Point(76, 52);
             this.Redo.Name = "Redo";
-            this.Redo.Size = new System.Drawing.Size(60, 57);
+            this.Redo.Size = new System.Drawing.Size(46, 46);
             this.Redo.TabIndex = 34;
-            this.Redo.Text = "Redo";
             this.Redo.UseVisualStyleBackColor = true;
             this.Redo.Click += new System.EventHandler(this.RedoClick);
             // 
@@ -683,6 +660,29 @@
             // 
             this.openFile.FileName = "openFileDialog1";
             this.openFile.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileOk);
+            // 
+            // Undo
+            // 
+            this.Undo.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.Undo;
+            this.Undo.Enabled = false;
+            this.Undo.Location = new System.Drawing.Point(24, 52);
+            this.Undo.Name = "Undo";
+            this.Undo.Size = new System.Drawing.Size(46, 46);
+            this.Undo.TabIndex = 33;
+            this.Undo.UseVisualStyleBackColor = true;
+            this.Undo.Click += new System.EventHandler(this.UndoClick);
+            // 
+            // Custom
+            // 
+            this.Custom.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.gradiant;
+            this.Custom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Custom.Location = new System.Drawing.Point(371, 19);
+            this.Custom.Name = "Custom";
+            this.Custom.Size = new System.Drawing.Size(46, 46);
+            this.Custom.TabIndex = 30;
+            this.Custom.Click += new System.EventHandler(this.Custom_Click);
+            this.Custom.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Custom.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Form1
             // 
