@@ -156,7 +156,7 @@
             // 
             // Custom
             // 
-            this.Custom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Custom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Custom.Location = new System.Drawing.Point(371, 19);
             this.Custom.Name = "Custom";
             this.Custom.Size = new System.Drawing.Size(46, 46);
@@ -207,6 +207,7 @@
             // Silver
             // 
             this.Silver.BackColor = System.Drawing.Color.Silver;
+            this.Silver.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Silver.Location = new System.Drawing.Point(36, 45);
             this.Silver.Name = "Silver";
             this.Silver.Size = new System.Drawing.Size(20, 20);
@@ -218,6 +219,7 @@
             // White
             // 
             this.White.BackColor = System.Drawing.Color.White;
+            this.White.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.White.Location = new System.Drawing.Point(10, 45);
             this.White.Name = "White";
             this.White.Size = new System.Drawing.Size(20, 20);
@@ -229,6 +231,7 @@
             // Red
             // 
             this.Red.BackColor = System.Drawing.Color.Red;
+            this.Red.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Red.Location = new System.Drawing.Point(62, 45);
             this.Red.Name = "Red";
             this.Red.Size = new System.Drawing.Size(20, 20);
@@ -240,6 +243,7 @@
             // Yellow
             // 
             this.Yellow.BackColor = System.Drawing.Color.Yellow;
+            this.Yellow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Yellow.Location = new System.Drawing.Point(86, 45);
             this.Yellow.Name = "Yellow";
             this.Yellow.Size = new System.Drawing.Size(20, 20);
@@ -251,6 +255,7 @@
             // Lime
             // 
             this.Lime.BackColor = System.Drawing.Color.Lime;
+            this.Lime.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Lime.Location = new System.Drawing.Point(111, 45);
             this.Lime.Name = "Lime";
             this.Lime.Size = new System.Drawing.Size(20, 20);
@@ -262,6 +267,7 @@
             // Aqua
             // 
             this.Aqua.BackColor = System.Drawing.Color.Aqua;
+            this.Aqua.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Aqua.Location = new System.Drawing.Point(137, 45);
             this.Aqua.Name = "Aqua";
             this.Aqua.Size = new System.Drawing.Size(20, 20);
@@ -273,6 +279,7 @@
             // Blue
             // 
             this.Blue.BackColor = System.Drawing.Color.Blue;
+            this.Blue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Blue.Location = new System.Drawing.Point(163, 45);
             this.Blue.Name = "Blue";
             this.Blue.Size = new System.Drawing.Size(20, 20);
@@ -284,6 +291,7 @@
             // Fuchsia
             // 
             this.Fuchsia.BackColor = System.Drawing.Color.Fuchsia;
+            this.Fuchsia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Fuchsia.Location = new System.Drawing.Point(189, 45);
             this.Fuchsia.Name = "Fuchsia";
             this.Fuchsia.Size = new System.Drawing.Size(20, 20);
@@ -295,6 +303,7 @@
             // LemonChiffon
             // 
             this.LemonChiffon.BackColor = System.Drawing.Color.LemonChiffon;
+            this.LemonChiffon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.LemonChiffon.Location = new System.Drawing.Point(215, 45);
             this.LemonChiffon.Name = "LemonChiffon";
             this.LemonChiffon.Size = new System.Drawing.Size(20, 20);
@@ -306,6 +315,7 @@
             // SpringGreen
             // 
             this.SpringGreen.BackColor = System.Drawing.Color.SpringGreen;
+            this.SpringGreen.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.SpringGreen.Location = new System.Drawing.Point(241, 45);
             this.SpringGreen.Name = "SpringGreen";
             this.SpringGreen.Size = new System.Drawing.Size(20, 20);
@@ -317,6 +327,7 @@
             // PowderBlue
             // 
             this.PowderBlue.BackColor = System.Drawing.Color.PowderBlue;
+            this.PowderBlue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PowderBlue.Location = new System.Drawing.Point(267, 45);
             this.PowderBlue.Name = "PowderBlue";
             this.PowderBlue.Size = new System.Drawing.Size(20, 20);
@@ -328,6 +339,7 @@
             // MediumSlateBlue
             // 
             this.MediumSlateBlue.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.MediumSlateBlue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.MediumSlateBlue.Location = new System.Drawing.Point(293, 45);
             this.MediumSlateBlue.Name = "MediumSlateBlue";
             this.MediumSlateBlue.Size = new System.Drawing.Size(20, 20);
@@ -339,6 +351,7 @@
             // DeepPink
             // 
             this.DeepPink.BackColor = System.Drawing.Color.DeepPink;
+            this.DeepPink.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DeepPink.Location = new System.Drawing.Point(319, 45);
             this.DeepPink.Name = "DeepPink";
             this.DeepPink.Size = new System.Drawing.Size(20, 20);
@@ -350,6 +363,7 @@
             // SandyBrown
             // 
             this.SandyBrown.BackColor = System.Drawing.Color.SandyBrown;
+            this.SandyBrown.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.SandyBrown.Location = new System.Drawing.Point(345, 45);
             this.SandyBrown.Name = "SandyBrown";
             this.SandyBrown.Size = new System.Drawing.Size(20, 20);
@@ -361,6 +375,7 @@
             // Sienna
             // 
             this.Sienna.BackColor = System.Drawing.Color.Sienna;
+            this.Sienna.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Sienna.Location = new System.Drawing.Point(345, 20);
             this.Sienna.Name = "Sienna";
             this.Sienna.Size = new System.Drawing.Size(20, 20);
@@ -372,6 +387,7 @@
             // BlueViolet
             // 
             this.BlueViolet.BackColor = System.Drawing.Color.BlueViolet;
+            this.BlueViolet.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.BlueViolet.Location = new System.Drawing.Point(319, 20);
             this.BlueViolet.Name = "BlueViolet";
             this.BlueViolet.Size = new System.Drawing.Size(20, 20);
@@ -383,6 +399,7 @@
             // SteelBlue
             // 
             this.SteelBlue.BackColor = System.Drawing.Color.SteelBlue;
+            this.SteelBlue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.SteelBlue.Location = new System.Drawing.Point(293, 20);
             this.SteelBlue.Name = "SteelBlue";
             this.SteelBlue.Size = new System.Drawing.Size(20, 20);
@@ -394,6 +411,7 @@
             // DeepSkyBlue
             // 
             this.DeepSkyBlue.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.DeepSkyBlue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DeepSkyBlue.Location = new System.Drawing.Point(267, 20);
             this.DeepSkyBlue.Name = "DeepSkyBlue";
             this.DeepSkyBlue.Size = new System.Drawing.Size(20, 20);
@@ -405,6 +423,7 @@
             // DarkSlateGray
             // 
             this.DarkSlateGray.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.DarkSlateGray.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DarkSlateGray.Location = new System.Drawing.Point(241, 20);
             this.DarkSlateGray.Name = "DarkSlateGray";
             this.DarkSlateGray.Size = new System.Drawing.Size(20, 20);
@@ -416,6 +435,7 @@
             // DarkKhaki
             // 
             this.DarkKhaki.BackColor = System.Drawing.Color.DarkKhaki;
+            this.DarkKhaki.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DarkKhaki.Location = new System.Drawing.Point(215, 20);
             this.DarkKhaki.Name = "DarkKhaki";
             this.DarkKhaki.Size = new System.Drawing.Size(20, 20);
@@ -427,6 +447,7 @@
             // Purple
             // 
             this.Purple.BackColor = System.Drawing.Color.Purple;
+            this.Purple.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Purple.Location = new System.Drawing.Point(189, 20);
             this.Purple.Name = "Purple";
             this.Purple.Size = new System.Drawing.Size(20, 20);
@@ -438,6 +459,7 @@
             // Navy
             // 
             this.Navy.BackColor = System.Drawing.Color.Navy;
+            this.Navy.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Navy.Location = new System.Drawing.Point(163, 20);
             this.Navy.Name = "Navy";
             this.Navy.Size = new System.Drawing.Size(20, 20);
@@ -449,6 +471,7 @@
             // Teal
             // 
             this.Teal.BackColor = System.Drawing.Color.Teal;
+            this.Teal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Teal.Location = new System.Drawing.Point(137, 20);
             this.Teal.Name = "Teal";
             this.Teal.Size = new System.Drawing.Size(20, 20);
@@ -460,6 +483,7 @@
             // Green
             // 
             this.Green.BackColor = System.Drawing.Color.Green;
+            this.Green.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Green.Location = new System.Drawing.Point(111, 20);
             this.Green.Name = "Green";
             this.Green.Size = new System.Drawing.Size(20, 20);
@@ -471,6 +495,7 @@
             // Olive
             // 
             this.Olive.BackColor = System.Drawing.Color.Olive;
+            this.Olive.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Olive.Location = new System.Drawing.Point(86, 20);
             this.Olive.Name = "Olive";
             this.Olive.Size = new System.Drawing.Size(20, 20);
@@ -482,6 +507,7 @@
             // Maroon
             // 
             this.Maroon.BackColor = System.Drawing.Color.Maroon;
+            this.Maroon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Maroon.Location = new System.Drawing.Point(62, 20);
             this.Maroon.Name = "Maroon";
             this.Maroon.Size = new System.Drawing.Size(20, 20);
@@ -493,6 +519,7 @@
             // Gray
             // 
             this.Gray.BackColor = System.Drawing.Color.Gray;
+            this.Gray.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Gray.Location = new System.Drawing.Point(36, 20);
             this.Gray.Name = "Gray";
             this.Gray.Size = new System.Drawing.Size(20, 20);
@@ -504,6 +531,7 @@
             // Black
             // 
             this.Black.BackColor = System.Drawing.Color.Black;
+            this.Black.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Black.Location = new System.Drawing.Point(10, 20);
             this.Black.Name = "Black";
             this.Black.Size = new System.Drawing.Size(20, 20);
