@@ -26,19 +26,21 @@ namespace CSCI504_Assignment4
         };
         private Tool tool = Tool.Line;
         private ToolTip tt;
-        private Pen pen = new Pen(Color.Black, 1);
+        private Pen pen;
         private Point start;
         private Point finish;
-        private Stack<Line> undoLines = new Stack<Line>();
-        private Stack<Line> redoLines = new Stack<Line>();
         private string fileName = string.Empty;
-        private List<Line> drawLines = new List<Line>();
-        private Timer timer = new Timer();
-        private ColorDialog custom = new ColorDialog();
+        private Timer timer;
+        private Stack<Line> redoLines;
+        private Stack<Line> drawLines;
 
         public Form1()
         {
             InitializeComponent();
+            pen = new Pen(Color.Black, 1);
+            redoLines = new Stack<Line>();
+            drawLines = new Stack<Line>();
+            timer = new Timer();
         }
 
         private void DisplayTooltip(object sender, EventArgs e)
@@ -77,8 +79,7 @@ namespace CSCI504_Assignment4
             if (!start.IsEmpty && !finish.IsEmpty)
                 if (LineRadio.Checked)
                 {
-                    undoLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point,Point>(start, finish)));
-                    drawLines.Add(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
+                    drawLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
                 }
             start = Point.Empty;
             finish = Point.Empty;
@@ -89,17 +90,14 @@ namespace CSCI504_Assignment4
         private void DrawImage(object sender, EventArgs e)
         {
             finish = MousePosition;
-            if (EraserRadio.Checked)
-                pen.Color = DrawPanel.BackColor;
-            undoLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
-            drawLines.Add(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
+            drawLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
             start = finish;
             System.Threading.Thread.Sleep(500);
         }
 
         private void OnPaint(object sender, PaintEventArgs e)
         {
-            foreach (var line in drawLines)
+            foreach (var line in drawLines.Reverse())   //This prints the stack in reverse order so that the most recent line is on top.
                 e.Graphics.DrawLine(line.Pen, line.Points.Item1, line.Points.Item2);
             if (!start.IsEmpty && !finish.IsEmpty)
                 e.Graphics.DrawLine(pen, start, finish);
@@ -137,6 +135,7 @@ namespace CSCI504_Assignment4
                 }
 
                 bm.Save(fileName, ImageFormat.Png);
+                MessageBox.Show("Your file has been saved!");
             }
         }
 
@@ -153,30 +152,31 @@ namespace CSCI504_Assignment4
             DrawPanel.DrawToBitmap(bm, new Rectangle(0, 0, width, height));
 
             bm.Save(saveFile.FileName, ImageFormat.Png);
+            MessageBox.Show("Your file has been saved!");
         }
 
         private void UndoClick(object sender, EventArgs e)
         {
-            var line = undoLines.Pop(); //pop line from undoList
-            redoLines.Push(line);       //add line to redoList
-            Redo.Enabled = true;        //as soon as a line is undone we want to be able to redo it.
-            if (!undoLines.Any())
+            var line = drawLines.Pop();     //pop line from drawLines
+            redoLines.Push(line);           //add line to redoLines
+            Redo.Enabled = true;            //as soon as a line is undone we want to be able to redo it.
+            if (!drawLines.Any())
             {
-                Undo.Enabled = false;   //if the undo list is empty disable the button
+                Undo.Enabled = false;       //if drawLines is empty disable the undo button
             }
-            DrawPanel.Invalidate();     //redraw the Draw Panel
+            DrawPanel.Invalidate();         //redraw the Draw Panel
         }
 
         private void RedoClick(object sender, EventArgs e)
         {
-            var line = redoLines.Pop(); //pop line from the redoList
-            undoLines.Push(line);       //add line back to the undoList
-            Undo.Enabled = true;        //as soon as a line is redone we want to be able to undo it.
+            var line = redoLines.Pop();     //pop line from redoLines
+            drawLines.Push(line);           //add line back to drawLines
+            Undo.Enabled = true;            //as soon as a line is redone we want to be able to undo it.
             if (!redoLines.Any())
             {
-                Redo.Enabled = false;   //if the redo list is empty disable the button
+                Redo.Enabled = false;       //if redoLines is empty disable the redo button
             }
-            DrawPanel.Invalidate();     //redraw the Draw Panel
+            DrawPanel.Invalidate();         //redraw the Draw Panel
         }
 
         private void ToolSelected(object sender, EventArgs e)
@@ -185,6 +185,7 @@ namespace CSCI504_Assignment4
             {
                 WidthUpDown.Minimum = 1;
                 WidthUpDown.Maximum = 5;
+                pen.Color = SelectedColor.BackColor;
                 tool = Tool.Line;
                 WidthUpDown.Value = 1;
             }
@@ -192,6 +193,7 @@ namespace CSCI504_Assignment4
             {
                 WidthUpDown.Minimum = 1;
                 WidthUpDown.Maximum = 3;
+                pen.Color = SelectedColor.BackColor;
                 tool = Tool.Pencil;
                 WidthUpDown.Value = 1;
             }
@@ -199,6 +201,7 @@ namespace CSCI504_Assignment4
             {
                 WidthUpDown.Minimum = 5;
                 WidthUpDown.Maximum = 8;
+                pen.Color = SelectedColor.BackColor;
                 tool = Tool.Brush;
                 WidthUpDown.Value = 5;
             }
@@ -206,6 +209,7 @@ namespace CSCI504_Assignment4
             {
                 WidthUpDown.Minimum = 1;
                 WidthUpDown.Maximum = 10;
+                pen.Color = DrawPanel.BackColor;
                 tool = Tool.Eraser;
                 WidthUpDown.Value = 1;
             }
@@ -214,15 +218,11 @@ namespace CSCI504_Assignment4
         private void OpenFileClick(object sender, EventArgs e)
         {
             DialogResult response = DialogResult.Cancel;
-            if (undoLines.Any() || redoLines.Any())
+            if (drawLines.Any() || redoLines.Any())
             {
-                response = MessageBox.Show("Would you like to save your changes first?", "Unsaved Changes!", MessageBoxButtons.OKCancel);
+                ShowUnsavedChangedWarning(sender, e);
             }
-            if (response == DialogResult.OK)
-            {
-                Save(sender, e);
-                MessageBox.Show("Your file has been saved!");
-            }
+
             openFile.ShowDialog();
         }
 
@@ -238,7 +238,7 @@ namespace CSCI504_Assignment4
             }
             
             DrawPanel.BackgroundImage = img;
-            undoLines.Clear();
+            drawLines.Clear();
             Undo.Enabled = false;
             redoLines.Clear();
             Redo.Enabled = false;
@@ -247,32 +247,35 @@ namespace CSCI504_Assignment4
 
         private void NewImageClick(object sender, EventArgs e)
         {
-            DialogResult response = DialogResult.Cancel;
-            if (undoLines.Any() || redoLines.Any())
+            if (drawLines.Any() || redoLines.Any())
             {
-                response = MessageBox.Show("Would you like to save your changes first?", "Unsaved Changes!", MessageBoxButtons.OKCancel);
-            }
-            if (response == DialogResult.OK)
-            {
-                Save(sender, e);
-                MessageBox.Show("Your file has been saved!");
+                ShowUnsavedChangedWarning(sender, e);
             }
 
-            undoLines.Clear();
+            drawLines.Clear();
             Undo.Enabled = false;
             redoLines.Clear();
             Redo.Enabled = false;
             fileName = string.Empty;
+            DrawPanel.BackgroundImage = null;
             DrawPanel.Invalidate();
+        }
+
+        private void ShowUnsavedChangedWarning(object sender, EventArgs e)
+        {
+            var response = MessageBox.Show("Would you like to save your changes first?", "Unsaved Changes!", MessageBoxButtons.YesNo);
+            if (response == DialogResult.Yes)
+            {
+                Save(sender, e);
+            }
         }
         
         private void Custom_Click(object sender, EventArgs e)
         {
-            if (custom.ShowDialog() != DialogResult.Cancel)
+            if (customColorDialog.ShowDialog() != DialogResult.Cancel)
             {
-                pen.Color = custom.Color;
-                SelectedColor.BackColor = custom.Color;
-                Custom.BackColor = custom.Color;
+                pen.Color = customColorDialog.Color;
+                SelectedColor.BackColor = customColorDialog.Color;
             }
         }
     }

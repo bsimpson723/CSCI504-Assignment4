@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,7 +36,6 @@
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recentlyOpenedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DrawPanel = new System.Windows.Forms.Panel();
-            this.Custom = new System.Windows.Forms.Panel();
             this.ColorGroup = new System.Windows.Forms.GroupBox();
             this.Silver = new System.Windows.Forms.Panel();
             this.White = new System.Windows.Forms.Panel();
@@ -71,29 +70,31 @@
             this.SelectedColor = new System.Windows.Forms.Panel();
             this.SelectedColorLabel = new System.Windows.Forms.Label();
             this.saveFile = new System.Windows.Forms.SaveFileDialog();
-            this.Undo = new System.Windows.Forms.Button();
-            this.Redo = new System.Windows.Forms.Button();
             this.ToolSelector = new System.Windows.Forms.GroupBox();
             this.EraserRadio = new System.Windows.Forms.RadioButton();
             this.BrushRadio = new System.Windows.Forms.RadioButton();
             this.PencilRadio = new System.Windows.Forms.RadioButton();
             this.LineRadio = new System.Windows.Forms.RadioButton();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
-            this.menuStrip1.SuspendLayout();
+            this.customColorDialog = new System.Windows.Forms.ColorDialog();
+            this.Redo = new System.Windows.Forms.Button();
+            this.Undo = new System.Windows.Forms.Button();
+            this.Custom = new System.Windows.Forms.Panel();
+            this.menuStrip.SuspendLayout();
             this.ColorGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WidthUpDown)).BeginInit();
             this.ToolSelector.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1034, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1034, 24);
+            this.menuStrip.TabIndex = 0;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -110,35 +111,35 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.NewImageClick);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenFileClick);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.Save);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAs);
             // 
             // recentlyOpenedToolStripMenuItem
             // 
             this.recentlyOpenedToolStripMenuItem.Name = "recentlyOpenedToolStripMenuItem";
-            this.recentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.recentlyOpenedToolStripMenuItem.Text = "Recent Images";
             // 
             // DrawPanel
@@ -152,17 +153,6 @@
             this.DrawPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.OnPaint);
             this.DrawPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             this.DrawPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MouseUp);
-            // 
-            // Custom
-            // 
-            this.Custom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Custom.Location = new System.Drawing.Point(371, 19);
-            this.Custom.Name = "Custom";
-            this.Custom.Size = new System.Drawing.Size(46, 46);
-            this.Custom.TabIndex = 30;
-            this.Custom.MouseEnter += new System.EventHandler(this.DisplayTooltip);
-            this.Custom.MouseLeave += new System.EventHandler(this.HideTooltip);
-            this.Custom.Click += new System.EventHandler(this.Custom_Click);
             // 
             // ColorGroup
             // 
@@ -206,6 +196,7 @@
             // Silver
             // 
             this.Silver.BackColor = System.Drawing.Color.Silver;
+            this.Silver.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Silver.Location = new System.Drawing.Point(36, 45);
             this.Silver.Name = "Silver";
             this.Silver.Size = new System.Drawing.Size(20, 20);
@@ -217,6 +208,7 @@
             // White
             // 
             this.White.BackColor = System.Drawing.Color.White;
+            this.White.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.White.Location = new System.Drawing.Point(10, 45);
             this.White.Name = "White";
             this.White.Size = new System.Drawing.Size(20, 20);
@@ -228,6 +220,7 @@
             // Red
             // 
             this.Red.BackColor = System.Drawing.Color.Red;
+            this.Red.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Red.Location = new System.Drawing.Point(62, 45);
             this.Red.Name = "Red";
             this.Red.Size = new System.Drawing.Size(20, 20);
@@ -239,6 +232,7 @@
             // Yellow
             // 
             this.Yellow.BackColor = System.Drawing.Color.Yellow;
+            this.Yellow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Yellow.Location = new System.Drawing.Point(86, 45);
             this.Yellow.Name = "Yellow";
             this.Yellow.Size = new System.Drawing.Size(20, 20);
@@ -250,6 +244,7 @@
             // Lime
             // 
             this.Lime.BackColor = System.Drawing.Color.Lime;
+            this.Lime.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Lime.Location = new System.Drawing.Point(111, 45);
             this.Lime.Name = "Lime";
             this.Lime.Size = new System.Drawing.Size(20, 20);
@@ -261,6 +256,7 @@
             // Aqua
             // 
             this.Aqua.BackColor = System.Drawing.Color.Aqua;
+            this.Aqua.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Aqua.Location = new System.Drawing.Point(137, 45);
             this.Aqua.Name = "Aqua";
             this.Aqua.Size = new System.Drawing.Size(20, 20);
@@ -272,6 +268,7 @@
             // Blue
             // 
             this.Blue.BackColor = System.Drawing.Color.Blue;
+            this.Blue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Blue.Location = new System.Drawing.Point(163, 45);
             this.Blue.Name = "Blue";
             this.Blue.Size = new System.Drawing.Size(20, 20);
@@ -283,6 +280,7 @@
             // Fuchsia
             // 
             this.Fuchsia.BackColor = System.Drawing.Color.Fuchsia;
+            this.Fuchsia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Fuchsia.Location = new System.Drawing.Point(189, 45);
             this.Fuchsia.Name = "Fuchsia";
             this.Fuchsia.Size = new System.Drawing.Size(20, 20);
@@ -294,6 +292,7 @@
             // LemonChiffon
             // 
             this.LemonChiffon.BackColor = System.Drawing.Color.LemonChiffon;
+            this.LemonChiffon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.LemonChiffon.Location = new System.Drawing.Point(215, 45);
             this.LemonChiffon.Name = "LemonChiffon";
             this.LemonChiffon.Size = new System.Drawing.Size(20, 20);
@@ -305,6 +304,7 @@
             // SpringGreen
             // 
             this.SpringGreen.BackColor = System.Drawing.Color.SpringGreen;
+            this.SpringGreen.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.SpringGreen.Location = new System.Drawing.Point(241, 45);
             this.SpringGreen.Name = "SpringGreen";
             this.SpringGreen.Size = new System.Drawing.Size(20, 20);
@@ -316,6 +316,7 @@
             // PowderBlue
             // 
             this.PowderBlue.BackColor = System.Drawing.Color.PowderBlue;
+            this.PowderBlue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PowderBlue.Location = new System.Drawing.Point(267, 45);
             this.PowderBlue.Name = "PowderBlue";
             this.PowderBlue.Size = new System.Drawing.Size(20, 20);
@@ -327,6 +328,7 @@
             // MediumSlateBlue
             // 
             this.MediumSlateBlue.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.MediumSlateBlue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.MediumSlateBlue.Location = new System.Drawing.Point(293, 45);
             this.MediumSlateBlue.Name = "MediumSlateBlue";
             this.MediumSlateBlue.Size = new System.Drawing.Size(20, 20);
@@ -338,6 +340,7 @@
             // DeepPink
             // 
             this.DeepPink.BackColor = System.Drawing.Color.DeepPink;
+            this.DeepPink.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DeepPink.Location = new System.Drawing.Point(319, 45);
             this.DeepPink.Name = "DeepPink";
             this.DeepPink.Size = new System.Drawing.Size(20, 20);
@@ -349,6 +352,7 @@
             // SandyBrown
             // 
             this.SandyBrown.BackColor = System.Drawing.Color.SandyBrown;
+            this.SandyBrown.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.SandyBrown.Location = new System.Drawing.Point(345, 45);
             this.SandyBrown.Name = "SandyBrown";
             this.SandyBrown.Size = new System.Drawing.Size(20, 20);
@@ -360,6 +364,7 @@
             // Sienna
             // 
             this.Sienna.BackColor = System.Drawing.Color.Sienna;
+            this.Sienna.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Sienna.Location = new System.Drawing.Point(345, 20);
             this.Sienna.Name = "Sienna";
             this.Sienna.Size = new System.Drawing.Size(20, 20);
@@ -371,6 +376,7 @@
             // BlueViolet
             // 
             this.BlueViolet.BackColor = System.Drawing.Color.BlueViolet;
+            this.BlueViolet.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.BlueViolet.Location = new System.Drawing.Point(319, 20);
             this.BlueViolet.Name = "BlueViolet";
             this.BlueViolet.Size = new System.Drawing.Size(20, 20);
@@ -382,6 +388,7 @@
             // SteelBlue
             // 
             this.SteelBlue.BackColor = System.Drawing.Color.SteelBlue;
+            this.SteelBlue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.SteelBlue.Location = new System.Drawing.Point(293, 20);
             this.SteelBlue.Name = "SteelBlue";
             this.SteelBlue.Size = new System.Drawing.Size(20, 20);
@@ -393,6 +400,7 @@
             // DeepSkyBlue
             // 
             this.DeepSkyBlue.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.DeepSkyBlue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DeepSkyBlue.Location = new System.Drawing.Point(267, 20);
             this.DeepSkyBlue.Name = "DeepSkyBlue";
             this.DeepSkyBlue.Size = new System.Drawing.Size(20, 20);
@@ -404,6 +412,7 @@
             // DarkSlateGray
             // 
             this.DarkSlateGray.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.DarkSlateGray.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DarkSlateGray.Location = new System.Drawing.Point(241, 20);
             this.DarkSlateGray.Name = "DarkSlateGray";
             this.DarkSlateGray.Size = new System.Drawing.Size(20, 20);
@@ -415,6 +424,7 @@
             // DarkKhaki
             // 
             this.DarkKhaki.BackColor = System.Drawing.Color.DarkKhaki;
+            this.DarkKhaki.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DarkKhaki.Location = new System.Drawing.Point(215, 20);
             this.DarkKhaki.Name = "DarkKhaki";
             this.DarkKhaki.Size = new System.Drawing.Size(20, 20);
@@ -426,6 +436,7 @@
             // Purple
             // 
             this.Purple.BackColor = System.Drawing.Color.Purple;
+            this.Purple.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Purple.Location = new System.Drawing.Point(189, 20);
             this.Purple.Name = "Purple";
             this.Purple.Size = new System.Drawing.Size(20, 20);
@@ -437,6 +448,7 @@
             // Navy
             // 
             this.Navy.BackColor = System.Drawing.Color.Navy;
+            this.Navy.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Navy.Location = new System.Drawing.Point(163, 20);
             this.Navy.Name = "Navy";
             this.Navy.Size = new System.Drawing.Size(20, 20);
@@ -448,6 +460,7 @@
             // Teal
             // 
             this.Teal.BackColor = System.Drawing.Color.Teal;
+            this.Teal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Teal.Location = new System.Drawing.Point(137, 20);
             this.Teal.Name = "Teal";
             this.Teal.Size = new System.Drawing.Size(20, 20);
@@ -459,6 +472,7 @@
             // Green
             // 
             this.Green.BackColor = System.Drawing.Color.Green;
+            this.Green.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Green.Location = new System.Drawing.Point(111, 20);
             this.Green.Name = "Green";
             this.Green.Size = new System.Drawing.Size(20, 20);
@@ -470,6 +484,7 @@
             // Olive
             // 
             this.Olive.BackColor = System.Drawing.Color.Olive;
+            this.Olive.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Olive.Location = new System.Drawing.Point(86, 20);
             this.Olive.Name = "Olive";
             this.Olive.Size = new System.Drawing.Size(20, 20);
@@ -481,6 +496,7 @@
             // Maroon
             // 
             this.Maroon.BackColor = System.Drawing.Color.Maroon;
+            this.Maroon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Maroon.Location = new System.Drawing.Point(62, 20);
             this.Maroon.Name = "Maroon";
             this.Maroon.Size = new System.Drawing.Size(20, 20);
@@ -492,6 +508,7 @@
             // Gray
             // 
             this.Gray.BackColor = System.Drawing.Color.Gray;
+            this.Gray.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Gray.Location = new System.Drawing.Point(36, 20);
             this.Gray.Name = "Gray";
             this.Gray.Size = new System.Drawing.Size(20, 20);
@@ -503,6 +520,7 @@
             // Black
             // 
             this.Black.BackColor = System.Drawing.Color.Black;
+            this.Black.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Black.Location = new System.Drawing.Point(10, 20);
             this.Black.Name = "Black";
             this.Black.Size = new System.Drawing.Size(20, 20);
@@ -568,37 +586,16 @@
             this.saveFile.Filter = "Png Image (.png)|*.png";
             this.saveFile.FileOk += new System.ComponentModel.CancelEventHandler(this.SaveAsFileOk);
             // 
-            // Undo
-            // 
-            this.Undo.Enabled = false;
-            this.Undo.Location = new System.Drawing.Point(24, 40);
-            this.Undo.Name = "Undo";
-            this.Undo.Size = new System.Drawing.Size(60, 57);
-            this.Undo.TabIndex = 33;
-            this.Undo.Text = "Undo";
-            this.Undo.UseVisualStyleBackColor = true;
-            this.Undo.Click += new System.EventHandler(this.UndoClick);
-            // 
-            // Redo
-            // 
-            this.Redo.Enabled = false;
-            this.Redo.Location = new System.Drawing.Point(90, 41);
-            this.Redo.Name = "Redo";
-            this.Redo.Size = new System.Drawing.Size(60, 57);
-            this.Redo.TabIndex = 34;
-            this.Redo.Text = "Redo";
-            this.Redo.UseVisualStyleBackColor = true;
-            this.Redo.Click += new System.EventHandler(this.RedoClick);
-            // 
             // ToolSelector
             // 
             this.ToolSelector.Controls.Add(this.EraserRadio);
             this.ToolSelector.Controls.Add(this.BrushRadio);
             this.ToolSelector.Controls.Add(this.PencilRadio);
             this.ToolSelector.Controls.Add(this.LineRadio);
-            this.ToolSelector.Location = new System.Drawing.Point(158, 44);
+            this.ToolSelector.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolSelector.Location = new System.Drawing.Point(158, 33);
             this.ToolSelector.Name = "ToolSelector";
-            this.ToolSelector.Size = new System.Drawing.Size(296, 53);
+            this.ToolSelector.Size = new System.Drawing.Size(296, 77);
             this.ToolSelector.TabIndex = 35;
             this.ToolSelector.TabStop = false;
             this.ToolSelector.Text = "Tools";
@@ -608,7 +605,7 @@
             this.EraserRadio.AutoSize = true;
             this.EraserRadio.Location = new System.Drawing.Point(235, 26);
             this.EraserRadio.Name = "EraserRadio";
-            this.EraserRadio.Size = new System.Drawing.Size(55, 17);
+            this.EraserRadio.Size = new System.Drawing.Size(61, 17);
             this.EraserRadio.TabIndex = 3;
             this.EraserRadio.Text = "Eraser";
             this.EraserRadio.UseVisualStyleBackColor = true;
@@ -619,7 +616,7 @@
             this.BrushRadio.AutoSize = true;
             this.BrushRadio.Location = new System.Drawing.Point(153, 26);
             this.BrushRadio.Name = "BrushRadio";
-            this.BrushRadio.Size = new System.Drawing.Size(52, 17);
+            this.BrushRadio.Size = new System.Drawing.Size(57, 17);
             this.BrushRadio.TabIndex = 2;
             this.BrushRadio.Text = "Brush";
             this.BrushRadio.UseVisualStyleBackColor = true;
@@ -630,7 +627,7 @@
             this.PencilRadio.AutoSize = true;
             this.PencilRadio.Location = new System.Drawing.Point(76, 26);
             this.PencilRadio.Name = "PencilRadio";
-            this.PencilRadio.Size = new System.Drawing.Size(54, 17);
+            this.PencilRadio.Size = new System.Drawing.Size(60, 17);
             this.PencilRadio.TabIndex = 1;
             this.PencilRadio.Text = "Pencil";
             this.PencilRadio.UseVisualStyleBackColor = true;
@@ -642,7 +639,7 @@
             this.LineRadio.Checked = true;
             this.LineRadio.Location = new System.Drawing.Point(13, 26);
             this.LineRadio.Name = "LineRadio";
-            this.LineRadio.Size = new System.Drawing.Size(45, 17);
+            this.LineRadio.Size = new System.Drawing.Size(49, 17);
             this.LineRadio.TabIndex = 0;
             this.LineRadio.TabStop = true;
             this.LineRadio.Text = "Line";
@@ -653,6 +650,46 @@
             // 
             this.openFile.FileName = "openFileDialog1";
             this.openFile.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileOk);
+            // 
+            // Redo
+            // 
+            this.Redo.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.Redo;
+            //Photo credit is optional license, but...
+            //User: GlyphLabs
+            //Hosted at: https://www.iconfinder.com/icons/1493283/undo_icon
+            this.Redo.Enabled = false;
+            this.Redo.Location = new System.Drawing.Point(76, 52);
+            this.Redo.Name = "Redo";
+            this.Redo.Size = new System.Drawing.Size(46, 46);
+            this.Redo.TabIndex = 34;
+            this.Redo.UseVisualStyleBackColor = true;
+            this.Redo.Click += new System.EventHandler(this.RedoClick);
+            // 
+            // Undo
+            // 
+            this.Undo.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.Undo;
+            //Photo credit is optional license, but...
+            //User: GlyphLabs
+            //Hosted at: https://www.iconfinder.com/icons/1493283/undo_icon
+            this.Undo.Enabled = false;
+            this.Undo.Location = new System.Drawing.Point(24, 52);
+            this.Undo.Name = "Undo";
+            this.Undo.Size = new System.Drawing.Size(46, 46);
+            this.Undo.TabIndex = 33;
+            this.Undo.UseVisualStyleBackColor = true;
+            this.Undo.Click += new System.EventHandler(this.UndoClick);
+            // 
+            // Custom
+            // 
+            this.Custom.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.gradiant;
+            this.Custom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Custom.Location = new System.Drawing.Point(371, 19);
+            this.Custom.Name = "Custom";
+            this.Custom.Size = new System.Drawing.Size(46, 46);
+            this.Custom.TabIndex = 30;
+            this.Custom.Click += new System.EventHandler(this.Custom_Click);
+            this.Custom.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Custom.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Form1
             // 
@@ -668,12 +705,12 @@
             this.Controls.Add(this.WidthLabel);
             this.Controls.Add(this.ColorGroup);
             this.Controls.Add(this.DrawPanel);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "Form1";
             this.Text = "Li and Ben\'s Ode to Paint!";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ColorGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.WidthUpDown)).EndInit();
             this.ToolSelector.ResumeLayout(false);
@@ -685,7 +722,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
@@ -736,6 +773,7 @@
         private System.Windows.Forms.RadioButton PencilRadio;
         private System.Windows.Forms.RadioButton LineRadio;
         private System.Windows.Forms.OpenFileDialog openFile;
+        private System.Windows.Forms.ColorDialog customColorDialog;
     }
 }
 
