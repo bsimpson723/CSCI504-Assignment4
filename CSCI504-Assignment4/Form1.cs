@@ -66,9 +66,12 @@ namespace CSCI504_Assignment4
                 start = e.Location;
                 redoLines.Clear();      //once you draw a new line
                 Redo.Enabled = false;   //"Redo" is no longer possible
-                timer.Tick += DrawImage;
-                timer.Interval = 5000;
-                timer.Start();
+                if (!LineRadio.Checked)
+                {
+                    timer.Tick += DrawImage;
+                    timer.Interval = 10;
+                    timer.Start();
+                }
             }
         }
 
@@ -81,6 +84,10 @@ namespace CSCI504_Assignment4
                 {
                     drawLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
                 }
+                else
+                {
+                    timer.Stop();
+                }
             start = Point.Empty;
             finish = Point.Empty;
             Undo.Enabled = true;    //as soon as a line exists we want to be able to undo it.
@@ -89,10 +96,9 @@ namespace CSCI504_Assignment4
         
         private void DrawImage(object sender, EventArgs e)
         {
-            finish = MousePosition;
+            finish = DrawPanel.PointToClient(Cursor.Position);
             drawLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
             start = finish;
-            System.Threading.Thread.Sleep(500);
         }
 
         private void OnPaint(object sender, PaintEventArgs e)
