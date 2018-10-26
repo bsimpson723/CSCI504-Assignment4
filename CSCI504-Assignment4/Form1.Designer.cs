@@ -654,6 +654,9 @@
             // Redo
             // 
             this.Redo.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.Redo;
+            //Photo credit is optional license, but...
+            //User: GlyphLabs
+            //Hosted at: https://www.iconfinder.com/icons/1493283/undo_icon
             this.Redo.Enabled = false;
             this.Redo.Location = new System.Drawing.Point(76, 52);
             this.Redo.Name = "Redo";
@@ -665,6 +668,9 @@
             // Undo
             // 
             this.Undo.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.Undo;
+            //Photo credit is optional license, but...
+            //User: GlyphLabs
+            //Hosted at: https://www.iconfinder.com/icons/1493283/undo_icon
             this.Undo.Enabled = false;
             this.Undo.Location = new System.Drawing.Point(24, 52);
             this.Undo.Name = "Undo";
