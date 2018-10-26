@@ -70,7 +70,6 @@
             this.SelectedColor = new System.Windows.Forms.Panel();
             this.SelectedColorLabel = new System.Windows.Forms.Label();
             this.saveFile = new System.Windows.Forms.SaveFileDialog();
-            this.Redo = new System.Windows.Forms.Button();
             this.ToolSelector = new System.Windows.Forms.GroupBox();
             this.EraserRadio = new System.Windows.Forms.RadioButton();
             this.BrushRadio = new System.Windows.Forms.RadioButton();
@@ -78,6 +77,7 @@
             this.LineRadio = new System.Windows.Forms.RadioButton();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.customColorDialog = new System.Windows.Forms.ColorDialog();
+            this.Redo = new System.Windows.Forms.Button();
             this.Undo = new System.Windows.Forms.Button();
             this.Custom = new System.Windows.Forms.Panel();
             this.menuStrip.SuspendLayout();
@@ -586,26 +586,16 @@
             this.saveFile.Filter = "Png Image (.png)|*.png";
             this.saveFile.FileOk += new System.ComponentModel.CancelEventHandler(this.SaveAsFileOk);
             // 
-            // Redo
-            // 
-            this.Redo.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.Redo;
-            this.Redo.Enabled = false;
-            this.Redo.Location = new System.Drawing.Point(76, 52);
-            this.Redo.Name = "Redo";
-            this.Redo.Size = new System.Drawing.Size(46, 46);
-            this.Redo.TabIndex = 34;
-            this.Redo.UseVisualStyleBackColor = true;
-            this.Redo.Click += new System.EventHandler(this.RedoClick);
-            // 
             // ToolSelector
             // 
             this.ToolSelector.Controls.Add(this.EraserRadio);
             this.ToolSelector.Controls.Add(this.BrushRadio);
             this.ToolSelector.Controls.Add(this.PencilRadio);
             this.ToolSelector.Controls.Add(this.LineRadio);
-            this.ToolSelector.Location = new System.Drawing.Point(158, 44);
+            this.ToolSelector.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolSelector.Location = new System.Drawing.Point(158, 33);
             this.ToolSelector.Name = "ToolSelector";
-            this.ToolSelector.Size = new System.Drawing.Size(296, 53);
+            this.ToolSelector.Size = new System.Drawing.Size(296, 77);
             this.ToolSelector.TabIndex = 35;
             this.ToolSelector.TabStop = false;
             this.ToolSelector.Text = "Tools";
@@ -615,7 +605,7 @@
             this.EraserRadio.AutoSize = true;
             this.EraserRadio.Location = new System.Drawing.Point(235, 26);
             this.EraserRadio.Name = "EraserRadio";
-            this.EraserRadio.Size = new System.Drawing.Size(55, 17);
+            this.EraserRadio.Size = new System.Drawing.Size(61, 17);
             this.EraserRadio.TabIndex = 3;
             this.EraserRadio.Text = "Eraser";
             this.EraserRadio.UseVisualStyleBackColor = true;
@@ -626,7 +616,7 @@
             this.BrushRadio.AutoSize = true;
             this.BrushRadio.Location = new System.Drawing.Point(153, 26);
             this.BrushRadio.Name = "BrushRadio";
-            this.BrushRadio.Size = new System.Drawing.Size(52, 17);
+            this.BrushRadio.Size = new System.Drawing.Size(57, 17);
             this.BrushRadio.TabIndex = 2;
             this.BrushRadio.Text = "Brush";
             this.BrushRadio.UseVisualStyleBackColor = true;
@@ -637,7 +627,7 @@
             this.PencilRadio.AutoSize = true;
             this.PencilRadio.Location = new System.Drawing.Point(76, 26);
             this.PencilRadio.Name = "PencilRadio";
-            this.PencilRadio.Size = new System.Drawing.Size(54, 17);
+            this.PencilRadio.Size = new System.Drawing.Size(60, 17);
             this.PencilRadio.TabIndex = 1;
             this.PencilRadio.Text = "Pencil";
             this.PencilRadio.UseVisualStyleBackColor = true;
@@ -649,7 +639,7 @@
             this.LineRadio.Checked = true;
             this.LineRadio.Location = new System.Drawing.Point(13, 26);
             this.LineRadio.Name = "LineRadio";
-            this.LineRadio.Size = new System.Drawing.Size(45, 17);
+            this.LineRadio.Size = new System.Drawing.Size(49, 17);
             this.LineRadio.TabIndex = 0;
             this.LineRadio.TabStop = true;
             this.LineRadio.Text = "Line";
@@ -660,6 +650,17 @@
             // 
             this.openFile.FileName = "openFileDialog1";
             this.openFile.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileOk);
+            // 
+            // Redo
+            // 
+            this.Redo.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.Redo;
+            this.Redo.Enabled = false;
+            this.Redo.Location = new System.Drawing.Point(76, 52);
+            this.Redo.Name = "Redo";
+            this.Redo.Size = new System.Drawing.Size(46, 46);
+            this.Redo.TabIndex = 34;
+            this.Redo.UseVisualStyleBackColor = true;
+            this.Redo.Click += new System.EventHandler(this.RedoClick);
             // 
             // Undo
             // 
