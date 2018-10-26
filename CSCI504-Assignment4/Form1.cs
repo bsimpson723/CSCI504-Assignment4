@@ -300,8 +300,9 @@ namespace CSCI504_Assignment4
             {
                 using (StreamReader sr = new StreamReader(@"RecentImages.txt"))
                 {
-                    String image = sr.ReadToEnd();
-                    recentlyOpenedToolStripMenuItem.DropDownItems.Add(image);
+                    String image;
+                    while ((image = sr.ReadLine()) != null)
+                        recentlyOpenedToolStripMenuItem.DropDownItems.Add(image);
                 }
             }
             catch
