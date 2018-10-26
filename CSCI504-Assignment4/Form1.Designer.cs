@@ -145,6 +145,7 @@
             // DrawPanel
             // 
             this.DrawPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DrawPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.DrawPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DrawPanel.Location = new System.Drawing.Point(12, 116);
             this.DrawPanel.Name = "DrawPanel";
@@ -654,6 +655,7 @@
             // Redo
             // 
             this.Redo.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.Redo;
+            this.Redo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             //Photo credit is optional license, but...
             //User: GlyphLabs
             //Hosted at: https://www.iconfinder.com/icons/1493283/undo_icon
@@ -668,6 +670,7 @@
             // Undo
             // 
             this.Undo.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.Undo;
+            this.Undo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             //Photo credit is optional license, but...
             //User: GlyphLabs
             //Hosted at: https://www.iconfinder.com/icons/1493283/undo_icon
@@ -682,6 +685,7 @@
             // Custom
             // 
             this.Custom.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.gradiant;
+            this.Custom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Custom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Custom.Location = new System.Drawing.Point(371, 19);
             this.Custom.Name = "Custom";
