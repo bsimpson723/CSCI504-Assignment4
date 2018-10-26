@@ -341,5 +341,41 @@ namespace CSCI504_Assignment4
             DrawPanel.Invalidate();
             UpdateRecent(fileName);
         }
+        
+        private void UpdateRecent(object fileName)
+        {
+            List<String> images = new List<String>();
+            try
+            {
+                using (StreamReader sr = new StreamReader(@"RecentImages.txt"))
+                {
+                    String image;
+                    while ((image = sr.ReadLine()) != null)
+                        images.Add(image);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("RecentImages.txt file could not be read.");
+            }
+
+            using (StreamWriter sw = new StreamWriter(@"RecentImages.txt"))
+            {
+                if (images.Count == 0)
+                    sw.Write(fileName);
+                else if (images.Count < 5)
+                    sw.Write("\n" + fileName);
+                else
+                {
+                    sw.Flush();
+                    for (int i = 1; i < 5; i++)
+                        sw.WriteLine(images[i]);
+                    sw.Write(fileName);
+                }
+            }
+
+            recentlyOpenedToolStripMenuItem.DropDownItems.Clear();
+            RecentImages();
+        }
     }
 }
