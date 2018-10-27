@@ -303,11 +303,11 @@ namespace CSCI504_Assignment4
         
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control && e.KeyCode == Keys.Z)
+            if (e.Control && e.KeyCode == Keys.Z && drawLines.Any())
             {
                 UndoClick(sender, e);
             }
-            else if (e.Control && e.KeyCode == Keys.X)
+            else if (e.Control && e.KeyCode == Keys.X && redoLines.Any())
             {
                 RedoClick(sender, e);
             }
