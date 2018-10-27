@@ -41,6 +41,7 @@ namespace CSCI504_Assignment4
             redoLines = new Stack<Line>();
             drawLines = new Stack<Line>();
             timer = new Timer();
+            RecentImages();
         }
 
         private void DisplayTooltip(object sender, EventArgs e)
@@ -66,9 +67,12 @@ namespace CSCI504_Assignment4
                 start = e.Location;
                 redoLines.Clear();      //once you draw a new line
                 Redo.Enabled = false;   //"Redo" is no longer possible
-                timer.Tick += DrawImage;
-                timer.Interval = 5000;
-                timer.Start();
+                if (!LineRadio.Checked)
+                {
+                    timer.Tick += DrawImage;
+                    timer.Interval = 10;
+                    timer.Start();
+                }
             }
         }
 
@@ -89,10 +93,9 @@ namespace CSCI504_Assignment4
         
         private void DrawImage(object sender, EventArgs e)
         {
-            finish = MousePosition;
+            finish = DrawPanel.PointToClient(Cursor.Position);
             drawLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
             start = finish;
-            System.Threading.Thread.Sleep(500);
         }
 
         private void OnPaint(object sender, PaintEventArgs e)
@@ -136,6 +139,8 @@ namespace CSCI504_Assignment4
 
                 bm.Save(fileName, ImageFormat.Png);
                 MessageBox.Show("Your file has been saved!");
+                
+                UpdateRecent(saveFile.FileName);
             }
         }
 
@@ -277,6 +282,100 @@ namespace CSCI504_Assignment4
                 pen.Color = customColorDialog.Color;
                 SelectedColor.BackColor = customColorDialog.Color;
             }
+        }
+        
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.Z)
+            {
+                UndoClick(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.X)
+            {
+                RedoClick(sender, e);
+            }
+        }
+        
+        private void RecentImages()
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader(@"RecentImages.txt"))
+                {
+                    String image;
+                    while ((image = sr.ReadLine()) != null)
+                        recentlyOpenedToolStripMenuItem.DropDownItems.Add(image);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("RecentImages.txt file could not be read.");
+            }
+
+            foreach (ToolStripMenuItem images in recentlyOpenedToolStripMenuItem.DropDownItems)
+                images.Click += new EventHandler(RecentImagesClick);
+        }
+
+        private void RecentImagesClick(object sender, EventArgs e)
+        {
+            if (drawLines.Any() || redoLines.Any())
+            {
+                ShowUnsavedChangedWarning(sender, e);
+            }
+
+            var images = (ToolStripMenuItem)sender;
+            string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            fileName = projectPath + "/" + images.Text;
+
+            Image img;
+            using (var bmpTemp = new Bitmap(fileName))
+            {
+                img = new Bitmap(bmpTemp);
+            }
+
+            DrawPanel.BackgroundImage = img;
+            drawLines.Clear();
+            Undo.Enabled = false;
+            redoLines.Clear();
+            Redo.Enabled = false;
+            DrawPanel.Invalidate();
+            UpdateRecent(fileName);
+        }
+        
+        private void UpdateRecent(object fileName)
+        {
+            List<String> images = new List<String>();
+            try
+            {
+                using (StreamReader sr = new StreamReader(@"RecentImages.txt"))
+                {
+                    String image;
+                    while ((image = sr.ReadLine()) != null)
+                        images.Add(image);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("RecentImages.txt file could not be read.");
+            }
+
+            using (StreamWriter sw = new StreamWriter(@"RecentImages.txt"))
+            {
+                if (images.Count == 0)
+                    sw.Write(fileName);
+                else if (images.Count < 5)
+                    sw.Write("\n" + fileName);
+                else
+                {
+                    sw.Flush();
+                    for (int i = 1; i < 5; i++)
+                        sw.WriteLine(images[i]);
+                    sw.Write(fileName);
+                }
+            }
+
+            recentlyOpenedToolStripMenuItem.DropDownItems.Clear();
+            RecentImages();
         }
     }
 }
