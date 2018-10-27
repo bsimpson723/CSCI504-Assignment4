@@ -159,6 +159,9 @@
             // 
             this.Eraser.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Eraser.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.eraser;
+            //license doesn't require artist credit, but...
+            //https://www.iconfinder.com
+            //user: unnamed
             this.Eraser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Eraser.Location = new System.Drawing.Point(226, 20);
             this.Eraser.Name = "Eraser";
@@ -172,6 +175,9 @@
             // 
             this.Brush.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Brush.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.brush;
+            //license doesn't require artist credit, but...
+            //https://www.iconfinder.com
+            //user: Nikhil Rastogi
             this.Brush.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Brush.Location = new System.Drawing.Point(158, 20);
             this.Brush.Name = "Brush";
@@ -185,6 +191,9 @@
             // 
             this.Line.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Line.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.line1;
+            //license doesn't require artist credit, but...
+            //https://www.clipartsfree.net
+            //user: unnamed
             this.Line.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Line.Location = new System.Drawing.Point(22, 20);
             this.Line.Name = "Line";
@@ -674,6 +683,9 @@
             // Redo
             // 
             this.Redo.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.Redo;
+            //License doesn't require artist credit, but...
+            //User: GlyphLab
+            //https://www.iconfinder.com
             this.Redo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Redo.Enabled = false;
             this.Redo.Location = new System.Drawing.Point(76, 52);
@@ -686,6 +698,9 @@
             // Undo
             // 
             this.Undo.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.Undo;
+            //License doesn't require artist credit, but...
+            //User: GlyphLab
+            //https://www.iconfinder.com
             this.Undo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Undo.Enabled = false;
             this.Undo.Location = new System.Drawing.Point(24, 52);
