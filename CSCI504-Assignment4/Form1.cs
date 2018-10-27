@@ -67,7 +67,7 @@ namespace CSCI504_Assignment4
                 start = e.Location;
                 redoLines.Clear();      //once you draw a new line
                 Redo.Enabled = false;   //"Redo" is no longer possible
-                if (!LineRadio.Checked)
+                if (tool != Tool.Line)
                 {
                     timer.Tick += DrawImage;
                     timer.Interval = 10;
@@ -81,7 +81,7 @@ namespace CSCI504_Assignment4
             OnMouseUp(e);
             finish = e.Location;
             if (!start.IsEmpty && !finish.IsEmpty)
-                if (LineRadio.Checked)
+                if (tool == Tool.Line)
                 {
                     drawLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
                 }
@@ -186,32 +186,49 @@ namespace CSCI504_Assignment4
 
         private void ToolSelected(object sender, EventArgs e)
         {
-            if (LineRadio.Checked)
+            var panel = (Panel) sender;
+            if (panel.Name.ToUpper() == "LINE")
             {
+                Pencil.BackColor = Color.White;
+                Brush.BackColor = Color.White;
+                Eraser.BackColor = Color.White;
+                Line.BackColor = SystemColors.GradientActiveCaption;
                 WidthUpDown.Minimum = 1;
                 WidthUpDown.Maximum = 5;
                 pen.Color = SelectedColor.BackColor;
                 tool = Tool.Line;
                 WidthUpDown.Value = 1;
             }
-            else if (PencilRadio.Checked)
+            else if (panel.Name.ToUpper() == "PENCIL")
             {
+                Pencil.BackColor = SystemColors.GradientActiveCaption;
+                Brush.BackColor = Color.White;
+                Eraser.BackColor = Color.White;
+                Line.BackColor = Color.White;
                 WidthUpDown.Minimum = 1;
                 WidthUpDown.Maximum = 3;
                 pen.Color = SelectedColor.BackColor;
                 tool = Tool.Pencil;
                 WidthUpDown.Value = 1;
             }
-            else if (BrushRadio.Checked)
+            else if (panel.Name.ToUpper() == "BRUSH")
             {
+                Pencil.BackColor = Color.White;
+                Brush.BackColor = SystemColors.GradientActiveCaption;
+                Eraser.BackColor = Color.White;
+                Line.BackColor = Color.White;
                 WidthUpDown.Minimum = 5;
                 WidthUpDown.Maximum = 8;
                 pen.Color = SelectedColor.BackColor;
                 tool = Tool.Brush;
                 WidthUpDown.Value = 5;
             }
-            else if (EraserRadio.Checked)
+            else if (panel.Name.ToUpper() == "ERASER")
             {
+                Pencil.BackColor = Color.White;
+                Brush.BackColor = Color.White;
+                Eraser.BackColor = SystemColors.GradientActiveCaption;
+                Line.BackColor = Color.White;
                 WidthUpDown.Minimum = 1;
                 WidthUpDown.Maximum = 10;
                 pen.Color = DrawPanel.BackColor;
