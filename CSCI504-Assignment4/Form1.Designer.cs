@@ -165,6 +165,8 @@
             this.Eraser.Size = new System.Drawing.Size(46, 46);
             this.Eraser.TabIndex = 2;
             this.Eraser.Click += new System.EventHandler(this.ToolSelected);
+            this.Eraser.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Eraser.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Brush
             // 
@@ -176,6 +178,8 @@
             this.Brush.Size = new System.Drawing.Size(46, 46);
             this.Brush.TabIndex = 3;
             this.Brush.Click += new System.EventHandler(this.ToolSelected);
+            this.Brush.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Brush.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Line
             // 
@@ -187,6 +191,8 @@
             this.Line.Size = new System.Drawing.Size(46, 46);
             this.Line.TabIndex = 1;
             this.Line.Click += new System.EventHandler(this.ToolSelected);
+            this.Line.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Line.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Pencil
             // 
@@ -198,6 +204,8 @@
             this.Pencil.Size = new System.Drawing.Size(46, 46);
             this.Pencil.TabIndex = 0;
             this.Pencil.Click += new System.EventHandler(this.ToolSelected);
+            this.Pencil.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Pencil.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // ColorGroup
             // 
@@ -230,7 +238,7 @@
             this.ColorGroup.Controls.Add(this.Gray);
             this.ColorGroup.Controls.Add(this.Black);
             this.ColorGroup.Controls.Add(this.Custom);
-            this.ColorGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColorGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ColorGroup.Location = new System.Drawing.Point(595, 33);
             this.ColorGroup.Name = "ColorGroup";
             this.ColorGroup.Size = new System.Drawing.Size(427, 77);
@@ -633,7 +641,7 @@
             // 
             this.SelectedColorLabel.AutoSize = true;
             this.SelectedColorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedColorLabel.Location = new System.Drawing.Point(518, 33);
+            this.SelectedColorLabel.Location = new System.Drawing.Point(518, 32);
             this.SelectedColorLabel.Name = "SelectedColorLabel";
             this.SelectedColorLabel.Size = new System.Drawing.Size(71, 17);
             this.SelectedColorLabel.TabIndex = 32;
@@ -650,7 +658,7 @@
             this.ToolSelector.Controls.Add(this.Brush);
             this.ToolSelector.Controls.Add(this.Pencil);
             this.ToolSelector.Controls.Add(this.Line);
-            this.ToolSelector.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolSelector.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ToolSelector.Location = new System.Drawing.Point(151, 33);
             this.ToolSelector.Name = "ToolSelector";
             this.ToolSelector.Size = new System.Drawing.Size(296, 77);
