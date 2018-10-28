@@ -1,4 +1,11 @@
-﻿using System;
+/*
+ * CSCI 504: Programming principles in .NET
+ * Assignment 4
+ * Benjamin Simpson - Z100820
+ * Xueqiong Li - z1785226
+*/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,6 +51,7 @@ namespace CSCI504_Assignment4
             RecentImages();
         }
 
+        // displays tool tip
         private void DisplayTooltip(object sender, EventArgs e)
         {
             var panel = (Panel) sender;
@@ -54,11 +62,13 @@ namespace CSCI504_Assignment4
             tt.Show(panel.Name, panel, 0);
         }
 
+        // hide tool tip 
         private void HideTooltip(object sender, EventArgs e)
         {
             tt.Dispose();
         }
 
+        // record the start location and set timer and redo stack when mouse clicked down
         private void MouseDown(object sender, MouseEventArgs e)
         {
             OnMouseDown(e);
@@ -76,6 +86,7 @@ namespace CSCI504_Assignment4
             }
         }
 
+        // add line to drawLines container if Line is selected, set start & finish point emply, and call OnPaint
         private void MouseUp(object sender, MouseEventArgs e)
         {
             OnMouseUp(e);
@@ -91,6 +102,7 @@ namespace CSCI504_Assignment4
             DrawPanel.Invalidate();
         }
         
+        // add lines to drawLines when mouse is moving with time interval of 10
         private void DrawImage(object sender, EventArgs e)
         {
             finish = DrawPanel.PointToClient(Cursor.Position);
@@ -98,6 +110,7 @@ namespace CSCI504_Assignment4
             start = finish;
         }
 
+        // draw lines saved in drawLines
         private void OnPaint(object sender, PaintEventArgs e)
         {
             foreach (var line in drawLines.Reverse())   //This prints the stack in reverse order so that the most recent line is on top.
@@ -107,6 +120,7 @@ namespace CSCI504_Assignment4
             timer.Stop();
         }
 
+        // set the color when clicking color panels
         private void ColorClick(object sender, EventArgs e)
         {
             var panel = (Panel) sender;
@@ -114,11 +128,13 @@ namespace CSCI504_Assignment4
             SelectedColor.BackColor = panel.BackColor;
         }
 
+        // change the width of pen
         private void WidthChange(object sender, EventArgs e)
         {
             pen.Width = (float)WidthUpDown.Value;
         }
 
+        // save the image and update Recent image tool strip menu item
         private void Save(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(fileName))
@@ -132,7 +148,7 @@ namespace CSCI504_Assignment4
                 Bitmap bm = new Bitmap(width, height);
                 DrawPanel.DrawToBitmap(bm, new Rectangle(0, 0, width, height));
 
-                if (File.Exists(fileName))
+                if (File.Exists(fileName))  // if file name exists, delete the file
                 {
                     File.Delete(fileName);
                 }
@@ -144,11 +160,13 @@ namespace CSCI504_Assignment4
             }
         }
 
+        // show saveFile dialog when save as selected
         private void SaveAs(object sender, EventArgs e)
         {
             saveFile.ShowDialog();
         }
 
+        // save file and update recent image after saveFile dialog
         private void SaveAsFileOk(object sender, CancelEventArgs e)
         {
             var width = DrawPanel.Width;
@@ -162,6 +180,7 @@ namespace CSCI504_Assignment4
             UpdateRecent(saveFile.FileName);
         }
 
+        // remove the last painted line when undo clicked
         private void UndoClick(object sender, EventArgs e)
         {
             var line = drawLines.Pop();     //pop line from drawLines
@@ -174,6 +193,7 @@ namespace CSCI504_Assignment4
             DrawPanel.Invalidate();         //redraw the Draw Panel
         }
 
+        // add the last removed line when redo clicked
         private void RedoClick(object sender, EventArgs e)
         {
             var line = redoLines.Pop();     //pop line from redoLines
@@ -186,6 +206,7 @@ namespace CSCI504_Assignment4
             DrawPanel.Invalidate();         //redraw the Draw Panel
         }
 
+        // set color and width range when tools selected
         private void ToolSelected(object sender, EventArgs e)
         {
             var panel = (Panel) sender;
@@ -239,6 +260,7 @@ namespace CSCI504_Assignment4
             }
         }
 
+        // show openFile dialog if open clicked
         private void OpenFileClick(object sender, EventArgs e)
         {
             DialogResult response = DialogResult.Cancel;
@@ -250,6 +272,7 @@ namespace CSCI504_Assignment4
             openFile.ShowDialog();
         }
 
+        // open file after openFile dialog
         private void OpenFileOk(object sender, CancelEventArgs e)
         {
             var openFileDialogue = (OpenFileDialog)sender;
@@ -269,6 +292,7 @@ namespace CSCI504_Assignment4
             DrawPanel.Invalidate();
         }
 
+        // call ShowUnsavedChangedWarning and reset everything
         private void NewImageClick(object sender, EventArgs e)
         {
             if (drawLines.Any() || redoLines.Any())
@@ -285,6 +309,7 @@ namespace CSCI504_Assignment4
             DrawPanel.Invalidate();
         }
 
+        // ask if user want to save current image or not
         private void ShowUnsavedChangedWarning(object sender, EventArgs e)
         {
             var response = MessageBox.Show("Would you like to save your changes first?", "Unsaved Changes!", MessageBoxButtons.YesNo);
@@ -293,7 +318,8 @@ namespace CSCI504_Assignment4
                 Save(sender, e);
             }
         }
-        
+   
+        // show customColorDialog for custom color selector
         private void Custom_Click(object sender, EventArgs e)
         {
             if (customColorDialog.ShowDialog() != DialogResult.Cancel)
@@ -303,6 +329,7 @@ namespace CSCI504_Assignment4
             }
         }
         
+        // sets short cut for redo and undo
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.Z && drawLines.Any())
@@ -315,6 +342,7 @@ namespace CSCI504_Assignment4
             }
         }
         
+        // read RecentImages.txt file and add ToolStripMenuItem based on it
         private void RecentImages()
         {
             string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
@@ -326,6 +354,7 @@ namespace CSCI504_Assignment4
                 images.Click += new EventHandler(RecentImagesClick);
         }
 
+        // open image when any of recent image clicked
         private void RecentImagesClick(object sender, EventArgs e)
         {
             if (drawLines.Any() || redoLines.Any())
@@ -352,6 +381,7 @@ namespace CSCI504_Assignment4
             UpdateRecent(fileName);
         }
 
+        // update recent image after open any image
         private void UpdateRecent(object fileName)
         {
             List<String> images = new List<String>();
