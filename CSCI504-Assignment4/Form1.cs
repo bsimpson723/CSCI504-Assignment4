@@ -317,7 +317,8 @@ namespace CSCI504_Assignment4
         
         private void RecentImages()
         {
-            string[] lines = File.ReadAllLines(@"RecentImages.txt");
+            string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string[] lines = File.ReadAllLines(projectPath + "\\RecentImages.txt");
             foreach (var image in lines)
                 recentlyOpenedToolStripMenuItem.DropDownItems.Add(image);
 
@@ -354,18 +355,19 @@ namespace CSCI504_Assignment4
         private void UpdateRecent(object fileName)
         {
             List<String> images = new List<String>();
-            string[] lines = File.ReadAllLines(@"RecentImages.txt");
+            string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string[] lines = File.ReadAllLines(projectPath + "\\RecentImages.txt");
             foreach (var image in lines)
                         images.Add(image);
 
             if (images.Count < 5)
-                File.AppendAllText(@"RecentImages.txt", "\n" + (String) fileName);
+                File.AppendAllText(projectPath + "\\RecentImages.txt", "\n" + (String) fileName);
             else
             {
-                File.WriteAllText(@"RecentImages.txt", String.Empty);
+                File.WriteAllText(projectPath + "\\RecentImages.txt", String.Empty);
                 for (int i = 1; i < 5; i++)
-                    File.AppendAllText(@"RecentImages.txt", images[i] + "\n");
-                File.AppendAllText(@"RecentImages.txt", (String) fileName);
+                    File.AppendAllText(projectPath + "\\RecentImages.txt", images[i] + "\n");
+                File.AppendAllText(projectPath + "\\RecentImages.txt", (String) fileName);
             }
 
             recentlyOpenedToolStripMenuItem.DropDownItems.Clear();
