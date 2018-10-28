@@ -89,5 +89,17 @@
   <ItemGroup>
     <None Include="Redo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="eraser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="brush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="line.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

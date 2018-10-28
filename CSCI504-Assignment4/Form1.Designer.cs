@@ -36,6 +36,10 @@
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recentlyOpenedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DrawPanel = new System.Windows.Forms.Panel();
+            this.Eraser = new System.Windows.Forms.Panel();
+            this.Brush = new System.Windows.Forms.Panel();
+            this.Line = new System.Windows.Forms.Panel();
+            this.Pencil = new System.Windows.Forms.Panel();
             this.ColorGroup = new System.Windows.Forms.GroupBox();
             this.Silver = new System.Windows.Forms.Panel();
             this.White = new System.Windows.Forms.Panel();
@@ -65,21 +69,17 @@
             this.Maroon = new System.Windows.Forms.Panel();
             this.Gray = new System.Windows.Forms.Panel();
             this.Black = new System.Windows.Forms.Panel();
+            this.Custom = new System.Windows.Forms.Panel();
             this.WidthLabel = new System.Windows.Forms.Label();
             this.WidthUpDown = new System.Windows.Forms.NumericUpDown();
             this.SelectedColor = new System.Windows.Forms.Panel();
             this.SelectedColorLabel = new System.Windows.Forms.Label();
             this.saveFile = new System.Windows.Forms.SaveFileDialog();
             this.ToolSelector = new System.Windows.Forms.GroupBox();
-            this.EraserRadio = new System.Windows.Forms.RadioButton();
-            this.BrushRadio = new System.Windows.Forms.RadioButton();
-            this.PencilRadio = new System.Windows.Forms.RadioButton();
-            this.LineRadio = new System.Windows.Forms.RadioButton();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.customColorDialog = new System.Windows.Forms.ColorDialog();
             this.Redo = new System.Windows.Forms.Button();
             this.Undo = new System.Windows.Forms.Button();
-            this.Custom = new System.Windows.Forms.Panel();
             this.menuStrip.SuspendLayout();
             this.ColorGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WidthUpDown)).BeginInit();
@@ -155,6 +155,67 @@
             this.DrawPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             this.DrawPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MouseUp);
             // 
+            // Eraser
+            // 
+            this.Eraser.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Eraser.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.eraser;
+            //license doesn't require artist credit, but...
+            //https://www.iconfinder.com
+            //user: unnamed
+            this.Eraser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Eraser.Location = new System.Drawing.Point(226, 20);
+            this.Eraser.Name = "Eraser";
+            this.Eraser.Size = new System.Drawing.Size(46, 46);
+            this.Eraser.TabIndex = 2;
+            this.Eraser.Click += new System.EventHandler(this.ToolSelected);
+            this.Eraser.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Eraser.MouseLeave += new System.EventHandler(this.HideTooltip);
+            // 
+            // Brush
+            // 
+            this.Brush.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Brush.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.brush;
+            //license doesn't require artist credit, but...
+            //https://www.iconfinder.com
+            //user: Nikhil Rastogi
+            this.Brush.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Brush.Location = new System.Drawing.Point(158, 20);
+            this.Brush.Name = "Brush";
+            this.Brush.Size = new System.Drawing.Size(46, 46);
+            this.Brush.TabIndex = 3;
+            this.Brush.Click += new System.EventHandler(this.ToolSelected);
+            this.Brush.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Brush.MouseLeave += new System.EventHandler(this.HideTooltip);
+            // 
+            // Line
+            // 
+            this.Line.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.Line.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.line1;
+            //license doesn't require artist credit, but...
+            //https://www.clipartsfree.net
+            //user: unnamed
+            this.Line.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Line.Location = new System.Drawing.Point(22, 20);
+            this.Line.Name = "Line";
+            this.Line.Size = new System.Drawing.Size(46, 46);
+            this.Line.TabIndex = 1;
+            this.Line.Click += new System.EventHandler(this.ToolSelected);
+            this.Line.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Line.MouseLeave += new System.EventHandler(this.HideTooltip);
+            // 
+            // Pencil
+            // 
+            this.Pencil.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Pencil.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.pencil;
+            this.Pencil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Pencil.Location = new System.Drawing.Point(90, 20);
+            this.Pencil.Name = "Pencil";
+            this.Pencil.Size = new System.Drawing.Size(46, 46);
+            this.Pencil.TabIndex = 0;
+            this.Pencil.Click += new System.EventHandler(this.ToolSelected);
+            this.Pencil.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Pencil.MouseLeave += new System.EventHandler(this.HideTooltip);
+            // 
             // ColorGroup
             // 
             this.ColorGroup.Controls.Add(this.Silver);
@@ -186,7 +247,7 @@
             this.ColorGroup.Controls.Add(this.Gray);
             this.ColorGroup.Controls.Add(this.Black);
             this.ColorGroup.Controls.Add(this.Custom);
-            this.ColorGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColorGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ColorGroup.Location = new System.Drawing.Point(595, 33);
             this.ColorGroup.Name = "ColorGroup";
             this.ColorGroup.Size = new System.Drawing.Size(427, 77);
@@ -530,6 +591,19 @@
             this.Black.MouseEnter += new System.EventHandler(this.DisplayTooltip);
             this.Black.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
+            // Custom
+            // 
+            this.Custom.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.gradiant;
+            this.Custom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Custom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Custom.Location = new System.Drawing.Point(371, 19);
+            this.Custom.Name = "Custom";
+            this.Custom.Size = new System.Drawing.Size(46, 46);
+            this.Custom.TabIndex = 30;
+            this.Custom.Click += new System.EventHandler(this.Custom_Click);
+            this.Custom.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Custom.MouseLeave += new System.EventHandler(this.HideTooltip);
+            // 
             // WidthLabel
             // 
             this.WidthLabel.AutoSize = true;
@@ -576,7 +650,7 @@
             // 
             this.SelectedColorLabel.AutoSize = true;
             this.SelectedColorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedColorLabel.Location = new System.Drawing.Point(518, 33);
+            this.SelectedColorLabel.Location = new System.Drawing.Point(518, 32);
             this.SelectedColorLabel.Name = "SelectedColorLabel";
             this.SelectedColorLabel.Size = new System.Drawing.Size(71, 17);
             this.SelectedColorLabel.TabIndex = 32;
@@ -589,63 +663,17 @@
             // 
             // ToolSelector
             // 
-            this.ToolSelector.Controls.Add(this.EraserRadio);
-            this.ToolSelector.Controls.Add(this.BrushRadio);
-            this.ToolSelector.Controls.Add(this.PencilRadio);
-            this.ToolSelector.Controls.Add(this.LineRadio);
-            this.ToolSelector.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ToolSelector.Location = new System.Drawing.Point(158, 33);
+            this.ToolSelector.Controls.Add(this.Eraser);
+            this.ToolSelector.Controls.Add(this.Brush);
+            this.ToolSelector.Controls.Add(this.Pencil);
+            this.ToolSelector.Controls.Add(this.Line);
+            this.ToolSelector.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolSelector.Location = new System.Drawing.Point(151, 33);
             this.ToolSelector.Name = "ToolSelector";
             this.ToolSelector.Size = new System.Drawing.Size(296, 77);
             this.ToolSelector.TabIndex = 35;
             this.ToolSelector.TabStop = false;
             this.ToolSelector.Text = "Tools";
-            // 
-            // EraserRadio
-            // 
-            this.EraserRadio.AutoSize = true;
-            this.EraserRadio.Location = new System.Drawing.Point(235, 26);
-            this.EraserRadio.Name = "EraserRadio";
-            this.EraserRadio.Size = new System.Drawing.Size(61, 17);
-            this.EraserRadio.TabIndex = 3;
-            this.EraserRadio.Text = "Eraser";
-            this.EraserRadio.UseVisualStyleBackColor = true;
-            this.EraserRadio.Click += new System.EventHandler(this.ToolSelected);
-            // 
-            // BrushRadio
-            // 
-            this.BrushRadio.AutoSize = true;
-            this.BrushRadio.Location = new System.Drawing.Point(153, 26);
-            this.BrushRadio.Name = "BrushRadio";
-            this.BrushRadio.Size = new System.Drawing.Size(57, 17);
-            this.BrushRadio.TabIndex = 2;
-            this.BrushRadio.Text = "Brush";
-            this.BrushRadio.UseVisualStyleBackColor = true;
-            this.BrushRadio.Click += new System.EventHandler(this.ToolSelected);
-            // 
-            // PencilRadio
-            // 
-            this.PencilRadio.AutoSize = true;
-            this.PencilRadio.Location = new System.Drawing.Point(76, 26);
-            this.PencilRadio.Name = "PencilRadio";
-            this.PencilRadio.Size = new System.Drawing.Size(60, 17);
-            this.PencilRadio.TabIndex = 1;
-            this.PencilRadio.Text = "Pencil";
-            this.PencilRadio.UseVisualStyleBackColor = true;
-            this.PencilRadio.Click += new System.EventHandler(this.ToolSelected);
-            // 
-            // LineRadio
-            // 
-            this.LineRadio.AutoSize = true;
-            this.LineRadio.Checked = true;
-            this.LineRadio.Location = new System.Drawing.Point(13, 26);
-            this.LineRadio.Name = "LineRadio";
-            this.LineRadio.Size = new System.Drawing.Size(49, 17);
-            this.LineRadio.TabIndex = 0;
-            this.LineRadio.TabStop = true;
-            this.LineRadio.Text = "Line";
-            this.LineRadio.UseVisualStyleBackColor = true;
-            this.LineRadio.Click += new System.EventHandler(this.ToolSelected);
             // 
             // openFile
             // 
@@ -655,10 +683,10 @@
             // Redo
             // 
             this.Redo.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.Redo;
+            //License doesn't require artist credit, but...
+            //User: GlyphLab
+            //https://www.iconfinder.com
             this.Redo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            //Photo credit is optional license, but...
-            //User: GlyphLabs
-            //Hosted at: https://www.iconfinder.com/icons/1493283/undo_icon
             this.Redo.Enabled = false;
             this.Redo.Location = new System.Drawing.Point(76, 52);
             this.Redo.Name = "Redo";
@@ -670,10 +698,10 @@
             // Undo
             // 
             this.Undo.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.Undo;
+            //License doesn't require artist credit, but...
+            //User: GlyphLab
+            //https://www.iconfinder.com
             this.Undo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            //Photo credit is optional license, but...
-            //User: GlyphLabs
-            //Hosted at: https://www.iconfinder.com/icons/1493283/undo_icon
             this.Undo.Enabled = false;
             this.Undo.Location = new System.Drawing.Point(24, 52);
             this.Undo.Name = "Undo";
@@ -681,19 +709,6 @@
             this.Undo.TabIndex = 33;
             this.Undo.UseVisualStyleBackColor = true;
             this.Undo.Click += new System.EventHandler(this.UndoClick);
-            // 
-            // Custom
-            // 
-            this.Custom.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.gradiant;
-            this.Custom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Custom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Custom.Location = new System.Drawing.Point(371, 19);
-            this.Custom.Name = "Custom";
-            this.Custom.Size = new System.Drawing.Size(46, 46);
-            this.Custom.TabIndex = 30;
-            this.Custom.Click += new System.EventHandler(this.Custom_Click);
-            this.Custom.MouseEnter += new System.EventHandler(this.DisplayTooltip);
-            this.Custom.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Form1
             // 
@@ -720,7 +735,6 @@
             this.ColorGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.WidthUpDown)).EndInit();
             this.ToolSelector.ResumeLayout(false);
-            this.ToolSelector.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -774,12 +788,12 @@
         private System.Windows.Forms.Button Undo;
         private System.Windows.Forms.Button Redo;
         private System.Windows.Forms.GroupBox ToolSelector;
-        private System.Windows.Forms.RadioButton EraserRadio;
-        private System.Windows.Forms.RadioButton BrushRadio;
-        private System.Windows.Forms.RadioButton PencilRadio;
-        private System.Windows.Forms.RadioButton LineRadio;
         private System.Windows.Forms.OpenFileDialog openFile;
         private System.Windows.Forms.ColorDialog customColorDialog;
+        private System.Windows.Forms.Panel Pencil;
+        private System.Windows.Forms.Panel Eraser;
+        private System.Windows.Forms.Panel Brush;
+        private System.Windows.Forms.Panel Line;
     }
 }
 
