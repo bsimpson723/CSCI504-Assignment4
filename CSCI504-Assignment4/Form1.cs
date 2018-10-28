@@ -158,6 +158,8 @@ namespace CSCI504_Assignment4
 
             bm.Save(saveFile.FileName, ImageFormat.Png);
             MessageBox.Show("Your file has been saved!");
+            
+            UpdateRecent(saveFile.FileName);
         }
 
         private void UndoClick(object sender, EventArgs e)
