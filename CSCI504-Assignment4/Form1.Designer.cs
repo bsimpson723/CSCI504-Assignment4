@@ -159,6 +159,7 @@
             // 
             this.Eraser.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Eraser.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.eraser;
+            this.Eraser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             //license doesn't require artist credit, but...
             //https://www.iconfinder.com
             //user: unnamed
@@ -175,6 +176,7 @@
             // 
             this.Brush.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Brush.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.brush;
+            this.Brush.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             //license doesn't require artist credit, but...
             //https://www.iconfinder.com
             //user: Nikhil Rastogi
@@ -191,6 +193,7 @@
             // 
             this.Line.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Line.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.line1;
+            this.Line.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             //license doesn't require artist credit, but...
             //https://www.clipartsfree.net
             //user: unnamed
@@ -207,6 +210,7 @@
             // 
             this.Pencil.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Pencil.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.pencil;
+            this.Pencil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Pencil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pencil.Location = new System.Drawing.Point(90, 20);
             this.Pencil.Name = "Pencil";
