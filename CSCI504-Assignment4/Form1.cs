@@ -36,6 +36,7 @@ namespace CSCI504_Assignment4
         private Pen pen;
         private Point start;
         private Point finish;
+        private List<Tuple<Point, Point>> points;
         private string fileName = string.Empty;
         private Timer timer;
         private Stack<Line> redoLines;
@@ -48,6 +49,7 @@ namespace CSCI504_Assignment4
             redoLines = new Stack<Line>();
             drawLines = new Stack<Line>();
             timer = new Timer();
+            points = new List<Tuple<Point, Point>>();
             RecentImages();
         }
 
@@ -74,12 +76,13 @@ namespace CSCI504_Assignment4
             OnMouseDown(e);
             if (e.Button == MouseButtons.Left)
             {
+                points.Clear();
                 start = e.Location;
                 redoLines.Clear();      //once you draw a new line
                 Redo.Enabled = false;   //"Redo" is no longer possible
                 if (tool != Tool.Line)
                 {
-                    timer.Tick += DrawImage;
+                    timer.Tick += GetPoints;
                     timer.Interval = 10;
                     timer.Start();
                 }
@@ -94,7 +97,13 @@ namespace CSCI504_Assignment4
             if (!start.IsEmpty && !finish.IsEmpty)
                 if (tool == Tool.Line)
                 {
-                    drawLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
+                    var points = new List<Tuple<Point, Point>>();
+                    points.Add(new Tuple<Point, Point>(start, finish));
+                    drawLines.Push(new Line(new Pen(pen.Color, pen.Width), points));
+                }
+                else
+                {
+                    drawLines.Push(new Line(new Pen(pen.Color, pen.Width), points));
                 }
             start = Point.Empty;
             finish = Point.Empty;
@@ -103,18 +112,23 @@ namespace CSCI504_Assignment4
         }
         
         // add lines to drawLines when mouse is moving with time interval of 10
-        private void DrawImage(object sender, EventArgs e)
+        private void GetPoints(object sender, EventArgs e)
         {
             finish = DrawPanel.PointToClient(Cursor.Position);
-            drawLines.Push(new Line(new Pen(pen.Color, pen.Width), new Tuple<Point, Point>(start, finish)));
+            points.Add(new Tuple<Point, Point>(start, finish));
             start = finish;
         }
 
         // draw lines saved in drawLines
         private void OnPaint(object sender, PaintEventArgs e)
         {
-            foreach (var line in drawLines.Reverse())   //This prints the stack in reverse order so that the most recent line is on top.
-                e.Graphics.DrawLine(line.Pen, line.Points.Item1, line.Points.Item2);
+            foreach (var line in drawLines.Reverse()) //This prints the stack in reverse order so that the most recent line is on top.
+            {
+                foreach (var tuple in line.Points)
+                {
+                    e.Graphics.DrawLine(line.Pen, tuple.Item1, tuple.Item2);
+                }
+            } 
             if (!start.IsEmpty && !finish.IsEmpty)
                 e.Graphics.DrawLine(pen, start, finish);
             timer.Stop();

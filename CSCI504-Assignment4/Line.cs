@@ -18,9 +18,10 @@ namespace CSCI504_Assignment4
     {
         public Pen Pen { get; set; }
 
-        public Tuple<Point, Point> Points { get; set; }
+        public List<Tuple<Point, Point>> Points { get; set; }
 
-        public Line(Pen pen, Tuple<Point, Point> points)
+        public Line(Pen pen, List<Tuple<Point, Point>> points)
+
         {
             Pen = pen;
             Points = points;
