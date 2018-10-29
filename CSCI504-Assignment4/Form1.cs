@@ -281,7 +281,7 @@ namespace CSCI504_Assignment4
             DialogResult response = DialogResult.Cancel;
             if (drawLines.Any() || redoLines.Any())
             {
-                ShowUnsavedChangedWarning(sender, e);
+                ShowUnsavedChangesWarning(sender, e);
             }
 
             openFile.ShowDialog();
@@ -307,12 +307,12 @@ namespace CSCI504_Assignment4
             DrawPanel.Invalidate();
         }
 
-        // call ShowUnsavedChangedWarning and reset everything
+        // call ShowUnsavedChangesWarning and reset everything
         private void NewImageClick(object sender, EventArgs e)
         {
             if (drawLines.Any() || redoLines.Any())
             {
-                ShowUnsavedChangedWarning(sender, e);
+                ShowUnsavedChangesWarning(sender, e);
             }
 
             drawLines.Clear();
@@ -325,7 +325,7 @@ namespace CSCI504_Assignment4
         }
 
         // ask if user want to save current image or not
-        private void ShowUnsavedChangedWarning(object sender, EventArgs e)
+        private void ShowUnsavedChangesWarning(object sender, EventArgs e)
         {
             var response = MessageBox.Show("Would you like to save your changes first?", "Unsaved Changes!", MessageBoxButtons.YesNo);
             if (response == DialogResult.Yes)
@@ -362,7 +362,7 @@ namespace CSCI504_Assignment4
         {
             string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
             string[] lines = File.ReadAllLines(projectPath + "\\RecentImages.txt");
-            if (!lines.Any() || string.IsNullOrEmpty(lines[0]))
+            if (!lines.Any())
             {
                 recentlyOpenedToolStripMenuItem.DropDownItems.Add("No recent images");
             }
@@ -384,15 +384,13 @@ namespace CSCI504_Assignment4
         {
             if (drawLines.Any() || redoLines.Any())
             {
-                ShowUnsavedChangedWarning(sender, e);
+                ShowUnsavedChangesWarning(sender, e);
             }
 
-            var images = (ToolStripMenuItem)sender;
-            string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            fileName = projectPath + "\\" + images.Text;
+            var image = (ToolStripMenuItem)sender;
 
             Image img;
-            using (var bmpTemp = new Bitmap(fileName))
+            using (var bmpTemp = new Bitmap(image.Text))
             {
                 img = new Bitmap(bmpTemp);
             }
@@ -407,7 +405,7 @@ namespace CSCI504_Assignment4
         }
 
         // update recent image after open any image
-        private void UpdateRecent(object fileName)
+        private void UpdateRecent(string fileName)
         {
             List<String> images = new List<String>();
             string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
@@ -416,13 +414,13 @@ namespace CSCI504_Assignment4
                         images.Add(image);
 
             if (images.Count < 5)
-                File.AppendAllText(projectPath + "\\RecentImages.txt", "\n" + (String) fileName);
+                File.AppendAllText(projectPath + "\\RecentImages.txt", "\n" + fileName);
             else
             {
                 File.WriteAllText(projectPath + "\\RecentImages.txt", String.Empty);
                 for (int i = 1; i < 5; i++)
                     File.AppendAllText(projectPath + "\\RecentImages.txt", images[i] + "\n");
-                File.AppendAllText(projectPath + "\\RecentImages.txt", (String) fileName);
+                File.AppendAllText(projectPath + "\\RecentImages.txt", fileName);
             }
 
             recentlyOpenedToolStripMenuItem.DropDownItems.Clear();
