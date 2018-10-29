@@ -13,6 +13,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
@@ -170,7 +171,7 @@ namespace CSCI504_Assignment4
                 bm.Save(fileName, ImageFormat.Png);
                 MessageBox.Show("Your file has been saved!");
                 
-                UpdateRecent(saveFile.FileName);
+                UpdateRecent(fileName);
             }
         }
 
@@ -304,6 +305,7 @@ namespace CSCI504_Assignment4
             Undo.Enabled = false;
             redoLines.Clear();
             Redo.Enabled = false;
+            UpdateRecent(fileName);
             DrawPanel.Invalidate();
         }
 
@@ -368,9 +370,17 @@ namespace CSCI504_Assignment4
             }
             else
             {
-                foreach (var image in lines)
+                var fileList = new List<string>();
+                foreach (var image in lines.Reverse())
                 {
-                    recentlyOpenedToolStripMenuItem.DropDownItems.Add(image);
+                    if (!fileList.Contains(image) && fileList.Count < 5)
+                    {
+                        fileList.Add(image);
+                    }
+                }
+                foreach (var file in fileList)
+                {
+                    recentlyOpenedToolStripMenuItem.DropDownItems.Add(file);
                 }
                 foreach (ToolStripMenuItem images in recentlyOpenedToolStripMenuItem.DropDownItems)
                 {
@@ -401,6 +411,7 @@ namespace CSCI504_Assignment4
             redoLines.Clear();
             Redo.Enabled = false;
             DrawPanel.Invalidate();
+            fileName = image.Text;
             UpdateRecent(fileName);
         }
 
@@ -409,19 +420,12 @@ namespace CSCI504_Assignment4
         {
             List<String> images = new List<String>();
             string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            string[] lines = File.ReadAllLines(projectPath + "\\RecentImages.txt");
+            var recentImagesFilePath = projectPath + "\\RecentImages.txt";
+            string[] lines = File.ReadAllLines(recentImagesFilePath);
             foreach (var image in lines)
                         images.Add(image);
 
-            if (images.Count < 5)
-                File.AppendAllText(projectPath + "\\RecentImages.txt", "\n" + fileName);
-            else
-            {
-                File.WriteAllText(projectPath + "\\RecentImages.txt", String.Empty);
-                for (int i = 1; i < 5; i++)
-                    File.AppendAllText(projectPath + "\\RecentImages.txt", images[i] + "\n");
-                File.AppendAllText(projectPath + "\\RecentImages.txt", fileName);
-            }
+            File.AppendAllText(recentImagesFilePath, fileName + "\n");
 
             recentlyOpenedToolStripMenuItem.DropDownItems.Clear();
             RecentImages();
