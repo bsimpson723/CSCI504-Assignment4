@@ -400,6 +400,11 @@ namespace CSCI504_Assignment4
             var image = (ToolStripMenuItem)sender;
 
             Image img;
+            if (!File.Exists(image.Text))
+            {
+                MessageBox.Show("Could not open file: " + image.Text + ".\n\nNo such file exists!");
+                return;
+            }
             using (var bmpTemp = new Bitmap(image.Text))
             {
                 img = new Bitmap(bmpTemp);
@@ -423,7 +428,9 @@ namespace CSCI504_Assignment4
             var recentImagesFilePath = projectPath + "\\RecentImages.txt";
             string[] lines = File.ReadAllLines(recentImagesFilePath);
             foreach (var image in lines)
-                        images.Add(image);
+            {
+                images.Add(image);
+            }
 
             File.AppendAllText(recentImagesFilePath, fileName + "\n");
 
