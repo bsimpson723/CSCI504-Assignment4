@@ -118,35 +118,35 @@ namespace CSCI504_Assignment4
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.NewImageClick);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenFileClick);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.Save);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAs);
             // 
             // recentlyOpenedToolStripMenuItem
             // 
             this.recentlyOpenedToolStripMenuItem.Name = "recentlyOpenedToolStripMenuItem";
-            this.recentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.recentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.recentlyOpenedToolStripMenuItem.Text = "Recent Images";
             // 
             // DrawPanel
@@ -167,10 +167,7 @@ namespace CSCI504_Assignment4
             this.Eraser.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Eraser.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.eraser;
             this.Eraser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            //license doesn't require artist credit, but...
-            //https://www.iconfinder.com
-            //user: unnamed
-            this.Eraser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Eraser.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Eraser.Location = new System.Drawing.Point(226, 20);
             this.Eraser.Name = "Eraser";
             this.Eraser.Size = new System.Drawing.Size(46, 46);
@@ -184,10 +181,7 @@ namespace CSCI504_Assignment4
             this.Brush.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Brush.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.brush;
             this.Brush.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            //license doesn't require artist credit, but...
-            //https://www.iconfinder.com
-            //user: Nikhil Rastogi
-            this.Brush.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Brush.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Brush.Location = new System.Drawing.Point(158, 20);
             this.Brush.Name = "Brush";
             this.Brush.Size = new System.Drawing.Size(46, 46);
@@ -201,10 +195,7 @@ namespace CSCI504_Assignment4
             this.Line.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Line.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.line1;
             this.Line.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            //license doesn't require artist credit, but...
-            //https://www.clipartsfree.net
-            //user: unnamed
-            this.Line.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Line.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Line.Location = new System.Drawing.Point(22, 20);
             this.Line.Name = "Line";
             this.Line.Size = new System.Drawing.Size(46, 46);
@@ -218,7 +209,7 @@ namespace CSCI504_Assignment4
             this.Pencil.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Pencil.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.pencil;
             this.Pencil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Pencil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Pencil.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Pencil.Location = new System.Drawing.Point(90, 20);
             this.Pencil.Name = "Pencil";
             this.Pencil.Size = new System.Drawing.Size(46, 46);
@@ -651,7 +642,7 @@ namespace CSCI504_Assignment4
             // SelectedColor
             // 
             this.SelectedColor.BackColor = System.Drawing.Color.Black;
-            this.SelectedColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.SelectedColor.Location = new System.Drawing.Point(531, 52);
             this.SelectedColor.Name = "SelectedColor";
             this.SelectedColor.Size = new System.Drawing.Size(46, 46);
@@ -694,9 +685,6 @@ namespace CSCI504_Assignment4
             // Redo
             // 
             this.Redo.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.Redo;
-            //License doesn't require artist credit, but...
-            //User: GlyphLab
-            //https://www.iconfinder.com
             this.Redo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Redo.Enabled = false;
             this.Redo.Location = new System.Drawing.Point(76, 52);
@@ -709,9 +697,6 @@ namespace CSCI504_Assignment4
             // Undo
             // 
             this.Undo.BackgroundImage = global::CSCI504_Assignment4.Properties.Resources.Undo;
-            //License doesn't require artist credit, but...
-            //User: GlyphLab
-            //https://www.iconfinder.com
             this.Undo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Undo.Enabled = false;
             this.Undo.Location = new System.Drawing.Point(24, 52);
