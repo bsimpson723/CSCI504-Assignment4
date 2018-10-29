@@ -1,5 +1,5 @@
-gradiant.png
-redo.png
-undo.png
-gradiant.png
-redo.png
+
+
+C:\Homework\CSCI 504\Images\NewPicture.png
+C:\Homework\CSCI 504\Images\NewPicture2.png
+C:\Homework\CSCI 504\Images\NewPicture2.png

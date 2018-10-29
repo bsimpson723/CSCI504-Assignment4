@@ -99,11 +99,11 @@ namespace CSCI504_Assignment4
                 {
                     var points = new List<Tuple<Point, Point>>();
                     points.Add(new Tuple<Point, Point>(start, finish));
-                    drawLines.Push(new Line(new Pen(pen.Color, pen.Width), points));
+                    drawLines.Push(new Line(new Pen(pen.Color, pen.Width), new List<Tuple<Point, Point>>(points)));
                 }
                 else
                 {
-                    drawLines.Push(new Line(new Pen(pen.Color, pen.Width), points));
+                    drawLines.Push(new Line(new Pen(pen.Color, pen.Width), new List<Tuple<Point, Point>>(points)));
                 }
             start = Point.Empty;
             finish = Point.Empty;
@@ -190,7 +190,8 @@ namespace CSCI504_Assignment4
 
             bm.Save(saveFile.FileName, ImageFormat.Png);
             MessageBox.Show("Your file has been saved!");
-            
+            fileName = saveFile.FileName;
+
             UpdateRecent(saveFile.FileName);
         }
 
@@ -361,11 +362,21 @@ namespace CSCI504_Assignment4
         {
             string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
             string[] lines = File.ReadAllLines(projectPath + "\\RecentImages.txt");
-            foreach (var image in lines)
-                recentlyOpenedToolStripMenuItem.DropDownItems.Add(image);
-
-            foreach (ToolStripMenuItem images in recentlyOpenedToolStripMenuItem.DropDownItems)
-                images.Click += new EventHandler(RecentImagesClick);
+            if (!lines.Any() || string.IsNullOrEmpty(lines[0]))
+            {
+                recentlyOpenedToolStripMenuItem.DropDownItems.Add("No recent images");
+            }
+            else
+            {
+                foreach (var image in lines)
+                {
+                    recentlyOpenedToolStripMenuItem.DropDownItems.Add(image);
+                }
+                foreach (ToolStripMenuItem images in recentlyOpenedToolStripMenuItem.DropDownItems)
+                {
+                    images.Click += RecentImagesClick;
+                }
+            }
         }
 
         // open image when any of recent image clicked
