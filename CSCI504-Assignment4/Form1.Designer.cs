@@ -37,13 +37,13 @@ namespace CSCI504_Assignment4
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.recentlyOpenedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuStrip = new System.Windows.Forms.MenuStrip();
+            this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RecentlyOpenedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DrawPanel = new System.Windows.Forms.Panel();
             this.Eraser = new System.Windows.Forms.Panel();
             this.Brush = new System.Windows.Forms.Panel();
@@ -83,73 +83,73 @@ namespace CSCI504_Assignment4
             this.WidthUpDown = new System.Windows.Forms.NumericUpDown();
             this.SelectedColor = new System.Windows.Forms.Panel();
             this.SelectedColorLabel = new System.Windows.Forms.Label();
-            this.saveFile = new System.Windows.Forms.SaveFileDialog();
+            this.SaveFile = new System.Windows.Forms.SaveFileDialog();
             this.ToolSelector = new System.Windows.Forms.GroupBox();
-            this.openFile = new System.Windows.Forms.OpenFileDialog();
-            this.customColorDialog = new System.Windows.Forms.ColorDialog();
+            this.OpenFile = new System.Windows.Forms.OpenFileDialog();
+            this.CustomColorDialog = new System.Windows.Forms.ColorDialog();
             this.Redo = new System.Windows.Forms.Button();
             this.Undo = new System.Windows.Forms.Button();
-            this.menuStrip.SuspendLayout();
+            this.MenuStrip.SuspendLayout();
             this.ColorGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WidthUpDown)).BeginInit();
             this.ToolSelector.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip
+            // MenuStrip
             // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1034, 24);
-            this.menuStrip.TabIndex = 0;
-            this.menuStrip.Text = "menuStrip1";
+            this.MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileToolStripMenuItem});
+            this.MenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.MenuStrip.Name = "MenuStrip";
+            this.MenuStrip.Size = new System.Drawing.Size(1034, 24);
+            this.MenuStrip.TabIndex = 0;
+            this.MenuStrip.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem
+            // FileToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.openToolStripMenuItem,
-            this.saveToolStripMenuItem,
-            this.saveAsToolStripMenuItem,
-            this.recentlyOpenedToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NewToolStripMenuItem,
+            this.OpenToolStripMenuItem,
+            this.SaveToolStripMenuItem,
+            this.SaveAsToolStripMenuItem,
+            this.RecentlyOpenedToolStripMenuItem});
+            this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
+            this.FileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.FileToolStripMenuItem.Text = "File";
             // 
-            // newToolStripMenuItem
+            // NewToolStripMenuItem
             // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.newToolStripMenuItem.Text = "New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.NewImageClick);
+            this.NewToolStripMenuItem.Name = "NewToolStripMenuItem";
+            this.NewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.NewToolStripMenuItem.Text = "New";
+            this.NewToolStripMenuItem.Click += new System.EventHandler(this.NewImageClick);
             // 
-            // openToolStripMenuItem
+            // OpenToolStripMenuItem
             // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenFileClick);
+            this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.OpenToolStripMenuItem.Text = "Open";
+            this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenFileClick);
             // 
-            // saveToolStripMenuItem
+            // SaveToolStripMenuItem
             // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.Save);
+            this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SaveToolStripMenuItem.Text = "Save";
+            this.SaveToolStripMenuItem.Click += new System.EventHandler(this.Save);
             // 
-            // saveAsToolStripMenuItem
+            // SaveAsToolStripMenuItem
             // 
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveAsToolStripMenuItem.Text = "Save as";
-            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAs);
+            this.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem";
+            this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SaveAsToolStripMenuItem.Text = "Save as";
+            this.SaveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAs);
             // 
-            // recentlyOpenedToolStripMenuItem
+            // RecentlyOpenedToolStripMenuItem
             // 
-            this.recentlyOpenedToolStripMenuItem.Name = "recentlyOpenedToolStripMenuItem";
-            this.recentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.recentlyOpenedToolStripMenuItem.Text = "Recent Images";
+            this.RecentlyOpenedToolStripMenuItem.Name = "RecentlyOpenedToolStripMenuItem";
+            this.RecentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.RecentlyOpenedToolStripMenuItem.Text = "Recent Images";
             // 
             // DrawPanel
             // 
@@ -660,10 +660,10 @@ namespace CSCI504_Assignment4
             this.SelectedColorLabel.TabIndex = 32;
             this.SelectedColorLabel.Text = "Selected";
             // 
-            // saveFile
+            // SaveFile
             // 
-            this.saveFile.Filter = "Png Image (.png)|*.png";
-            this.saveFile.FileOk += new System.ComponentModel.CancelEventHandler(this.SaveAsFileOk);
+            this.SaveFile.Filter = "Png Image (.png)|*.png";
+            this.SaveFile.FileOk += new System.ComponentModel.CancelEventHandler(this.SaveAsFileOk);
             // 
             // ToolSelector
             // 
@@ -679,10 +679,10 @@ namespace CSCI504_Assignment4
             this.ToolSelector.TabStop = false;
             this.ToolSelector.Text = "Tools";
             // 
-            // openFile
+            // OpenFile
             // 
-            this.openFile.FileName = "openFileDialog1";
-            this.openFile.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileOk);
+            this.OpenFile.FileName = "openFileDialog1";
+            this.OpenFile.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileOk);
             // 
             // Redo
             // 
@@ -722,14 +722,14 @@ namespace CSCI504_Assignment4
             this.Controls.Add(this.WidthLabel);
             this.Controls.Add(this.ColorGroup);
             this.Controls.Add(this.DrawPanel);
-            this.Controls.Add(this.menuStrip);
+            this.Controls.Add(this.MenuStrip);
             this.KeyPreview = true;
-            this.MainMenuStrip = this.menuStrip;
+            this.MainMenuStrip = this.MenuStrip;
             this.Name = "Form1";
             this.Text = "Li and Ben\'s Ode to Paint!";
-            ((Control) this).KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDown);
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDown);
+            this.MenuStrip.ResumeLayout(false);
+            this.MenuStrip.PerformLayout();
             this.ColorGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.WidthUpDown)).EndInit();
             this.ToolSelector.ResumeLayout(false);
@@ -740,13 +740,13 @@ namespace CSCI504_Assignment4
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem recentlyOpenedToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip MenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OpenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SaveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SaveAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RecentlyOpenedToolStripMenuItem;
         private System.Windows.Forms.Panel DrawPanel;
         private System.Windows.Forms.Panel Custom;
         private System.Windows.Forms.GroupBox ColorGroup;
@@ -782,12 +782,12 @@ namespace CSCI504_Assignment4
         private System.Windows.Forms.Panel Silver;
         private System.Windows.Forms.Panel SelectedColor;
         private System.Windows.Forms.Label SelectedColorLabel;
-        private System.Windows.Forms.SaveFileDialog saveFile;
+        private System.Windows.Forms.SaveFileDialog SaveFile;
         private System.Windows.Forms.Button Undo;
         private System.Windows.Forms.Button Redo;
         private System.Windows.Forms.GroupBox ToolSelector;
-        private System.Windows.Forms.OpenFileDialog openFile;
-        private System.Windows.Forms.ColorDialog customColorDialog;
+        private System.Windows.Forms.OpenFileDialog OpenFile;
+        private System.Windows.Forms.ColorDialog CustomColorDialog;
         private System.Windows.Forms.Panel Pencil;
         private System.Windows.Forms.Panel Eraser;
         private System.Windows.Forms.Panel Brush;

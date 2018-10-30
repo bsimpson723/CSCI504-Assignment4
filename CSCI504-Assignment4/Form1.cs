@@ -178,7 +178,7 @@ namespace CSCI504_Assignment4
         // show saveFile dialog when save as selected
         private void SaveAs(object sender, EventArgs e)
         {
-            saveFile.ShowDialog();
+            SaveFile.ShowDialog();
         }
 
         // save file and update recent image after saveFile dialog
@@ -189,11 +189,11 @@ namespace CSCI504_Assignment4
             Bitmap bm = new Bitmap(width, height);
             DrawPanel.DrawToBitmap(bm, new Rectangle(0, 0, width, height));
 
-            bm.Save(saveFile.FileName, ImageFormat.Png);
+            bm.Save(SaveFile.FileName, ImageFormat.Png);
             MessageBox.Show("Your file has been saved!");
-            fileName = saveFile.FileName;
+            fileName = SaveFile.FileName;
 
-            UpdateRecent(saveFile.FileName);
+            UpdateRecent(SaveFile.FileName);
         }
 
         // remove the last painted line when undo clicked
@@ -285,7 +285,7 @@ namespace CSCI504_Assignment4
                 ShowUnsavedChangesWarning(sender, e);
             }
 
-            openFile.ShowDialog();
+            OpenFile.ShowDialog();
         }
 
         // open file after openFile dialog
@@ -339,10 +339,10 @@ namespace CSCI504_Assignment4
         // show customColorDialog for custom color selector
         private void CustomColorClick(object sender, EventArgs e)
         {
-            if (customColorDialog.ShowDialog() != DialogResult.Cancel)
+            if (CustomColorDialog.ShowDialog() != DialogResult.Cancel)
             {
-                pen.Color = customColorDialog.Color;
-                SelectedColor.BackColor = customColorDialog.Color;
+                pen.Color = CustomColorDialog.Color;
+                SelectedColor.BackColor = CustomColorDialog.Color;
             }
         }
         
@@ -366,7 +366,7 @@ namespace CSCI504_Assignment4
             string[] lines = File.ReadAllLines(projectPath + "\\RecentImages.txt");
             if (!lines.Any())
             {
-                recentlyOpenedToolStripMenuItem.DropDownItems.Add("No recent images");
+                RecentlyOpenedToolStripMenuItem.DropDownItems.Add("No recent images");
             }
             else
             {
@@ -380,9 +380,9 @@ namespace CSCI504_Assignment4
                 }
                 foreach (var file in fileList)
                 {
-                    recentlyOpenedToolStripMenuItem.DropDownItems.Add(file);
+                    RecentlyOpenedToolStripMenuItem.DropDownItems.Add(file);
                 }
-                foreach (ToolStripMenuItem images in recentlyOpenedToolStripMenuItem.DropDownItems)
+                foreach (ToolStripMenuItem images in RecentlyOpenedToolStripMenuItem.DropDownItems)
                 {
                     images.Click += RecentImagesClick;
                 }
@@ -434,7 +434,7 @@ namespace CSCI504_Assignment4
 
             File.AppendAllText(recentImagesFilePath, fileName + "\n");
 
-            recentlyOpenedToolStripMenuItem.DropDownItems.Clear();
+            RecentlyOpenedToolStripMenuItem.DropDownItems.Clear();
             RecentImages();
         }
     }
