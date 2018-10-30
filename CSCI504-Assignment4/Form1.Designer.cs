@@ -727,7 +727,7 @@ namespace CSCI504_Assignment4
             this.MainMenuStrip = this.MenuStrip;
             this.Name = "Form1";
             this.Text = "Li and Ben\'s Ode to Paint!";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDown);
+            ((Control) this).KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDown);
             this.MenuStrip.ResumeLayout(false);
             this.MenuStrip.PerformLayout();
             this.ColorGroup.ResumeLayout(false);
