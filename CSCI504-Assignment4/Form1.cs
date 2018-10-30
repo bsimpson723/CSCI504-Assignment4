@@ -358,7 +358,7 @@ namespace CSCI504_Assignment4
         }
         
         // sets short cut for redo and undo
-        private void KeyDown(object sender, KeyEventArgs e)
+        private void Form1KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.Z && drawLines.Any())
             {
