@@ -120,35 +120,35 @@ namespace CSCI504_Assignment4
             // NewToolStripMenuItem
             // 
             this.NewToolStripMenuItem.Name = "NewToolStripMenuItem";
-            this.NewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.NewToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.NewToolStripMenuItem.Text = "New";
             this.NewToolStripMenuItem.Click += new System.EventHandler(this.NewImageClick);
             // 
             // OpenToolStripMenuItem
             // 
             this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
-            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.OpenToolStripMenuItem.Text = "Open";
             this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenFileClick);
             // 
             // SaveToolStripMenuItem
             // 
             this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
-            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.SaveToolStripMenuItem.Text = "Save";
             this.SaveToolStripMenuItem.Click += new System.EventHandler(this.Save);
             // 
             // SaveAsToolStripMenuItem
             // 
             this.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem";
-            this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.SaveAsToolStripMenuItem.Text = "Save as";
             this.SaveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAs);
             // 
             // RecentlyOpenedToolStripMenuItem
             // 
             this.RecentlyOpenedToolStripMenuItem.Name = "RecentlyOpenedToolStripMenuItem";
-            this.RecentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.RecentlyOpenedToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.RecentlyOpenedToolStripMenuItem.Text = "Recent Images";
             // 
             // DrawPanel
@@ -175,7 +175,7 @@ namespace CSCI504_Assignment4
             this.Eraser.Size = new System.Drawing.Size(46, 46);
             this.Eraser.TabIndex = 2;
             this.Eraser.Click += new System.EventHandler(this.ToolSelected);
-            this.Eraser.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Eraser.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Eraser.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Brush
@@ -189,7 +189,7 @@ namespace CSCI504_Assignment4
             this.Brush.Size = new System.Drawing.Size(46, 46);
             this.Brush.TabIndex = 3;
             this.Brush.Click += new System.EventHandler(this.ToolSelected);
-            this.Brush.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Brush.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Brush.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Line
@@ -203,7 +203,7 @@ namespace CSCI504_Assignment4
             this.Line.Size = new System.Drawing.Size(46, 46);
             this.Line.TabIndex = 1;
             this.Line.Click += new System.EventHandler(this.ToolSelected);
-            this.Line.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Line.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Line.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Pencil
@@ -217,7 +217,7 @@ namespace CSCI504_Assignment4
             this.Pencil.Size = new System.Drawing.Size(46, 46);
             this.Pencil.TabIndex = 0;
             this.Pencil.Click += new System.EventHandler(this.ToolSelected);
-            this.Pencil.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Pencil.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Pencil.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // ColorGroup
@@ -268,7 +268,7 @@ namespace CSCI504_Assignment4
             this.Silver.Size = new System.Drawing.Size(20, 20);
             this.Silver.TabIndex = 13;
             this.Silver.Click += new System.EventHandler(this.ColorClick);
-            this.Silver.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Silver.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Silver.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // White
@@ -280,7 +280,7 @@ namespace CSCI504_Assignment4
             this.White.Size = new System.Drawing.Size(20, 20);
             this.White.TabIndex = 12;
             this.White.Click += new System.EventHandler(this.ColorClick);
-            this.White.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.White.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.White.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Red
@@ -292,7 +292,7 @@ namespace CSCI504_Assignment4
             this.Red.Size = new System.Drawing.Size(20, 20);
             this.Red.TabIndex = 12;
             this.Red.Click += new System.EventHandler(this.ColorClick);
-            this.Red.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Red.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Red.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Yellow
@@ -304,7 +304,7 @@ namespace CSCI504_Assignment4
             this.Yellow.Size = new System.Drawing.Size(20, 20);
             this.Yellow.TabIndex = 12;
             this.Yellow.Click += new System.EventHandler(this.ColorClick);
-            this.Yellow.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Yellow.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Yellow.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Lime
@@ -316,7 +316,7 @@ namespace CSCI504_Assignment4
             this.Lime.Size = new System.Drawing.Size(20, 20);
             this.Lime.TabIndex = 12;
             this.Lime.Click += new System.EventHandler(this.ColorClick);
-            this.Lime.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Lime.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Lime.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Aqua
@@ -328,7 +328,7 @@ namespace CSCI504_Assignment4
             this.Aqua.Size = new System.Drawing.Size(20, 20);
             this.Aqua.TabIndex = 11;
             this.Aqua.Click += new System.EventHandler(this.ColorClick);
-            this.Aqua.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Aqua.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Aqua.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Blue
@@ -340,7 +340,7 @@ namespace CSCI504_Assignment4
             this.Blue.Size = new System.Drawing.Size(20, 20);
             this.Blue.TabIndex = 11;
             this.Blue.Click += new System.EventHandler(this.ColorClick);
-            this.Blue.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Blue.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Blue.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Fuchsia
@@ -352,7 +352,7 @@ namespace CSCI504_Assignment4
             this.Fuchsia.Size = new System.Drawing.Size(20, 20);
             this.Fuchsia.TabIndex = 11;
             this.Fuchsia.Click += new System.EventHandler(this.ColorClick);
-            this.Fuchsia.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Fuchsia.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Fuchsia.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // LemonChiffon
@@ -364,7 +364,7 @@ namespace CSCI504_Assignment4
             this.LemonChiffon.Size = new System.Drawing.Size(20, 20);
             this.LemonChiffon.TabIndex = 11;
             this.LemonChiffon.Click += new System.EventHandler(this.ColorClick);
-            this.LemonChiffon.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.LemonChiffon.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.LemonChiffon.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // SpringGreen
@@ -376,7 +376,7 @@ namespace CSCI504_Assignment4
             this.SpringGreen.Size = new System.Drawing.Size(20, 20);
             this.SpringGreen.TabIndex = 11;
             this.SpringGreen.Click += new System.EventHandler(this.ColorClick);
-            this.SpringGreen.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.SpringGreen.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.SpringGreen.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // PowderBlue
@@ -388,7 +388,7 @@ namespace CSCI504_Assignment4
             this.PowderBlue.Size = new System.Drawing.Size(20, 20);
             this.PowderBlue.TabIndex = 11;
             this.PowderBlue.Click += new System.EventHandler(this.ColorClick);
-            this.PowderBlue.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.PowderBlue.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.PowderBlue.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // MediumSlateBlue
@@ -400,7 +400,7 @@ namespace CSCI504_Assignment4
             this.MediumSlateBlue.Size = new System.Drawing.Size(20, 20);
             this.MediumSlateBlue.TabIndex = 11;
             this.MediumSlateBlue.Click += new System.EventHandler(this.ColorClick);
-            this.MediumSlateBlue.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.MediumSlateBlue.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.MediumSlateBlue.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // DeepPink
@@ -412,7 +412,7 @@ namespace CSCI504_Assignment4
             this.DeepPink.Size = new System.Drawing.Size(20, 20);
             this.DeepPink.TabIndex = 11;
             this.DeepPink.Click += new System.EventHandler(this.ColorClick);
-            this.DeepPink.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.DeepPink.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.DeepPink.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // SandyBrown
@@ -424,7 +424,7 @@ namespace CSCI504_Assignment4
             this.SandyBrown.Size = new System.Drawing.Size(20, 20);
             this.SandyBrown.TabIndex = 11;
             this.SandyBrown.Click += new System.EventHandler(this.ColorClick);
-            this.SandyBrown.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.SandyBrown.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.SandyBrown.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Sienna
@@ -436,7 +436,7 @@ namespace CSCI504_Assignment4
             this.Sienna.Size = new System.Drawing.Size(20, 20);
             this.Sienna.TabIndex = 11;
             this.Sienna.Click += new System.EventHandler(this.ColorClick);
-            this.Sienna.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Sienna.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Sienna.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // BlueViolet
@@ -448,7 +448,7 @@ namespace CSCI504_Assignment4
             this.BlueViolet.Size = new System.Drawing.Size(20, 20);
             this.BlueViolet.TabIndex = 11;
             this.BlueViolet.Click += new System.EventHandler(this.ColorClick);
-            this.BlueViolet.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.BlueViolet.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.BlueViolet.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // SteelBlue
@@ -460,7 +460,7 @@ namespace CSCI504_Assignment4
             this.SteelBlue.Size = new System.Drawing.Size(20, 20);
             this.SteelBlue.TabIndex = 11;
             this.SteelBlue.Click += new System.EventHandler(this.ColorClick);
-            this.SteelBlue.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.SteelBlue.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.SteelBlue.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // DeepSkyBlue
@@ -472,7 +472,7 @@ namespace CSCI504_Assignment4
             this.DeepSkyBlue.Size = new System.Drawing.Size(20, 20);
             this.DeepSkyBlue.TabIndex = 10;
             this.DeepSkyBlue.Click += new System.EventHandler(this.ColorClick);
-            this.DeepSkyBlue.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.DeepSkyBlue.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.DeepSkyBlue.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // DarkSlateGray
@@ -484,7 +484,7 @@ namespace CSCI504_Assignment4
             this.DarkSlateGray.Size = new System.Drawing.Size(20, 20);
             this.DarkSlateGray.TabIndex = 9;
             this.DarkSlateGray.Click += new System.EventHandler(this.ColorClick);
-            this.DarkSlateGray.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.DarkSlateGray.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.DarkSlateGray.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // DarkKhaki
@@ -496,7 +496,7 @@ namespace CSCI504_Assignment4
             this.DarkKhaki.Size = new System.Drawing.Size(20, 20);
             this.DarkKhaki.TabIndex = 8;
             this.DarkKhaki.Click += new System.EventHandler(this.ColorClick);
-            this.DarkKhaki.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.DarkKhaki.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.DarkKhaki.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Purple
@@ -508,7 +508,7 @@ namespace CSCI504_Assignment4
             this.Purple.Size = new System.Drawing.Size(20, 20);
             this.Purple.TabIndex = 7;
             this.Purple.Click += new System.EventHandler(this.ColorClick);
-            this.Purple.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Purple.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Purple.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Navy
@@ -520,7 +520,7 @@ namespace CSCI504_Assignment4
             this.Navy.Size = new System.Drawing.Size(20, 20);
             this.Navy.TabIndex = 6;
             this.Navy.Click += new System.EventHandler(this.ColorClick);
-            this.Navy.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Navy.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Navy.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Teal
@@ -532,7 +532,7 @@ namespace CSCI504_Assignment4
             this.Teal.Size = new System.Drawing.Size(20, 20);
             this.Teal.TabIndex = 5;
             this.Teal.Click += new System.EventHandler(this.ColorClick);
-            this.Teal.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Teal.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Teal.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Green
@@ -544,7 +544,7 @@ namespace CSCI504_Assignment4
             this.Green.Size = new System.Drawing.Size(20, 20);
             this.Green.TabIndex = 4;
             this.Green.Click += new System.EventHandler(this.ColorClick);
-            this.Green.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Green.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Green.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Olive
@@ -556,7 +556,7 @@ namespace CSCI504_Assignment4
             this.Olive.Size = new System.Drawing.Size(20, 20);
             this.Olive.TabIndex = 3;
             this.Olive.Click += new System.EventHandler(this.ColorClick);
-            this.Olive.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Olive.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Olive.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Maroon
@@ -568,7 +568,7 @@ namespace CSCI504_Assignment4
             this.Maroon.Size = new System.Drawing.Size(20, 20);
             this.Maroon.TabIndex = 2;
             this.Maroon.Click += new System.EventHandler(this.ColorClick);
-            this.Maroon.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Maroon.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Maroon.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Gray
@@ -580,7 +580,7 @@ namespace CSCI504_Assignment4
             this.Gray.Size = new System.Drawing.Size(20, 20);
             this.Gray.TabIndex = 1;
             this.Gray.Click += new System.EventHandler(this.ColorClick);
-            this.Gray.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Gray.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Gray.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Black
@@ -592,7 +592,7 @@ namespace CSCI504_Assignment4
             this.Black.Size = new System.Drawing.Size(20, 20);
             this.Black.TabIndex = 0;
             this.Black.Click += new System.EventHandler(this.ColorClick);
-            this.Black.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Black.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Black.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Custom
@@ -605,7 +605,7 @@ namespace CSCI504_Assignment4
             this.Custom.Size = new System.Drawing.Size(46, 46);
             this.Custom.TabIndex = 30;
             this.Custom.Click += new System.EventHandler(this.CustomColorClick);
-            this.Custom.MouseEnter += new System.EventHandler(this.DisplayTooltip);
+            this.Custom.MouseEnter += new System.EventHandler(this.DisplayPanelTooltip);
             this.Custom.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // WidthLabel
@@ -695,6 +695,8 @@ namespace CSCI504_Assignment4
             this.Redo.TabIndex = 34;
             this.Redo.UseVisualStyleBackColor = true;
             this.Redo.Click += new System.EventHandler(this.RedoClick);
+            this.Redo.MouseEnter += new System.EventHandler(this.DisplayButtonTooltip);
+            this.Redo.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Undo
             // 
@@ -707,6 +709,8 @@ namespace CSCI504_Assignment4
             this.Undo.TabIndex = 33;
             this.Undo.UseVisualStyleBackColor = true;
             this.Undo.Click += new System.EventHandler(this.UndoClick);
+            this.Undo.MouseEnter += new System.EventHandler(this.DisplayButtonTooltip);
+            this.Undo.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
             // Form1
             // 

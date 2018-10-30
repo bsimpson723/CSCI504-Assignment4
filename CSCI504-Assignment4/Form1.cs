@@ -54,10 +54,21 @@ namespace CSCI504_Assignment4
             RecentImages();
         }
 
-        // displays tool tip
-        private void DisplayTooltip(object sender, EventArgs e)
+        // displays tool tip for panels
+        private void DisplayPanelTooltip(object sender, EventArgs e)
         {
             var panel = (Panel) sender;
+            tt = new ToolTip();
+            tt.InitialDelay = 0;
+            tt.IsBalloon = false;
+            tt.Show(string.Empty, panel);
+            tt.Show(panel.Name, panel, 0);
+        }
+
+        // displays tool tip for buttons
+        private void DisplayButtonTooltip(object sender, EventArgs e)
+        {
+            var panel = (Button)sender;
             tt = new ToolTip();
             tt.InitialDelay = 0;
             tt.IsBalloon = false;
