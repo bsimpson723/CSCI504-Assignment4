@@ -337,7 +337,7 @@ namespace CSCI504_Assignment4
         }
    
         // show customColorDialog for custom color selector
-        private void Custom_Click(object sender, EventArgs e)
+        private void CustomColorClick(object sender, EventArgs e)
         {
             if (customColorDialog.ShowDialog() != DialogResult.Cancel)
             {
@@ -347,7 +347,7 @@ namespace CSCI504_Assignment4
         }
         
         // sets short cut for redo and undo
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.Z && drawLines.Any())
             {

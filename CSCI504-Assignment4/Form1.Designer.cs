@@ -5,6 +5,8 @@
  * Xueqiong Li - z1785226
 */
 
+using System.Windows.Forms;
+
 namespace CSCI504_Assignment4
 {
     partial class Form1
@@ -602,7 +604,7 @@ namespace CSCI504_Assignment4
             this.Custom.Name = "Custom";
             this.Custom.Size = new System.Drawing.Size(46, 46);
             this.Custom.TabIndex = 30;
-            this.Custom.Click += new System.EventHandler(this.Custom_Click);
+            this.Custom.Click += new System.EventHandler(this.CustomColorClick);
             this.Custom.MouseEnter += new System.EventHandler(this.DisplayTooltip);
             this.Custom.MouseLeave += new System.EventHandler(this.HideTooltip);
             // 
@@ -725,7 +727,7 @@ namespace CSCI504_Assignment4
             this.MainMenuStrip = this.menuStrip;
             this.Name = "Form1";
             this.Text = "Li and Ben\'s Ode to Paint!";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            ((Control) this).KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDown);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ColorGroup.ResumeLayout(false);
